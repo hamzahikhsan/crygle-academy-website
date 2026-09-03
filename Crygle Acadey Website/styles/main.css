@@ -1,0 +1,428 @@
+/* ==========================================================================
+   CRYGLE ACADEMY - MAIN LAYOUT & GLOBAL STYLES
+   ========================================================================== */
+
+@import url('fonts.css');
+@import url('variables.css');
+@import url('components.css');
+@import url('dashboard.css');
+
+/* --- CSS RESET --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-body);
+  overflow-x: hidden;
+}
+
+/* --- CONTAINER & LAYOUT --- */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--section-padding-x);
+}
+
+.section {
+  padding: var(--section-spacing-y) 0;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px auto;
+}
+
+.section-header-left {
+  text-align: left;
+  margin: 0 0 48px 0;
+}
+
+.section-badge {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: var(--font-size-h2);
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  color: var(--color-dark);
+  margin-bottom: 16px;
+  letter-spacing: -0.6px;
+}
+
+.section-desc {
+  font-size: var(--font-size-body-large);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+/* --- SECTION 1: HERO SECTION --- */
+.hero-section {
+  padding: 60px 0 100px 0;
+  background: radial-gradient(circle at 80% 20%, rgba(196, 213, 232, 0.25) 0%, rgba(252, 252, 252, 0) 60%),
+              radial-gradient(circle at 10% 80%, rgba(252, 193, 18, 0.08) 0%, rgba(252, 252, 252, 0) 50%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero-title {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.12;
+  color: var(--color-dark);
+  letter-spacing: -1.2px;
+}
+
+.hero-title .highlight {
+  color: var(--color-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.hero-title .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: rgba(252, 193, 18, 0.35);
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.hero-desc {
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  max-width: 520px;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.hero-social-proof {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.avatar-group {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-group img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  margin-left: -10px;
+  object-fit: cover;
+}
+
+.avatar-group img:first-child {
+  margin-left: 0;
+}
+
+.social-proof-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 14px;
+}
+
+.social-proof-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.social-proof-sub {
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+/* --- SECTION 2: RANGKAIAN PROGRAM --- */
+.program-section {
+  background-color: var(--color-bg-canvas);
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+/* --- SECTION 3: KELAS POPULER --- */
+.popular-classes-section {
+  background-color: var(--color-bg-body);
+}
+
+.popular-actions {
+  text-align: center;
+  margin-top: 56px;
+}
+
+/* --- SECTION 4: HASIL KARYA ALUMNI --- */
+.alumni-showcase-section {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FD 100%);
+  overflow: hidden;
+}
+
+.showcase-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.showcase-info {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.showcase-feature-box {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.showcase-feature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--color-primary-50);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.showcase-feature-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.showcase-feature-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 4px;
+}
+
+.showcase-feature-desc {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.showcase-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.showcase-gallery-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(35, 95, 156, 0.08);
+  border: 1px solid var(--color-border);
+  background: #ffffff;
+  transition: all var(--transition-normal);
+}
+
+.showcase-gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(35, 95, 156, 0.16);
+}
+
+.showcase-gallery-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.showcase-gallery-info {
+  padding: 14px;
+}
+
+.showcase-gallery-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 2px;
+}
+
+.showcase-gallery-student {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+/* Stagger effect */
+.gallery-col-1 { transform: translateY(30px); }
+.gallery-col-2 { transform: translateY(-20px); }
+.gallery-col-3 { transform: translateY(20px); }
+
+/* --- SECTION 5: TESTIMONI ALUMNI --- */
+.testimonials-section {
+  background-color: var(--color-bg-canvas);
+}
+
+/* --- SECTION 6: FAQ --- */
+.faq-section {
+  background-color: var(--color-bg-body);
+}
+
+/* --- SECTION 7: FINAL CTA --- */
+.cta-section {
+  padding: 60px 0 100px 0;
+  background-color: var(--color-bg-body);
+}
+
+/* --- RESPONSIVE ADAPTATIONS --- */
+@media (max-width: 1200px) {
+  :root {
+    --section-padding-x: 48px;
+  }
+  
+  .hero-title {
+    font-size: 44px;
+  }
+  
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  :root {
+    --section-padding-x: 28px;
+    --section-spacing-y: 70px;
+  }
+  
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .program-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .showcase-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .gallery-col-1, .gallery-col-2, .gallery-col-3 {
+    transform: none;
+  }
+  
+  .testimonial-wrapper {
+    grid-template-columns: 1fr;
+    padding: 36px;
+  }
+  
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .nav-menu-pill {
+    display: none; /* Hide on smaller viewports, toggle via mobile menu */
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --section-padding-x: 20px;
+    --section-spacing-y: 60px;
+  }
+  
+  .hero-title {
+    font-size: 34px;
+  }
+  
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-banner {
+    padding: 48px 24px;
+  }
+  
+  .cta-banner-title {
+    font-size: 28px;
+  }
+  
+  .cta-badges-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play Kelas: Brainstorming Fitur — Crygle Academy</title>
+  <meta name="description" content="Ruang belajar interaktif kelas UI/UX Design di Crygle Academy. Tonton video modul, unduh aset UI Kit, dan konsultasi bersama mentor.">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="classroom-page-container">
+
+  <!-- ========================================================================
+       1. TOP NAVIGATION BAR (Node 855:686)
+       ======================================================================== -->
+  <header class="classroom-top-nav">
+    <div style="display: flex; align-items: center; gap: 24px;">
+      <a href="index.html" aria-label="Crygle Academy">
+        <img src="icon/logo.png" alt="Crygle Academy" style="height: 38px; object-fit: contain;">
+      </a>
+      <a href="dashboard.html" class="btn-back-dashboard">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5"></path>
+          <path d="m12 19-7-7 7-7"></path>
+        </svg>
+        <span>Back to Dashboard</span>
+      </a>
+    </div>
+
+    <h1 class="classroom-greeting-title">Semangat dan mulai Belajar! 💪</h1>
+
+    <div style="display: flex; align-items: center; gap: 18px;">
+      <button type="button" class="btn-notif-circle" aria-label="Notifikasi">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </svg>
+        <span class="notif-badge-dot"></span>
+      </button>
+
+      <div class="user-profile-pill">
+        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80" alt="Dion Ahza Avatar" class="user-avatar-img">
+        <span class="user-name-label">Dion Ahza</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. CLASSROOM MAIN GRID (Node 855:693 / 855:754)
+       ======================================================================== -->
+  <main class="classroom-main-grid">
+    
+    <!-- LEFT COLUMN: SYLLABUS & MODULES SIDEBAR (Node 855:693) -->
+    <aside class="classroom-sidebar-card">
+      <div class="classroom-course-summary">
+        <h2 class="classroom-course-title">UI/UX Design : Menghasilkan Dolar Hanya Dengan Menjual Produk UI Kit</h2>
+        <div class="dashboard-progress-track">
+          <div class="dashboard-progress-fill progress-green" style="width: 60%;"></div>
+        </div>
+        <div class="dashboard-card-meta-row">
+          <span>5/8 Modul</span>
+          <span style="color: #31BC53;">60%</span>
+        </div>
+      </div>
+
+      <!-- Modules Accordion (Node 855:701) -->
+      <div class="classroom-modules-accordion">
+        
+        <!-- Module 1: Perkenalan -->
+        <div class="classroom-modul-block" id="modul-1">
+          <div class="classroom-modul-header">
+            <span class="classroom-modul-name">MODUL 1: Perkenalan</span>
+            <span class="classroom-modul-toggle-icon">▾</span>
+          </div>
+          <div class="classroom-lessons-panel">
+            <div class="classroom-lesson-row" data-video="images/lesson_video_poster.jpg" data-title="Pengenalan Ekosistem UI Kit" data-time="08:30">
+              <div class="classroom-lesson-left">
+                <svg class="lesson-status-icon done" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                <span class="lesson-title-text">Pengenalan Ekosistem UI Kit</span>
+              </div>
+              <span class="lesson-duration-badge">08:30</span>
+            </div>
+            <div class="classroom-lesson-row" data-video="images/lesson_video_poster.jpg" data-title="Peluang Jual Desain di UI8 & Freepik" data-time="11:15">
+              <div class="classroom-lesson-left">
+                <svg class="lesson-status-icon done" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                <span class="lesson-title-text">Peluang Jual Desain di UI8</span>
+              </div>
+              <span class="lesson-duration-badge">11:15</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 2: Research Pasar (Active) -->
+        <div class="classroom-modul-block open" id="modul-2">
+          <div class="classroom-modul-header">
+            <span class="classroom-modul-name">MODUL 2: Research Pasar</span>
+            <span class="classroom-modul-toggle-icon">▾</span>
+          </div>
+          <div class="classroom-lessons-panel" style="display: block;">
+            <div class="classroom-lesson-row" data-video="images/lesson_video_poster.jpg" data-title="Meriset pasar produk" data-time="12:45">
+              <div class="classroom-lesson-left">
+                <svg class="lesson-status-icon done" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                <span class="lesson-title-text">Meriset pasar produk</span>
+              </div>
+              <span class="lesson-duration-badge">12:45</span>
+            </div>
+
+            <!-- Active Lesson -->
+            <div class="classroom-lesson-row active" data-video="images/lesson_video_poster.jpg" data-title="Brainstorming Fitur" data-time="20:05">
+              <div class="classroom-lesson-left">
+                <svg class="lesson-status-icon active" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+                <span class="lesson-title-text">Brainstorming Fitur</span>
+              </div>
+              <span class="lesson-duration-badge" style="color: var(--color-primary); font-weight: 700;">20:05</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 3: UI Design Practice -->
+        <div class="classroom-modul-block" id="modul-3">
+          <div class="classroom-modul-header">
+            <span class="classroom-modul-name">MODUL 3: UI Design Practice</span>
+            <span class="classroom-modul-toggle-icon">▾</span>
+          </div>
+          <div class="classroom-lessons-panel">
+            <div class="classroom-lesson-row" data-video="images/lesson_video_poster.jpg" data-title="Menyusun Design System Atomik" data-time="24:10">
+              <div class="classroom-lesson-left">
+                <svg class="lesson-status-icon" viewBox="0 0 24 24" fill="#C4D5E8">
+                  <circle cx="12" cy="12" r="10"></circle>
+                </svg>
+                <span class="lesson-title-text">Menyusun Design System</span>
+              </div>
+              <span class="lesson-duration-badge">24:10</span>
+            </div>
+            <div class="classroom-lesson-row" data-video="images/lesson_video_poster.jpg" data-title="Membuat Komponen Auto Layout" data-time="18:40">
+              <div class="classroom-lesson-left">
+                <svg class="lesson-status-icon" viewBox="0 0 24 24" fill="#C4D5E8">
+                  <circle cx="12" cy="12" r="10"></circle>
+                </svg>
+                <span class="lesson-title-text">Auto Layout &amp; Varian</span>
+              </div>
+              <span class="lesson-duration-badge">18:40</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 4: Monetization & Upload UI8 -->
+        <div class="classroom-modul-block" id="modul-4">
+          <div class="classroom-modul-header">
+            <span class="classroom-modul-name">MODUL 4: Monetization</span>
+            <span class="classroom-modul-toggle-icon">▾</span>
+          </div>
+          <div class="classroom-lessons-panel">
+            <div class="classroom-lesson-row" data-video="images/lesson_video_poster.jpg" data-title="Export Aset & Packaging File .fig" data-time="15:20">
+              <div class="classroom-lesson-left">
+                <svg class="lesson-status-icon" viewBox="0 0 24 24" fill="#C4D5E8">
+                  <circle cx="12" cy="12" r="10"></circle>
+                </svg>
+                <span class="lesson-title-text">Packaging File .fig</span>
+              </div>
+              <span class="lesson-duration-badge">15:20</span>
+            </div>
+            <div class="classroom-lesson-row" data-video="images/lesson_video_poster.jpg" data-title="Pendaftaran Author & Penarikan Dolar" data-time="14:50">
+              <div class="classroom-lesson-left">
+                <svg class="lesson-status-icon" viewBox="0 0 24 24" fill="#C4D5E8">
+                  <circle cx="12" cy="12" r="10"></circle>
+                </svg>
+                <span class="lesson-title-text">Pendaftaran Author UI8</span>
+              </div>
+              <span class="lesson-duration-badge">14:50</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Mentor Profile Card (Node 855:735) -->
+      <div class="classroom-mentor-card">
+        <div style="display: flex; align-items: center; gap: 16px; width: 100%;">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80" alt="Dimas Pradipa Abiyuda" class="mentor-avatar-medium">
+          <div style="text-align: left;">
+            <div class="classroom-mentor-name">Dimas Pradipa Abiyuda</div>
+            <div class="classroom-mentor-role">Founder &amp; CEO Crygle Academy</div>
+          </div>
+        </div>
+
+        <button type="button" class="btn-chat-mentor" id="btn-chat-mentor">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>Chat Mentor Terkait</span>
+        </button>
+      </div>
+
+    </aside>
+
+    <!-- RIGHT COLUMN: VIDEO PLAYER & TABS (Node 855:754) -->
+    <section class="classroom-player-card">
+      
+      <!-- Video Player Frame -->
+      <div class="video-frame-container" id="main-video-player">
+        <img src="images/lesson_video_poster.jpg" alt="Video Lesson Poster" class="video-poster-img" id="player-poster">
+
+        <!-- Center Big Play Button -->
+        <button type="button" class="video-center-play-btn" id="btn-toggle-play" aria-label="Putar Video">
+          <svg viewBox="0 0 24 24" id="play-icon-svg">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </button>
+
+        <!-- Simulated Controls Bar -->
+        <div class="video-controls-overlay">
+          <div class="video-timeline-bar" id="player-timeline">
+            <div class="video-timeline-fill" id="player-timeline-fill">
+              <div class="video-timeline-thumb"></div>
+            </div>
+          </div>
+
+          <div class="video-controls-row">
+            <div class="video-controls-left">
+              <button type="button" class="video-ctrl-btn" id="ctrl-play-pause" aria-label="Play/Pause">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </button>
+              <button type="button" class="video-ctrl-btn" id="ctrl-rewind" aria-label="Rewind 10s">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 4v6h6"></path>
+                  <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                </svg>
+              </button>
+              <button type="button" class="video-ctrl-btn" id="ctrl-forward" aria-label="Forward 10s">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 4v6h-6"></path>
+                  <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                </svg>
+              </button>
+              <div class="video-time-text" id="player-time-display">04:20 / 20:05</div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <button type="button" class="video-ctrl-btn" aria-label="Pengaturan Kualitas">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+              </button>
+              <button type="button" class="video-ctrl-btn" id="ctrl-fullscreen" aria-label="Fullscreen">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Lesson Info & Next Modul CTA (Node 855:783) -->
+      <div class="lesson-action-header">
+        <h2 class="active-lesson-title" id="current-lesson-heading">Brainstorming Fitur</h2>
+        <button type="button" class="btn-next-modul" id="btn-next-modul">
+          <span>Next Modul</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Tab Bar (Node 855:789) -->
+      <div class="classroom-tabs-header">
+        <button type="button" class="classroom-tab-btn active" data-target="pane-resources">Resources</button>
+        <button type="button" class="classroom-tab-btn" data-target="pane-ringkasan">Ringkasan</button>
+        <button type="button" class="classroom-tab-btn" data-target="pane-review">Review</button>
+      </div>
+
+      <!-- TAB CONTENT PANES -->
+      
+      <!-- Pane 1: Resources (Node 855:796) -->
+      <div class="classroom-pane active" id="pane-resources">
+        <h3 style="font-size: 18px; font-weight: 800; color: #202020; margin-bottom: 6px;">Downloadable Assets &amp; Community</h3>
+        <p style="font-size: 14px; color: #797979; margin-bottom: 16px;">
+          Gunakan aset resmi dan bergabunglah dalam diskusi santri &amp; mentor untuk memvalidasi ide desainmu.
+        </p>
+
+        <div class="downloadable-assets-grid">
+          <!-- Asset 1: Figma UI Kit File -->
+          <a href="downloads/UI Kit Asset.fig" download="UI Kit Asset.fig" class="resource-download-pill">
+            <div class="resource-left-info">
+              <div class="resource-icon-box">
+                <img src="images/ui_kit_cover_asset.jpg" alt="UI Kit Asset Cover">
+              </div>
+              <div>
+                <div class="resource-title">UI Kit Asset.fig</div>
+                <div class="resource-subtitle">12.4 MB • Figma Design Package</div>
+              </div>
+            </div>
+            <div class="resource-arrow-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Asset 2: WhatsApp Community Group -->
+          <a href="https://chat.whatsapp.com/demo-crygle-sanctuary" target="_blank" rel="noopener noreferrer" class="resource-download-pill">
+            <div class="resource-left-info">
+              <div class="resource-icon-box" style="color: #25D366;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.301-.15-1.78-.879-2.056-.98-.276-.1-.477-.15-.678.15-.2.301-.777.98-.953 1.18-.175.2-.351.226-.652.075-.301-.15-1.272-.469-2.423-1.496-.896-.799-1.501-1.787-1.677-2.088-.176-.301-.019-.464.132-.614.136-.135.301-.351.452-.527.15-.175.2-.301.301-.501.101-.2.051-.376-.025-.527-.076-.15-.678-1.634-.929-2.238-.244-.588-.493-.509-.678-.518l-.577-.01c-.2 0-.527.075-.803.376-.276.301-1.054 1.03-1.054 2.513 0 1.482 1.079 2.913 1.23 3.114.15.2 2.124 3.243 5.145 4.548.719.31 1.28.496 1.718.635.722.23 1.378.198 1.898.12.58-.088 1.78-.727 2.031-1.429.251-.702.251-1.304.176-1.429-.075-.125-.276-.2-.577-.35z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="resource-title">Group Community</div>
+                <div class="resource-subtitle">WhatsApp Group Siswa &amp; Mentor</div>
+              </div>
+            </div>
+            <div class="resource-arrow-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Asset 3: Design Cheatsheet -->
+          <a href="#" onclick="alert('Cheatsheet Design System berhasil disiapkan!'); return false;" class="resource-download-pill">
+            <div class="resource-left-info">
+              <div class="resource-icon-box" style="color: var(--color-primary);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </div>
+              <div>
+                <div class="resource-title">Cheatsheet Design System.pdf</div>
+                <div class="resource-subtitle">2.1 MB • Token, Color &amp; Typography</div>
+              </div>
+            </div>
+            <div class="resource-arrow-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Pane 2: Ringkasan -->
+      <div class="classroom-pane" id="pane-ringkasan">
+        <h3 style="font-size: 18px; font-weight: 800; color: #202020; margin-bottom: 12px;">Rangkuman Inti Modul: Brainstorming Fitur</h3>
+        
+        <div style="background: #F1F6FC; padding: 20px; border-radius: 14px; margin-bottom: 18px;">
+          <h4 style="font-size: 15px; font-weight: 700; color: var(--color-primary); margin-bottom: 8px;">Key Takeaways:</h4>
+          <ul style="padding-left: 20px; font-size: 14px; color: #434654; line-height: 1.7;">
+            <li><strong>Prinsip Kebutuhan Pasar:</strong> UI Kit yang laris adalah yang menyelesaikan masalah alur kerja tim (misalnya: Dashboard Analytics, E-Commerce, Mobile Banking).</li>
+            <li><strong>Atomic Design System:</strong> Pisahkan komponen menjadi Atoms (button, icon, input), Molecules (searchbar, card), dan Organisms (navbar, header).</li>
+            <li><strong>Standardisasi Varian Figma:</strong> Gunakan Boolean, Text properties, dan Instance swap untuk mengurangi kompleksitas komponen.</li>
+            <li><strong>Checklist Ekspor:</strong> Pastikan seluruh color tokens telah menggunakan variable lokal agar pembeli dapat melakukan re-theming dalam 1 klik.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Pane 3: Review -->
+      <div class="classroom-pane" id="pane-review">
+        <h3 style="font-size: 18px; font-weight: 800; color: #202020; margin-bottom: 14px;">Diskusi &amp; Ulasan Lesson</h3>
+
+        <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px;">
+          <div style="background: #F4F4F4; padding: 18px; border-radius: 12px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span style="font-weight: 700; font-size: 14px; color: #202020;">Farhan Maulana (SMK N 2 Pekanbaru)</span>
+              <span style="color: #FCC112; font-size: 14px;">★★★★★</span>
+            </div>
+            <p style="font-size: 13.5px; color: #5A6062; line-height: 1.5;">
+              Penjelasan tentang riset pasar sebelum membuat komponen sangat membuka wawasan. Aset file .fig-nya sangat rapi!
+            </p>
+          </div>
+        </div>
+
+        <form onsubmit="event.preventDefault(); alert('Ulasan kamu berhasil dikirim ke forum diskusi kelas!');" style="display: flex; flex-direction: column; gap: 12px;">
+          <textarea placeholder="Tuliskan pertanyaan atau ulasan tentang video modul ini..." rows="3" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E9E9E9; font-family: inherit; font-size: 14px; outline: none;"></textarea>
+          <button type="submit" class="btn btn-primary" style="align-self: flex-start; padding: 10px 24px; border-radius: 50px;">Kirim Ulasan</button>
+        </form>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       3. MENTOR CHAT MODAL
+       ======================================================================== -->
+  <div class="receipt-modal-backdrop" id="mentor-chat-modal" aria-hidden="true">
+    <div class="receipt-modal-card" role="dialog" aria-modal="true">
+      <button type="button" class="receipt-modal-close-btn" id="btn-close-mentor-chat" aria-label="Tutup">✕</button>
+
+      <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80" alt="Dimas Pradipa Abiyuda" style="width: 54px; height: 54px; border-radius: 50%; object-fit: cover;">
+        <div>
+          <h3 style="font-size: 18px; font-weight: 800; color: #202020; margin-bottom: 2px;">Konsultasi Mentor: Dimas Pradipa</h3>
+          <span style="font-size: 12px; color: #188749; font-weight: 700; background: #DBFBD6; padding: 2px 10px; border-radius: 20px;">ONLINE · CEPAT MERESPONS</span>
+        </div>
+      </div>
+
+      <p style="font-size: 14px; color: #5A6062; line-height: 1.6; margin-bottom: 18px;">
+        Punya kendala saat mengikuti modul <em>Brainstorming Fitur</em> atau ingin mereview file Figma hasil karyamu? Sampaikan langsung pada sesi konsultasi santri.
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+        <label style="font-size: 13px; font-weight: 600; color: #202020;">Pilih Topik Konsultasi:</label>
+        <select style="width: 100%; padding: 12px; border-radius: 10px; border: 1.5px solid #235F9C; font-family: inherit; font-size: 14px;">
+          <option>Review Portofolio &amp; UI Kit Produk</option>
+          <option>Kendala Teknis Auto Layout &amp; Varian Figma</option>
+          <option>Strategi Pendaftaran Seller di UI8</option>
+          <option>Jadwal Bimbingan Khusus Sekolah Asrama</option>
+        </select>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <a href="https://wa.me/6282283901120?text=Halo%20Mas%20Dimas,%20saya%20Dion%20Ahza%20siswa%20kelas%20UI/UX%20Design%20Crygle%20Academy.%20Mau%20konsultasi%20modul%20Brainstorming%20Fitur." target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; border-radius: 50px; text-decoration: none; font-size: 14px; font-weight: 700;">
+          <span>Buka Chat WhatsApp Mentor</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+
+        <a href="dashboard.html#chat" class="btn-success-outline" style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; border-radius: 50px; text-decoration: none; font-size: 14px; font-weight: 700;">
+          <span>Buka Workspace Chat di Dashboard</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="scripts/main.js"></script>
+</body>
+</html>

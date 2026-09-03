@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Siswa — Crygle Academy</title>
+  <meta name="description" content="Dashboard pembelajaran siswa Crygle Academy. Akses kelas saya, bootcamp intensif, konsultasi mentor, explore kelas, affiliate, dan pengaturan akun.">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/components.css?v=3.5">
+  <link rel="stylesheet" href="styles/dashboard.css?v=3.5">
+  <link rel="stylesheet" href="styles/main.css?v=3.5">
+  <style>
+    /* Critical FOUC Prevention */
+    .dashboard-panel { display: none !important; }
+    .dashboard-panel.active { display: block !important; }
+    .header-dropdown-card { display: none !important; position: absolute; top: 60px; right: 0; z-index: 200; }
+    .header-dropdown-card.active { display: block !important; }
+  </style>
+</head>
+<body class="dashboard-page-container">
+
+  <!-- ========================================================================
+       1. SIDEBAR NAVIGATION (7 Menus - PRD §9.11, §10, §11.6)
+       ======================================================================== -->
+  <aside class="dashboard-sidebar" aria-label="Sidebar Menu">
+    <a href="index.html" class="dashboard-sidebar-logo" aria-label="Crygle Academy">
+      <img src="icon/logo.png" alt="Crygle Academy" style="height: 42px; object-fit: contain;">
+    </a>
+
+    <nav class="dashboard-menu-nav">
+      <!-- 1. Overview -->
+      <a href="#overview" class="dashboard-menu-item" data-panel="panel-overview">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        <span>Overview</span>
+      </a>
+
+      <!-- 2. Course Saya (Default Active) -->
+      <a href="#courses" class="dashboard-menu-item active" data-panel="panel-courses">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+        <span>Course Saya</span>
+      </a>
+
+      <!-- 3. Bootcamp Saya (PRD §10) -->
+      <a href="#bootcamp" class="dashboard-menu-item" data-panel="panel-bootcamp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+          <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+          <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+          <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+        </svg>
+        <span>Bootcamp Saya</span>
+      </a>
+
+      <!-- 4. Explore Kelas (PRD §11.2) -->
+      <a href="#explore" class="dashboard-menu-item" data-panel="panel-explore">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>Explore Kelas</span>
+      </a>
+
+      <!-- 5. Chat Mentor (PRD §11.6, §11.7) -->
+      <a href="#chat" class="dashboard-menu-item" data-panel="panel-chat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span>Chat Mentor</span>
+      </a>
+
+      <!-- 6. Affiliate (PRD §11.6) -->
+      <a href="#affiliate" class="dashboard-menu-item" data-panel="panel-affiliate">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <span>Affiliate</span>
+      </a>
+
+      <!-- 7. Setting (PRD §11.6) -->
+      <a href="#setting" class="dashboard-menu-item" data-panel="panel-setting">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+        <span>Setting</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- ========================================================================
+       2. MAIN CONTENT AREA WITH HEADER
+       ======================================================================== -->
+  <main class="dashboard-main-area">
+    
+    <!-- Top Header -->
+    <header class="dashboard-top-header">
+      <div class="dashboard-title-row">
+        <h1 class="dashboard-page-title" id="dashboard-main-title">Kelas Saya</h1>
+
+        <div class="dashboard-user-actions" style="position: relative;">
+          <!-- Notification Button -->
+          <button type="button" class="btn-notif-circle" id="btn-header-notif" aria-label="Notifikasi">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="notif-badge-dot" id="notif-red-dot"></span>
+          </button>
+
+          <!-- Notifications Dropdown (Node 814) -->
+          <div class="header-dropdown-card" id="header-notif-dropdown" style="display: none;">
+            <div style="padding: 16px 20px; border-bottom: 1px solid #E9E9E9; display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-weight: 800; font-size: 15px; color: #202020;">Notifikasi</span>
+              <span style="font-size: 12px; color: var(--color-primary); font-weight: 700; cursor: pointer;" id="btn-mark-all-read">Tandai Dibaca</span>
+            </div>
+            <div style="max-height: 320px; overflow-y: auto;">
+              <a href="#bootcamp" class="notif-item-row unread">
+                <span style="font-size: 20px;">⭐</span>
+                <div>
+                  <div style="font-size: 13px; font-weight: 700; color: #202020;">Tugas Modul 2 Dinilai!</div>
+                  <div style="font-size: 12px; color: #797979;">Mas Dimas memberikan nilai 90/100 pada tugas Design System.</div>
+                  <div style="font-size: 11px; color: #A6A6A6; margin-top: 4px;">10 menit lalu</div>
+                </div>
+              </a>
+              <a href="#overview" class="notif-item-row unread">
+                <span style="font-size: 20px;">🔴</span>
+                <div>
+                  <div style="font-size: 13px; font-weight: 700; color: #202020;">Sesi Live Mentoring Hari Ini</div>
+                  <div style="font-size: 12px; color: #797979;">Sesi live review portofolio dimulai pukul 16:00 WIB via Zoom.</div>
+                  <div style="font-size: 11px; color: #A6A6A6; margin-top: 4px;">1 jam lalu</div>
+                </div>
+              </a>
+              <a href="#affiliate" class="notif-item-row">
+                <span style="font-size: 20px;">💰</span>
+                <div>
+                  <div style="font-size: 13px; font-weight: 700; color: #202020;">Komisi Berhasil Ditambahkan</div>
+                  <div style="font-size: 12px; color: #797979;">Temanmu Ahmad Fauzi mendaftar kelas UI/UX (+Rp 120.000).</div>
+                  <div style="font-size: 11px; color: #A6A6A6; margin-top: 4px;">Kemarin</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- User Profile Pill -->
+          <div class="user-profile-pill" id="btn-header-profile" style="cursor: pointer;">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80" alt="Dion Ahza Avatar" class="user-avatar-img">
+            <span class="user-name-label">Dion Ahza</span>
+            <span style="font-size: 10px; color: #797979;">▾</span>
+          </div>
+
+          <!-- Profile Dropdown -->
+          <div class="header-dropdown-card" id="header-profile-dropdown" style="display: none; width: 220px; right: 0;">
+            <div style="padding: 16px 20px; border-bottom: 1px solid #E9E9E9;">
+              <div style="font-weight: 800; font-size: 14px; color: #202020;">Dion Ahza</div>
+              <div style="font-size: 12px; color: #797979;">SMK N 2 Pekanbaru</div>
+            </div>
+            <div style="padding: 8px 0;">
+              <a href="#setting" class="notif-item-row" style="padding: 10px 20px; font-size: 13px; font-weight: 600;">
+                <span>⚙️ Pengaturan Profil</span>
+              </a>
+              <a href="classroom.html" class="notif-item-row" style="padding: 10px 20px; font-size: 13px; font-weight: 600;">
+                <span>▶ Ruang Belajar Aktif</span>
+              </a>
+              <a href="index.html" class="notif-item-row" style="padding: 10px 20px; font-size: 13px; font-weight: 600; color: #E02B20;">
+                <span>🚪 Keluar Akun</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Search & Filters Bar (Node 814:5939) -->
+      <div class="dashboard-filter-bar" id="dashboard-search-bar-wrap">
+        <div class="dashboard-search-wrap">
+          <input type="text" id="dashboard-search-input" class="dashboard-search-input" placeholder="Search Course Name/Mentor">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A6A6A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+
+        <div class="dashboard-filter-group">
+          <!-- Filter Level -->
+          <div class="filter-select-pill" id="filter-level">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="2" y="14" width="4" height="8" rx="1"></rect>
+              <rect x="10" y="8" width="4" height="14" rx="1"></rect>
+              <rect x="18" y="2" width="4" height="20" rx="1"></rect>
+            </svg>
+            <span>Level</span>
+            <span style="font-size: 10px; color: #A6A6A6;">▾</span>
+          </div>
+
+          <!-- Filter Category -->
+          <div class="filter-select-pill" id="filter-category">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Category</span>
+            <span style="font-size: 10px; color: #A6A6A6;">▾</span>
+          </div>
+
+          <!-- Filter Sort By -->
+          <div class="filter-select-pill" id="filter-sort">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="4" y1="6" x2="20" y2="6"></line>
+              <line x1="4" y1="12" x2="14" y2="12"></line>
+              <line x1="4" y1="18" x2="8" y2="18"></line>
+            </svg>
+            <span>Sort By : Popular</span>
+            <span style="font-size: 10px; color: #A6A6A6;">▾</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ======================================================================
+         VIEW 1: OVERVIEW PANEL (PRD §11.6)
+         ====================================================================== -->
+    <section id="panel-overview" class="dashboard-panel" style="display: none;">
+      <div class="overview-content-body">
+        
+        <!-- 4 Bento KPI Metric Cards -->
+        <div class="bento-kpi-grid">
+          <div class="kpi-metric-card">
+            <div class="kpi-card-header">
+              <span class="kpi-label-text">Total Jam Belajar</span>
+              <div class="kpi-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="kpi-value-number">24.5 Jam</div>
+            <span class="kpi-trend-pill">+4.2 jam minggu ini</span>
+          </div>
+
+          <div class="kpi-metric-card">
+            <div class="kpi-card-header">
+              <span class="kpi-label-text">Kursus Terdaftar</span>
+              <div class="kpi-icon-badge gold">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="kpi-value-number">3 Kursus</div>
+            <span style="font-size: 12px; color: #797979;">1 Siap Uji Sertifikasi</span>
+          </div>
+
+          <div class="kpi-metric-card">
+            <div class="kpi-card-header">
+              <span class="kpi-label-text">Rata-rata Skor Tugas</span>
+              <div class="kpi-icon-badge green">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="kpi-value-number">86/100</div>
+            <span class="kpi-trend-pill" style="background: #E8F8EE; color: #269C45;">⭐ Lolos Syarat Sertifikat (≥80)</span>
+          </div>
+
+          <div class="kpi-metric-card">
+            <div class="kpi-card-header">
+              <span class="kpi-label-text">Streak Belajar Santri</span>
+              <div class="kpi-icon-badge purple">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="kpi-value-number">🔥 14 Hari</div>
+            <span style="font-size: 12px; color: #8C40D4; font-weight: 700;">Konsisten Tanpa Absen!</span>
+          </div>
+        </div>
+
+        <!-- 2-Col Layout: Resume Learning & Live Mentoring -->
+        <div class="overview-dual-row">
+          <!-- Continue Learning Card -->
+          <div class="hero-resume-card">
+            <div>
+              <div class="resume-tag">
+                <span>▶ SEDANG DIPELAJARI</span>
+              </div>
+              <h2 class="resume-course-name">UI/UX Design : Menghasilkan Dolar Hanya Dengan Menjual Produk UI Kit</h2>
+              <div class="resume-lesson-target">Materi Terakhir: Modul 2 — <em>Brainstorming Fitur Produk</em></div>
+            </div>
+
+            <div class="resume-action-row">
+              <div style="flex: 1; max-width: 260px;">
+                <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; font-weight: 700;">
+                  <span>5 dari 8 Modul</span>
+                  <span>60%</span>
+                </div>
+                <div style="width: 100%; height: 6px; background: rgba(255, 255, 255, 0.25); border-radius: 20px; overflow: hidden;">
+                  <div style="width: 60%; height: 100%; background: #31BC53; border-radius: 20px;"></div>
+                </div>
+              </div>
+
+              <a href="classroom.html" class="btn-resume-cta">
+                <span>Lanjutkan Belajar</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Upcoming Live Session -->
+          <div class="upcoming-live-card">
+            <div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+                <span class="live-badge-status">
+                  <span class="pulse-dot-red"></span>
+                  SESI LIVE HARI INI
+                </span>
+                <span style="font-size: 13px; font-weight: 700; color: #797979;">16:00 – 17:30 WIB</span>
+              </div>
+              <h3 class="live-session-title">Review Portofolio Santri &amp; Persiapan Upload Produk ke UI8</h3>
+            </div>
+
+            <div class="live-mentor-profile">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&auto=format&fit=crop&q=80" alt="Dimas Pradipa" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+              <div>
+                <div style="font-size: 13.5px; font-weight: 800; color: #202020;">Dimas Pradipa Abiyuda</div>
+                <div style="font-size: 12px; color: #797979;">Founder Crygle Academy · Fasilitator</div>
+              </div>
+            </div>
+
+            <a href="https://meet.google.com/demo-crygle-live" target="_blank" rel="noopener noreferrer" class="btn-join-live">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14v-4z"></path>
+                <rect x="3" y="6" width="12" height="12" rx="2"></rect>
+              </svg>
+              <span>Join Google Meet (Sesi Live)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Weekly Activity Visualizer -->
+        <div class="overview-activity-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+            <div>
+              <h3 style="font-size: 16px; font-weight: 800; color: #202020; margin-bottom: 2px;">Aktivitas Belajar 7 Hari Terakhir</h3>
+              <p style="font-size: 13px; color: #797979;">Target harian santri: minimal 2 jam belajar mandiri atau live mentoring.</p>
+            </div>
+            <span style="font-size: 13px; font-weight: 700; color: var(--color-primary);">Rata-rata: 3.5 Jam/Hari</span>
+          </div>
+
+          <div class="weekly-bars-container">
+            <div class="day-bar-column">
+              <div class="day-bar-pill" style="height: 60%;" title="Senin: 2.5 Jam"></div>
+              <span class="day-label-text">Sen</span>
+            </div>
+            <div class="day-bar-column">
+              <div class="day-bar-pill" style="height: 80%;" title="Selasa: 3.2 Jam"></div>
+              <span class="day-label-text">Sel</span>
+            </div>
+            <div class="day-bar-column">
+              <div class="day-bar-pill" style="height: 45%;" title="Rabu: 1.8 Jam"></div>
+              <span class="day-label-text">Rab</span>
+            </div>
+            <div class="day-bar-column">
+              <div class="day-bar-pill" style="height: 90%;" title="Kamis: 4.0 Jam"></div>
+              <span class="day-label-text">Kam</span>
+            </div>
+            <div class="day-bar-column">
+              <div class="day-bar-pill" style="height: 70%;" title="Jumat: 2.8 Jam"></div>
+              <span class="day-label-text">Jum</span>
+            </div>
+            <div class="day-bar-column">
+              <div class="day-bar-pill active" style="height: 100%;" title="Sabtu: 4.5 Jam (Hari Ini)"></div>
+              <span class="day-label-text" style="color: var(--color-primary);">Sab</span>
+            </div>
+            <div class="day-bar-column">
+              <div class="day-bar-pill" style="height: 30%;" title="Minggu: Rencana 1.5 Jam"></div>
+              <span class="day-label-text">Min</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 2: COURSE SAYA PANEL (Node 814:5973 - Default Active)
+         ====================================================================== -->
+    <section id="panel-courses" class="dashboard-panel active" style="display: block;">
+      <div class="dashboard-courses-body" id="enrolled-courses-container">
+        
+        <!-- Card 1: UI/UX Flagship (Node 814:6570) -> Links directly to classroom.html -->
+        <a href="classroom.html" class="dashboard-course-card" data-category="design" data-level="advanced">
+          <div class="course-card-thumb-wrap">
+            <img src="images/lesson_video_poster.jpg" alt="UI/UX Design Course" class="course-card-thumb-img">
+          </div>
+          <div class="dashboard-card-info">
+            <h2 class="dashboard-card-title">UI/UX Design : Menghasilkan Dolar Hanya Dengan Menjual Produk UI Kit</h2>
+            <span class="dashboard-card-level">Advanced Level Class</span>
+            <div class="dashboard-progress-track">
+              <div class="dashboard-progress-fill progress-green" style="width: 60%;"></div>
+            </div>
+            <div class="dashboard-card-meta-row">
+              <span>5/8 Modul</span>
+              <span style="color: #31BC53;">60%</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 2: 3D Blender Animation (Node 814:6595) -->
+        <a href="classroom.html" class="dashboard-course-card" data-category="3d" data-level="intermediate">
+          <div class="course-card-thumb-wrap">
+            <img src="images/blender_course_thumb.jpg" alt="3D Blender Animation" class="course-card-thumb-img">
+          </div>
+          <div class="dashboard-card-info">
+            <h2 class="dashboard-card-title">3D Design : Membuat Animation 3D Produk di Blender</h2>
+            <span class="dashboard-card-level">Intermediate Level Class</span>
+            <div class="dashboard-progress-track">
+              <div class="dashboard-progress-fill progress-yellow" style="width: 30%;"></div>
+            </div>
+            <div class="dashboard-card-meta-row">
+              <span>3/8 Modul</span>
+              <span style="color: #FCC112;">30%</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 3: 3D Object Building (Node 814:6614) -->
+        <a href="classroom.html" class="dashboard-course-card" data-category="3d" data-level="intermediate">
+          <div class="course-card-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80" alt="3D Object Building" class="course-card-thumb-img">
+          </div>
+          <div class="dashboard-card-info">
+            <h2 class="dashboard-card-title">3D Design : Mengembangkan 3D Objek Menjadi 3D Bangunan Digital</h2>
+            <span class="dashboard-card-level">Intermediate Level Class</span>
+            <div class="dashboard-progress-track">
+              <div class="dashboard-progress-fill progress-yellow" style="width: 25%;"></div>
+            </div>
+            <div class="dashboard-card-meta-row">
+              <span>2/8 Modul</span>
+              <span style="color: #FCC112;">25%</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 3: BOOTCAMP SAYA PANEL (PRD §10: 10.1 - 10.6 Sanbercode Model)
+         ====================================================================== -->
+    <section id="panel-bootcamp" class="dashboard-panel" style="display: none;">
+      <div class="bootcamp-content-body">
+        
+        <!-- Cohort Banner -->
+        <div class="bootcamp-cohort-banner">
+          <div>
+            <span class="cohort-badge-edition">EDISI ASRAMA &amp; SMK BATCH 12</span>
+            <h2 class="cohort-title-h2">Bootcamp Intensif UI/UX Design &amp; Digital Product</h2>
+            <div class="cohort-meta-info">
+              Mentor Utama: Dimas Pradipa Abiyuda · Periode: September – November 2026 · 12 Pekan
+            </div>
+          </div>
+
+          <a href="https://chat.whatsapp.com/demo-crygle-bootcamp-cohort" target="_blank" rel="noopener noreferrer" class="btn-bootcamp-wa">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.301-.15-1.78-.879-2.056-.98-.276-.1-.477-.15-.678.15-.2.301-.777.98-.953 1.18-.175.2-.351.226-.652.075-.301-.15-1.272-.469-2.423-1.496-.896-.799-1.501-1.787-1.677-2.088-.176-.301-.019-.464.132-.614.136-.135.301-.351.452-.527.15-.175.2-.301.301-.501.101-.2.051-.376-.025-.527-.076-.15-.678-1.634-.929-2.238-.244-.588-.493-.509-.678-.518l-.577-.01c-.2 0-.527.075-.803.376-.276.301-1.054 1.03-1.054 2.513 0 1.482 1.079 2.913 1.23 3.114.15.2 2.124 3.243 5.145 4.548.719.31 1.28.496 1.718.635.722.23 1.378.198 1.898.12.58-.088 1.78-.727 2.031-1.429.251-.702.251-1.304.176-1.429-.075-.125-.276-.2-.577-.35z"/>
+            </svg>
+            <span>Grup WhatsApp Santri Cohort</span>
+          </a>
+        </div>
+
+        <!-- Bootcamp Sub-Tabs Nav -->
+        <div class="bootcamp-subtabs-bar">
+          <button type="button" class="bootcamp-tab-btn active" data-subtab="subtab-jadwal">📅 Jadwal &amp; Absensi (§10.4)</button>
+          <button type="button" class="bootcamp-tab-btn" data-subtab="subtab-booking">🤝 Booking Konsultasi Mentor (§10.2)</button>
+          <button type="button" class="bootcamp-tab-btn" data-subtab="subtab-tugas">📝 Pengumpulan Tugas &amp; Quiz (§10.5)</button>
+          <button type="button" class="bootcamp-tab-btn" data-subtab="subtab-leaderboard">🏆 Leaderboard Ranking (§10.6)</button>
+        </div>
+
+        <!-- Sub-Tab 1: Jadwal & Absensi (Spreadsheet Style) -->
+        <div class="bootcamp-subtab-pane" id="subtab-jadwal">
+          <div class="data-table-container">
+            <table class="crygle-data-table">
+              <thead>
+                <tr>
+                  <th>Sesi</th>
+                  <th>Tanggal &amp; Jam</th>
+                  <th>Materi / Topik</th>
+                  <th>Mentor Fasilitator</th>
+                  <th>Tautan Meeting</th>
+                  <th>Status Hadir</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Pekan 1</strong></td>
+                  <td>3 Sep 2026 · 19:30 WIB</td>
+                  <td>Orientasi Santri &amp; Standarisasi Figma Dev Mode</td>
+                  <td>Dimas Pradipa</td>
+                  <td><a href="https://meet.google.com/demo" target="_blank" style="color: var(--color-primary); font-weight: 700;">Rekaman Sesi ↗</a></td>
+                  <td><span class="status-badge-attended">✓ Hadir (100%)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Pekan 2</strong></td>
+                  <td>10 Sep 2026 · 19:30 WIB</td>
+                  <td>User Research &amp; Market Validation Produk UI8</td>
+                  <td>Siti Aminah</td>
+                  <td><a href="https://meet.google.com/demo" target="_blank" style="color: var(--color-primary); font-weight: 700;">Rekaman Sesi ↗</a></td>
+                  <td><span class="status-badge-attended">✓ Hadir (100%)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Pekan 3</strong></td>
+                  <td>17 Sep 2026 · 19:30 WIB</td>
+                  <td>Design Tokens, Auto Layout &amp; Atomic System</td>
+                  <td>Dimas Pradipa</td>
+                  <td><a href="https://meet.google.com/demo" target="_blank" style="color: var(--color-primary); font-weight: 700;">Join Live Zoom ↗</a></td>
+                  <td><span class="status-badge-scheduled">Terjadwal</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Pekan 4</strong></td>
+                  <td>24 Sep 2026 · 19:30 WIB</td>
+                  <td>Final Project Review &amp; Mockup Upload Portofolio</td>
+                  <td>Dimas Pradipa</td>
+                  <td><span style="color: #A6A6A6;">Tersedia H-1</span></td>
+                  <td><span class="status-badge-scheduled">Terjadwal</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Sub-Tab 2: Booking Konsultasi Mentor 1-on-1 (PRD §10.2) -->
+        <div class="bootcamp-subtab-pane" id="subtab-booking" style="display: none;">
+          <div class="booking-grid-wrapper">
+            <div>
+              <h3 style="font-size: 18px; font-weight: 800; color: #202020; margin-bottom: 6px;">Pilih Mentor Konsultasi Terjadwal</h3>
+              <p style="font-size: 14px; color: #797979; margin-bottom: 20px;">
+                Dapatkan evaluasi 1-on-1 langsung terhadap file Figma karyamu. Skema: Rp15.000 / sesi atau Rp150.000 / bulan.
+              </p>
+
+              <div class="booking-mentor-list">
+                <div class="booking-mentor-card selected" data-mentor="Dimas Pradipa">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&auto=format&fit=crop&q=80" alt="Dimas" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover;">
+                  <div>
+                    <div style="font-size: 14px; font-weight: 800; color: #202020;">Dimas Pradipa Abiyuda</div>
+                    <div style="font-size: 12px; color: #797979;">Lead UI/UX &amp; Founder</div>
+                  </div>
+                </div>
+
+                <div class="booking-mentor-card" data-mentor="Randy Pratama">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&auto=format&fit=crop&q=80" alt="Randy" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover;">
+                  <div>
+                    <div style="font-size: 14px; font-weight: 800; color: #202020;">Randy Pratama</div>
+                    <div style="font-size: 12px; color: #797979;">Mentor 3D Blender &amp; Assets</div>
+                  </div>
+                </div>
+              </div>
+
+              <h4 style="font-size: 15px; font-weight: 800; color: #202020; margin-bottom: 12px;">Pilih Jam Tersedia (Hari Ini / Besok):</h4>
+              <div class="slot-pills-row">
+                <button type="button" class="slot-time-btn selected">10:00 – 10:45 WIB</button>
+                <button type="button" class="slot-time-btn">14:00 – 14:45 WIB</button>
+                <button type="button" class="slot-time-btn">16:00 – 16:45 WIB</button>
+                <button type="button" class="slot-time-btn">20:00 – 20:45 WIB</button>
+              </div>
+            </div>
+
+            <!-- Booking Summary Box -->
+            <div class="booking-summary-card">
+              <h4 style="font-size: 16px; font-weight: 800; color: #202020; margin-bottom: 16px;">Konfirmasi Sesi Konsultasi</h4>
+              <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: #797979;">Mentor:</span>
+                  <strong id="summary-mentor-name">Dimas Pradipa</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: #797979;">Waktu Sesi:</span>
+                  <strong id="summary-slot-time">10:00 – 10:45 WIB</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: #797979;">Biaya Sesi:</span>
+                  <strong style="color: var(--color-primary);">Rp 15.000 / sesi</strong>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-primary" id="btn-confirm-booking" style="width: 100%; padding: 12px; border-radius: 50px;">
+                Konfirmasi Booking Sesi
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-Tab 3: Pengumpulan Tugas Mingguan (PRD §10.5) -->
+        <div class="bootcamp-subtab-pane" id="subtab-tugas" style="display: none;">
+          <div class="assignment-grid-list">
+            <!-- Tugas 1 Selesai -->
+            <div class="assignment-card-box">
+              <div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                  <span style="font-size: 12px; font-weight: 800; color: #269C45; background: #E8F8EE; padding: 4px 10px; border-radius: 20px;">✓ SELESAI DINILAI</span>
+                  <span class="assignment-grade-badge">90/100</span>
+                </div>
+                <h4 style="font-size: 16px; font-weight: 800; color: #202020; margin-bottom: 6px;">Tugas 1: Riset Tren Desain di UI8 &amp; Freepik</h4>
+                <p style="font-size: 13px; color: #797979; line-height: 1.5;">Analisis 3 produk UI Kit terlaris dan buat dokumen spesifikasi fitur calon produkmu.</p>
+              </div>
+              <div style="font-size: 12px; color: #5A6062; border-top: 1px solid #E9E9E9; padding-top: 12px;">
+                Feedback Mentor: <em>"Riset pasar sangat tajam. Pertahankan struktur kategori ini!"</em>
+              </div>
+            </div>
+
+            <!-- Tugas 2 Selesai -->
+            <div class="assignment-card-box">
+              <div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                  <span style="font-size: 12px; font-weight: 800; color: #269C45; background: #E8F8EE; padding: 4px 10px; border-radius: 20px;">✓ SELESAI DINILAI</span>
+                  <span class="assignment-grade-badge">88/100</span>
+                </div>
+                <h4 style="font-size: 16px; font-weight: 800; color: #202020; margin-bottom: 6px;">Tugas 2: Design Tokens, Varian &amp; Typography</h4>
+                <p style="font-size: 13px; color: #797979; line-height: 1.5;">Menyusun master components tombol, input fields, dan color variables di Figma.</p>
+              </div>
+              <div style="font-size: 12px; color: #5A6062; border-top: 1px solid #E9E9E9; padding-top: 12px;">
+                Feedback Mentor: <em>"Auto layout sudah rapi, tinggal sempurnakan naming tokens."</em>
+              </div>
+            </div>
+
+            <!-- Tugas 3 Sedang Berjalan -->
+            <div class="assignment-card-box" style="border: 2px solid var(--color-primary);">
+              <div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                  <span style="font-size: 12px; font-weight: 800; color: #E02B20; background: #FFF1F0; padding: 4px 10px; border-radius: 20px;">⏳ DEADLINE: 2 HARI LAGI</span>
+                  <span style="font-size: 13px; font-weight: 700; color: var(--color-primary);">Tugas Aktif</span>
+                </div>
+                <h4 style="font-size: 16px; font-weight: 800; color: #202020; margin-bottom: 6px;">Tugas 3: Desain 10 Screen Inti Dashboard UI Kit</h4>
+                <p style="font-size: 13px; color: #797979; line-height: 1.5;">Buat 10 artboard dashboard responsive dengan Dark Mode &amp; Light Mode.</p>
+              </div>
+
+              <form onsubmit="event.preventDefault(); showToastNotification('✅ Link tugas Figma berhasil dikumpulkan!');" style="display: flex; flex-direction: column; gap: 8px;">
+                <input type="url" placeholder="https://figma.com/file/..." required style="padding: 10px 14px; border: 1.5px solid #E9E9E9; border-radius: 10px; font-size: 13px; outline: none;">
+                <button type="submit" class="btn btn-primary" style="padding: 10px; border-radius: 50px; font-size: 13px; font-weight: 700;">Unggah Link Tugas</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-Tab 4: Leaderboard Ranking Siswa (PRD §10.6) -->
+        <div class="bootcamp-subtab-pane" id="subtab-leaderboard" style="display: none;">
+          <div class="data-table-container">
+            <table class="crygle-data-table">
+              <thead>
+                <tr>
+                  <th>Peringkat</th>
+                  <th>Nama Santri / Siswa</th>
+                  <th>Asal Sekolah / Asrama</th>
+                  <th>Tugas Selesai</th>
+                  <th>Total Akumulasi Poin</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background: #FFFDF5;">
+                  <td><span class="rank-badge-medal medal-gold">1</span></td>
+                  <td><strong>Ahmad Fauzi</strong></td>
+                  <td>SMK N 2 Pekanbaru</td>
+                  <td>3 dari 3 Tugas</td>
+                  <td><strong style="color: #269C45;">485 Poin</strong></td>
+                </tr>
+                <tr style="background: #F8FAFD;">
+                  <td><span class="rank-badge-medal medal-silver">2</span></td>
+                  <td><strong>Dion Ahza (Anda)</strong></td>
+                  <td>SMK Telkom / Crygle Boarding</td>
+                  <td>2 dari 3 Tugas</td>
+                  <td><strong style="color: var(--color-primary);">472 Poin</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="rank-badge-medal medal-bronze">3</span></td>
+                  <td><strong>Nabila Putri</strong></td>
+                  <td>Boarding School Solo</td>
+                  <td>2 dari 3 Tugas</td>
+                  <td><strong>460 Poin</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="rank-badge-medal" style="background: #E9E9E9;">4</span></td>
+                  <td>Rizky Ramadhan</td>
+                  <td>SMK Asrama Bogor</td>
+                  <td>2 dari 3 Tugas</td>
+                  <td>445 Poin</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 4: EXPLORE KELAS PANEL (PRD §11.2)
+         ====================================================================== -->
+    <section id="panel-explore" class="dashboard-panel" style="display: none;">
+      <div class="explore-content-body">
+        
+        <!-- Promo Banner -->
+        <div class="explore-promo-banner">
+          <div>
+            <span style="background: #FCC112; color: #202020; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-bottom: 8px;">VOUCHER KHUSUS SANTRI</span>
+            <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 4px;">Gunakan Kode "CRYGLE50" untuk Diskon 50%</h2>
+            <p style="font-size: 13.5px; opacity: 0.9;">Tersedia subsidi beasiswa belajar untuk siswa SMK dan santri asrama mitra.</p>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="navigator.clipboard.writeText('CRYGLE50'); showToastNotification('Kupon CRYGLE50 disalin!');" style="background: #ffffff; color: var(--color-primary); border-radius: 50px; font-weight: 800; padding: 12px 24px;">
+            Salin Kupon CRYGLE50
+          </button>
+        </div>
+
+        <!-- Category Filter Chips -->
+        <div class="category-chips-row">
+          <button type="button" class="category-chip-pill active" data-cat="all">Semua Kelas</button>
+          <button type="button" class="category-chip-pill" data-cat="design">UI/UX Design</button>
+          <button type="button" class="category-chip-pill" data-cat="3d">3D &amp; Animation</button>
+          <button type="button" class="category-chip-pill" data-cat="code">Front-End Coding</button>
+          <button type="button" class="category-chip-pill" data-cat="ai">AI for Designers</button>
+        </div>
+
+        <!-- Course Catalog Grid (6 Classes) -->
+        <div class="explore-catalog-grid" id="explore-catalog-container">
+          
+          <!-- Class 1 -->
+          <div class="catalog-course-item" data-cat="design">
+            <div>
+              <div class="course-card-thumb-wrap" style="height: 150px; margin-bottom: 14px;">
+                <img src="images/lesson_video_poster.jpg" alt="UI/UX Master" class="course-card-thumb-img">
+              </div>
+              <span style="font-size: 12px; color: #797979; font-weight: 700;">ADVANCED LEVEL · 8 MODUL</span>
+              <h3 style="font-size: 16px; font-weight: 800; color: #202020; margin: 6px 0 8px 0; line-height: 1.35;">
+                UI/UX Design : Menghasilkan Dolar Hanya Dengan Menjual Produk UI Kit
+              </h3>
+              <div style="display: flex; align-items: center; gap: 6px; font-size: 13px;">
+                <span style="color: #FCC112;">★ 4.9</span>
+                <span style="color: #797979;">(1.6K Siswa)</span>
+              </div>
+            </div>
+            <div>
+              <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px;">
+                <span style="font-size: 18px; font-weight: 800; color: var(--color-primary);">Rp 350.000</span>
+                <span style="font-size: 13px; text-decoration: line-through; color: #A6A6A6;">Rp 700.000</span>
+              </div>
+              <a href="course-details.html" class="btn btn-primary" style="width: 100%; display: block; text-align: center; border-radius: 50px; padding: 10px; text-decoration: none;">
+                Lihat Detail Kelas
+              </a>
+            </div>
+          </div>
+
+          <!-- Class 2 -->
+          <div class="catalog-course-item" data-cat="3d">
+            <div>
+              <div class="course-card-thumb-wrap" style="height: 150px; margin-bottom: 14px;">
+                <img src="images/blender_course_thumb.jpg" alt="3D Blender" class="course-card-thumb-img">
+              </div>
+              <span style="font-size: 12px; color: #797979; font-weight: 700;">INTERMEDIATE · 8 MODUL</span>
+              <h3 style="font-size: 16px; font-weight: 800; color: #202020; margin: 6px 0 8px 0; line-height: 1.35;">
+                3D Design : Membuat Animation 3D Produk di Blender
+              </h3>
+              <div style="display: flex; align-items: center; gap: 6px; font-size: 13px;">
+                <span style="color: #FCC112;">★ 4.8</span>
+                <span style="color: #797979;">(940 Siswa)</span>
+              </div>
+            </div>
+            <div>
+              <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px;">
+                <span style="font-size: 18px; font-weight: 800; color: var(--color-primary);">Rp 320.000</span>
+                <span style="font-size: 13px; text-decoration: line-through; color: #A6A6A6;">Rp 640.000</span>
+              </div>
+              <a href="course-details.html" class="btn btn-primary" style="width: 100%; display: block; text-align: center; border-radius: 50px; padding: 10px; text-decoration: none;">
+                Lihat Detail Kelas
+              </a>
+            </div>
+          </div>
+
+          <!-- Class 3 -->
+          <div class="catalog-course-item" data-cat="3d">
+            <div>
+              <div class="course-card-thumb-wrap" style="height: 150px; margin-bottom: 14px;">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80" alt="3D Building" class="course-card-thumb-img">
+              </div>
+              <span style="font-size: 12px; color: #797979; font-weight: 700;">BEGINNER TO PRO · 6 MODUL</span>
+              <h3 style="font-size: 16px; font-weight: 800; color: #202020; margin: 6px 0 8px 0; line-height: 1.35;">
+                3D Design : Mengembangkan Objek Menjadi Bangunan Digital
+              </h3>
+              <div style="display: flex; align-items: center; gap: 6px; font-size: 13px;">
+                <span style="color: #FCC112;">★ 4.7</span>
+                <span style="color: #797979;">(620 Siswa)</span>
+              </div>
+            </div>
+            <div>
+              <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px;">
+                <span style="font-size: 18px; font-weight: 800; color: var(--color-primary);">Rp 290.000</span>
+                <span style="font-size: 13px; text-decoration: line-through; color: #A6A6A6;">Rp 580.000</span>
+              </div>
+              <a href="course-details.html" class="btn btn-primary" style="width: 100%; display: block; text-align: center; border-radius: 50px; padding: 10px; text-decoration: none;">
+                Lihat Detail Kelas
+              </a>
+            </div>
+          </div>
+
+          <!-- Class 4 -->
+          <div class="catalog-course-item" data-cat="code">
+            <div>
+              <div class="course-card-thumb-wrap" style="height: 150px; margin-bottom: 14px;">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80" alt="Front-End Coding" class="course-card-thumb-img">
+              </div>
+              <span style="font-size: 12px; color: #797979; font-weight: 700;">INTERMEDIATE · 10 MODUL</span>
+              <h3 style="font-size: 16px; font-weight: 800; color: #202020; margin: 6px 0 8px 0; line-height: 1.35;">
+                Front-End Modern: Slicing Desain Figma ke HTML, CSS &amp; JavaScript
+              </h3>
+              <div style="display: flex; align-items: center; gap: 6px; font-size: 13px;">
+                <span style="color: #FCC112;">★ 4.9</span>
+                <span style="color: #797979;">(1.2K Siswa)</span>
+              </div>
+            </div>
+            <div>
+              <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px;">
+                <span style="font-size: 18px; font-weight: 800; color: var(--color-primary);">Rp 340.000</span>
+                <span style="font-size: 13px; text-decoration: line-through; color: #A6A6A6;">Rp 680.000</span>
+              </div>
+              <a href="course-details.html" class="btn btn-primary" style="width: 100%; display: block; text-align: center; border-radius: 50px; padding: 10px; text-decoration: none;">
+                Lihat Detail Kelas
+              </a>
+            </div>
+          </div>
+
+          <!-- Class 5 -->
+          <div class="catalog-course-item" data-cat="ai">
+            <div>
+              <div class="course-card-thumb-wrap" style="height: 150px; margin-bottom: 14px;">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&auto=format&fit=crop&q=80" alt="AI Designer" class="course-card-thumb-img">
+              </div>
+              <span style="font-size: 12px; color: #797979; font-weight: 700;">TRENDING 2026 · 5 MODUL</span>
+              <h3 style="font-size: 16px; font-weight: 800; color: #202020; margin: 6px 0 8px 0; line-height: 1.35;">
+                AI-Assisted UI/UX Design: Akselerasi Wireframing &amp; Riset Bersama AI
+              </h3>
+              <div style="display: flex; align-items: center; gap: 6px; font-size: 13px;">
+                <span style="color: #FCC112;">★ 5.0</span>
+                <span style="color: #797979;">(820 Siswa)</span>
+              </div>
+            </div>
+            <div>
+              <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px;">
+                <span style="font-size: 18px; font-weight: 800; color: var(--color-primary);">Rp 280.000</span>
+                <span style="font-size: 13px; text-decoration: line-through; color: #A6A6A6;">Rp 560.000</span>
+              </div>
+              <a href="course-details.html" class="btn btn-primary" style="width: 100%; display: block; text-align: center; border-radius: 50px; padding: 10px; text-decoration: none;">
+                Lihat Detail Kelas
+              </a>
+            </div>
+          </div>
+
+          <!-- Class 6 -->
+          <div class="catalog-course-item" data-cat="design">
+            <div>
+              <div class="course-card-thumb-wrap" style="height: 150px; margin-bottom: 14px;">
+                <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&auto=format&fit=crop&q=80" alt="Mobile App UI" class="course-card-thumb-img">
+              </div>
+              <span style="font-size: 12px; color: #797979; font-weight: 700;">ADVANCED · 7 MODUL</span>
+              <h3 style="font-size: 16px; font-weight: 800; color: #202020; margin: 6px 0 8px 0; line-height: 1.35;">
+                Fintech &amp; Banking App Design: Master Auto Layout &amp; Design System
+              </h3>
+              <div style="display: flex; align-items: center; gap: 6px; font-size: 13px;">
+                <span style="color: #FCC112;">★ 4.8</span>
+                <span style="color: #797979;">(710 Siswa)</span>
+              </div>
+            </div>
+            <div>
+              <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px;">
+                <span style="font-size: 18px; font-weight: 800; color: var(--color-primary);">Rp 350.000</span>
+                <span style="font-size: 13px; text-decoration: line-through; color: #A6A6A6;">Rp 700.000</span>
+              </div>
+              <a href="course-details.html" class="btn btn-primary" style="width: 100%; display: block; text-align: center; border-radius: 50px; padding: 10px; text-decoration: none;">
+                Lihat Detail Kelas
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 5: CHAT MENTOR WORKSPACE (PRD §11.6, §11.7)
+         ====================================================================== -->
+    <section id="panel-chat" class="dashboard-panel" style="display: none;">
+      <div class="chat-workspace-grid">
+        
+        <!-- Left: Mentor Threads Sidebar -->
+        <div class="chat-threads-sidebar">
+          <div class="chat-threads-header">Pesan Konsultasi Mentor</div>
+          
+          <div class="chat-thread-row active" data-chat="dimas">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&auto=format&fit=crop&q=80" alt="Dimas" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
+            <div style="flex: 1; min-width: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="font-size: 14px; font-weight: 800; color: #202020;">Dimas Pradipa</span>
+                <span style="font-size: 11px; color: #31BC53; font-weight: 700;">Online</span>
+              </div>
+              <div style="font-size: 12.5px; color: #797979; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                File Figma kamu sudah saya review...
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-thread-row" data-chat="randy">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&auto=format&fit=crop&q=80" alt="Randy" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
+            <div style="flex: 1; min-width: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="font-size: 14px; font-weight: 800; color: #202020;">Randy Pratama</span>
+                <span style="font-size: 11px; color: #A6A6A6;">Offline</span>
+              </div>
+              <div style="font-size: 12.5px; color: #797979; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                Untuk shader blender, periksa node metallic...
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-thread-row" data-chat="siti">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&auto=format&fit=crop&q=80" alt="Siti" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
+            <div style="flex: 1; min-width: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="font-size: 14px; font-weight: 800; color: #202020;">Siti Aminah</span>
+                <span style="font-size: 11px; color: #31BC53; font-weight: 700;">Online</span>
+              </div>
+              <div style="font-size: 12.5px; color: #797979; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                Metode riset pasar sudah oke Dion.
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-thread-row" data-chat="admin">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: #EBF3FA; display: flex; align-items: center; justify-content: center; color: var(--color-primary); font-weight: 800;">
+              🏛️
+            </div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="font-size: 14px; font-weight: 800; color: #202020;">Bantuan Asrama</span>
+                <span style="font-size: 11px; color: #31BC53; font-weight: 700;">Online</span>
+              </div>
+              <div style="font-size: 12.5px; color: #797979; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                Data pendaftaran sertifikasi diterima.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Active Conversation Window -->
+        <div class="chat-conversation-area">
+          <!-- Active Mentor Header -->
+          <div class="chat-active-header">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&auto=format&fit=crop&q=80" alt="Dimas" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover;">
+              <div>
+                <div style="font-size: 15px; font-weight: 800; color: #202020;" id="chat-active-mentor-name">Dimas Pradipa Abiyuda</div>
+                <div style="font-size: 12px; color: #31BC53; font-weight: 700;">● Online · Mentor UI/UX Crygle Academy</div>
+              </div>
+            </div>
+
+            <a href="https://meet.google.com/demo" target="_blank" class="btn btn-primary" style="padding: 8px 18px; border-radius: 50px; font-size: 13px; font-weight: 700; text-decoration: none;">
+              Sesi Live Meet ↗
+            </a>
+          </div>
+
+          <!-- Chat Messages Scroll Container -->
+          <div class="chat-messages-container" id="chat-messages-container">
+            <!-- Message 1 from Mentor -->
+            <div class="chat-msg-row mentor">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&auto=format&fit=crop&q=80" alt="Dimas" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+              <div>
+                <div class="chat-bubble mentor">
+                  Halo Dion! Bagaimana progres pengerjaan modul <em>Brainstorming Fitur Produk UI Kit</em> kamu? Ada kendala di penyusunan Auto Layout atau riset kompetitor di UI8?
+                </div>
+                <span style="font-size: 11px; color: #A6A6A6; margin-left: 6px;">10:15 WIB</span>
+              </div>
+            </div>
+
+            <!-- Message 2 from Student -->
+            <div class="chat-msg-row student">
+              <div>
+                <div class="chat-bubble student">
+                  Halo Mas Dimas! Sudah saya kerjakan sesuai materi video. Saya sudah buat 10 artboard dashboard analytics dengan atomic tokens. Ini link Figma-nya mas:
+                  <div style="margin-top: 8px; background: rgba(255, 255, 255, 0.2); padding: 6px 12px; border-radius: 8px; font-size: 12px; font-family: monospace;">
+                    🔗 figma.com/@dion/ui-kit-crypto-project
+                  </div>
+                </div>
+                <span style="font-size: 11px; color: #A6A6A6; float: right; margin-right: 6px;">10:18 WIB</span>
+              </div>
+            </div>
+
+            <!-- Message 3 from Mentor -->
+            <div class="chat-msg-row mentor">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&auto=format&fit=crop&q=80" alt="Dimas" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+              <div>
+                <div class="chat-bubble mentor">
+                  Keren Dion! Penataan component properties-nya sudah rapi. Nanti saat sesi live mentoring jam 16:00 kita bahas cara membuat packaging preview thumbnail yang menarik calon pembeli ya! 👍
+                </div>
+                <span style="font-size: 11px; color: #A6A6A6; margin-left: 6px;">10:20 WIB</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Reply Suggestion Chips -->
+          <div class="chat-quick-suggestions">
+            <button type="button" class="quick-reply-btn" data-msg="Siap mas Dimas, terima kasih banyak!">"Siap mas, terima kasih!"</button>
+            <button type="button" class="quick-reply-btn" data-msg="Mas, boleh minta feedback untuk palet warna dark mode saya?">"Minta feedback warna dark mode"</button>
+            <button type="button" class="quick-reply-btn" data-msg="Kira-kira produk ini bisa laku berapa dolar di UI8 mas?">"Berapa estimasi harga jual di UI8?"</button>
+          </div>
+
+          <!-- Chat Composer Input -->
+          <form class="chat-composer-row" id="chat-composer-form">
+            <input type="text" id="chat-input-text" class="chat-input-field" placeholder="Tulis pesan konsultasi atau tempel link Figma..." required autocomplete="off">
+            <button type="submit" class="btn-send-chat" aria-label="Kirim Pesan">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 6: AFFILIATE SANTRI PANEL (PRD §11.6)
+         ====================================================================== -->
+    <section id="panel-affiliate" class="dashboard-panel" style="display: none;">
+      <div class="affiliate-content-body">
+        
+        <!-- Referral Code Banner -->
+        <div class="referral-box-card">
+          <div>
+            <span style="background: #FCC112; color: #202020; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-bottom: 8px;">PROGRAM RUJUKAN SANTRI &amp; SEKOLAH</span>
+            <h2 style="font-size: 24px; font-weight: 800; margin-bottom: 6px;">Bagikan Ilmu &amp; Dapatkan Komisi 15%</h2>
+            <p style="font-size: 14px; opacity: 0.9;">Ajak teman sekolah atau adik kelas asrama untuk belajar skill digital di Crygle Academy.</p>
+          </div>
+
+          <div class="referral-pill-input">
+            <div>
+              <div style="font-size: 11px; text-transform: uppercase; color: rgba(255, 255, 255, 0.7); font-weight: 700;">Kode Referral Anda:</div>
+              <div style="font-size: 18px; font-weight: 800; color: #ffffff; letter-spacing: 0.05em;" id="affiliate-code-text">CRYGLE-DION-SMK</div>
+            </div>
+            <button type="button" class="btn btn-primary" id="btn-copy-affiliate" style="background: #ffffff; color: var(--color-primary); border-radius: 50px; font-weight: 800; padding: 8px 18px;">
+              Salin Kode
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 KPI Metrics -->
+        <div class="bento-kpi-grid">
+          <div class="kpi-metric-card">
+            <span class="kpi-label-text">Total Klik Link</span>
+            <div class="kpi-value-number">142 Klik</div>
+            <span style="font-size: 12px; color: #797979;">Dari WhatsApp &amp; Media Sosial</span>
+          </div>
+
+          <div class="kpi-metric-card">
+            <span class="kpi-label-text">Teman Mendaftar</span>
+            <div class="kpi-value-number">8 Siswa</div>
+            <span class="kpi-trend-pill" style="background: #E8F8EE; color: #269C45;">+3 Siswa bulan ini</span>
+          </div>
+
+          <div class="kpi-metric-card">
+            <span class="kpi-label-text">Komisi Dicairkan</span>
+            <div class="kpi-value-number" style="color: #269C45;">Rp 480.000</div>
+            <span style="font-size: 12px; color: #797979;">Ditransfer ke Rekening/E-Wallet</span>
+          </div>
+
+          <div class="kpi-metric-card">
+            <span class="kpi-label-text">Menunggu Pencairan</span>
+            <div class="kpi-value-number" style="color: var(--color-primary);">Rp 120.000</div>
+            <span style="font-size: 12px; color: #797979;">Jadwal cair: 10 September 2026</span>
+          </div>
+        </div>
+
+        <!-- Commission History Table -->
+        <div class="data-table-container">
+          <div style="padding: 18px 24px; border-bottom: 1px solid #E9E9E9; font-size: 16px; font-weight: 800; color: #202020;">
+            Riwayat Pendaftaran Teman Rujukan
+          </div>
+          <table class="crygle-data-table">
+            <thead>
+              <tr>
+                <th>Nama Teman</th>
+                <th>Kelas yang Diambil</th>
+                <th>Tanggal Gabung</th>
+                <th>Komisi (15%)</th>
+                <th>Status Pembayaran</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Ahmad Fauzi</strong></td>
+                <td>UI/UX Design Flagship</td>
+                <td>2 Sep 2026</td>
+                <td><strong>Rp 52.500</strong></td>
+                <td><span class="status-badge-attended">✓ Sudah Cair</span></td>
+              </tr>
+              <tr>
+                <td><strong>Rian Hidayat</strong></td>
+                <td>3D Blender Animation</td>
+                <td>1 Sep 2026</td>
+                <td><strong>Rp 48.000</strong></td>
+                <td><span class="status-badge-attended">✓ Sudah Cair</span></td>
+              </tr>
+              <tr>
+                <td><strong>Muhammad Fikri</strong></td>
+                <td>UI/UX Design Flagship</td>
+                <td>3 Sep 2026</td>
+                <td><strong>Rp 52.500</strong></td>
+                <td><span class="status-badge-scheduled">Diproses</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 7: SETTING SANTRI PANEL (PRD §11.6)
+         ====================================================================== -->
+    <section id="panel-setting" class="dashboard-panel" style="display: none;">
+      <div class="setting-content-body">
+        
+        <!-- Settings Subtabs -->
+        <div class="setting-subtabs-nav">
+          <button type="button" class="setting-subtab-link active" data-settings-tab="tab-profil">Profil Siswa</button>
+          <button type="button" class="setting-subtab-link" data-settings-tab="tab-akademik">Akademik &amp; Asrama</button>
+          <button type="button" class="setting-subtab-link" data-settings-tab="tab-keamanan">Keamanan Sandi</button>
+          <button type="button" class="setting-subtab-link" data-settings-tab="tab-notifikasi">Notifikasi</button>
+        </div>
+
+        <!-- Form 1: Profil Siswa -->
+        <form class="settings-card-form" id="form-setting-profile" onsubmit="event.preventDefault(); showToastNotification('✅ Perubahan profil siswa berhasil disimpan!');">
+          <div style="display: flex; align-items: center; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid #E9E9E9;">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=120&auto=format&fit=crop&q=80" alt="Avatar Dion" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover;">
+            <div>
+              <button type="button" class="btn btn-primary" style="padding: 6px 16px; border-radius: 50px; font-size: 13px; font-weight: 700;">Ganti Foto</button>
+              <span style="font-size: 12px; color: #797979; margin-left: 10px;">Format JPG/PNG maks. 2 MB</span>
+            </div>
+          </div>
+
+          <div class="settings-form-grid">
+            <div class="settings-input-group">
+              <label for="set-name">Nama Lengkap Siswa</label>
+              <input type="text" id="set-name" class="settings-input-control" value="Dion Ahza" required>
+            </div>
+
+            <div class="settings-input-group">
+              <label for="set-email">Email Terdaftar</label>
+              <input type="email" id="set-email" class="settings-input-control" value="dion.ahza@smk.sch.id" required>
+            </div>
+
+            <div class="settings-input-group">
+              <label for="set-phone">Nomor WhatsApp Siswa / Asrama</label>
+              <input type="tel" id="set-phone" class="settings-input-control" value="+62 812-3456-7890" required>
+            </div>
+
+            <div class="settings-input-group">
+              <label for="set-school">Asal Sekolah / Pesantren Asrama</label>
+              <input type="text" id="set-school" class="settings-input-control" value="SMK N 2 Boarding School Pekanbaru" required>
+            </div>
+          </div>
+
+          <div class="settings-input-group">
+            <label for="set-bio">Bio / Minat Karir</label>
+            <textarea id="set-bio" class="settings-input-control" rows="3">Santri jurusan Rekayasa Perangkat Lunak. Fokus mendalami UI/UX design tokens dan monetisasi produk di UI8.</textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="align-self: flex-start; padding: 12px 32px; border-radius: 50px; font-weight: 800;">
+            Simpan Perubahan
+          </button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Toast Notification Container -->
+  <div id="toast-container" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 8px;"></div>
+
+  <!-- Scripts -->
+  <script src="scripts/main.js"></script>
+</body>
+</html>

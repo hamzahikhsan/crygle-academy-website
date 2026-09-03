@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metode Pembayaran — Crygle Academy</title>
+  <meta name="description" content="Pilih metode pembayaran aman untuk kelas UI/UX Design di Crygle Academy. Mendukung Kartu Debit/Kredit, Virtual Account Bank BNI, Mandiri, BSI, dan QRIS.">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. NAVBAR (Node 735:3923)
+       ======================================================================== -->
+  <header class="navbar-wrapper">
+    <div class="navbar-container">
+      <a href="index.html" class="brand-logo" aria-label="Crygle Academy">
+        <img src="icon/logo.png" alt="Crygle Academy" class="navbar-logo-img">
+      </a>
+
+      <nav class="nav-menu-pill" aria-label="Main Navigation">
+        <a href="index.html" class="nav-item">Beranda</a>
+        <a href="index.html#popular-courses" class="nav-item active">
+          Video Kelas
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <a href="index.html#program-section" class="nav-item">
+          Bootcamp Intensif
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <a href="course-details.html#mentor" class="nav-item">Mentor</a>
+        <a href="index.html#faq-section" class="nav-item">Tentang</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#login" class="btn btn-outline btn-pill-auth">Masuk</a>
+        <a href="#signup" class="btn btn-primary btn-pill-auth">Daftar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. CHECKOUT CONTENT (Node 735:3922)
+       ======================================================================== -->
+  <main class="commerce-page-wrapper">
+    <div class="container">
+      
+      <!-- Stepper Status (Node 735:3953) -->
+      <div class="checkout-stepper" aria-label="Checkout Stepper">
+        <div class="stepper-step completed">
+          <div class="stepper-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <span class="stepper-label">Login</span>
+        </div>
+
+        <div class="stepper-connector active"></div>
+
+        <div class="stepper-step active">
+          <div class="stepper-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+          </div>
+          <span class="stepper-label">Pembayaran</span>
+        </div>
+
+        <div class="stepper-connector"></div>
+
+        <div class="stepper-step pending">
+          <div class="stepper-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+          </div>
+          <span class="stepper-label">Review</span>
+        </div>
+      </div>
+
+      <!-- Checkout 2-Column Layout -->
+      <div class="checkout-grid">
+        
+        <!-- Left Column: Payment Methods (Node 735:3950) -->
+        <div class="checkout-main-col">
+          <h1 class="checkout-section-title">Metode Pembayaran</h1>
+
+          <div class="payment-methods-card">
+            <h2 class="payment-methods-heading">Pilih Metode Pembayaran</h2>
+
+            <!-- Option 1: Debit/Credit Card (Node 735:3967) -->
+            <div class="payment-method-item selected" data-method="card">
+              <div class="payment-method-header">
+                <div class="payment-radio-custom"></div>
+                <span class="payment-method-label">Debit/Credit Card</span>
+                <div class="payment-method-badges">
+                  <span class="badge-bank">VISA</span>
+                  <span class="badge-bank">Mastercard</span>
+                </div>
+              </div>
+              <div class="payment-method-content">
+                <form class="credit-card-form" onsubmit="event.preventDefault();">
+                  <div class="card-input-group">
+                    <label class="card-input-label">Card Number</label>
+                    <input type="text" class="card-input-field" value="3897 22XX 1900 3890" placeholder="0000 0000 0000 0000">
+                  </div>
+                  <div class="card-input-group">
+                    <label class="card-input-label">Card Name</label>
+                    <input type="text" class="card-input-field" value="Dimas Pradipa Abiyuda" placeholder="Nama Pemilik Kartu">
+                  </div>
+                  <div class="card-input-row-half">
+                    <div class="card-input-group">
+                      <label class="card-input-label">Expiry Date</label>
+                      <input type="text" class="card-input-field" value="09/26" placeholder="MM/YY">
+                    </div>
+                    <div class="card-input-group">
+                      <label class="card-input-label">CVV</label>
+                      <input type="password" class="card-input-field" value="888" placeholder="•••" maxlength="4">
+                    </div>
+                  </div>
+                  <button type="button" class="btn-add-card" id="btn-save-card">Simpan Kartu</button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Option 2: BNI Virtual Account (Node 735:4004) -->
+            <div class="payment-method-item" data-method="bni">
+              <div class="payment-method-header">
+                <div class="payment-radio-custom"></div>
+                <span class="payment-method-label">BNI Virtual Account</span>
+                <span class="badge-bank">Instant</span>
+              </div>
+              <div class="payment-method-content">
+                <div class="va-details-box">
+                  <span style="font-size: 13px; color: #5A6062; font-weight: 500;">Nomor Virtual Account BNI:</span>
+                  <div class="va-number-row">
+                    <span class="va-number">8808 2399 1029 384</span>
+                    <button type="button" class="btn-copy-va" onclick="navigator.clipboard.writeText('880823991029384'); alert('Nomor VA BNI berhasil disalin!');">Salin</button>
+                  </div>
+                  <p style="font-size: 12px; color: #797979; line-height: 1.5;">
+                    Pembayaran diverifikasi secara otomatis dalam 1–2 menit setelah transfer dari ATM, Mobile Banking, atau Internet Banking BNI.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Option 3: Bank Mandiri Virtual Account (Node 735:4011) -->
+            <div class="payment-method-item" data-method="mandiri">
+              <div class="payment-method-header">
+                <div class="payment-radio-custom"></div>
+                <span class="payment-method-label">Bank Mandiri Virtual Account</span>
+                <span class="badge-bank">Instant</span>
+              </div>
+              <div class="payment-method-content">
+                <div class="va-details-box">
+                  <span style="font-size: 13px; color: #5A6062; font-weight: 500;">Nomor Virtual Account Mandiri (Livin'):</span>
+                  <div class="va-number-row">
+                    <span class="va-number">8950 8299 4402 119</span>
+                    <button type="button" class="btn-copy-va" onclick="navigator.clipboard.writeText('895082994402119'); alert('Nomor VA Mandiri berhasil disalin!');">Salin</button>
+                  </div>
+                  <p style="font-size: 12px; color: #797979; line-height: 1.5;">
+                    Gunakan menu Transfer > Virtual Account di aplikasi Livin' by Mandiri atau ATM Mandiri.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Option 4: BSI Virtual Account (Node 735:4018) -->
+            <div class="payment-method-item" data-method="bsi">
+              <div class="payment-method-header">
+                <div class="payment-radio-custom"></div>
+                <span class="payment-method-label">BSI Virtual Account</span>
+                <span class="badge-bank" style="background: #E8F7EE; color: #10B981;">Syariah</span>
+              </div>
+              <div class="payment-method-content">
+                <div class="va-details-box">
+                  <span style="font-size: 13px; color: #5A6062; font-weight: 500;">Nomor Virtual Account Bank Syariah Indonesia:</span>
+                  <div class="va-number-row">
+                    <span class="va-number">7029 1190 2839 001</span>
+                    <button type="button" class="btn-copy-va" onclick="navigator.clipboard.writeText('702911902839001'); alert('Nomor VA BSI berhasil disalin!');">Salin</button>
+                  </div>
+                  <p style="font-size: 12px; color: #797979; line-height: 1.5;">
+                    Metode pembayaran resmi bagi santri, wali santri, dan sekolah asrama mitra Crygle Academy via BSI Mobile.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Option 5: QRIS (Node 735:4024) -->
+            <div class="payment-method-item" data-method="qris">
+              <div class="payment-method-header">
+                <div class="payment-radio-custom"></div>
+                <span class="payment-method-label">QRIS</span>
+                <span class="badge-bank" style="background: #FFF9E6; color: #D97706;">E-Wallet</span>
+              </div>
+              <div class="payment-method-content">
+                <div class="qris-box">
+                  <div class="qris-qr-frame">
+                    <!-- Dynamic QRIS code illustration -->
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=CRYGLE-ACADEMY-UIUX-CLASS-457000" alt="QRIS Crygle Academy">
+                  </div>
+                  <span style="font-size: 14px; font-weight: 700; color: #202020;">Scan QRIS via GoPay, OVO, Dana, ShopeePay, BCA Mobile</span>
+                  <span style="font-size: 12px; color: #797979;">Berlaku selama 15 menit. Verifikasi instan otomatis tanpa konfirmasi manual.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Order Summary & Pricing (Node 735:4029) -->
+        <aside class="checkout-sidebar">
+          
+          <!-- Card 1: Pesanan Saya (Node 735:4030) -->
+          <div class="checkout-card">
+            <h3 class="checkout-card-title">Pesanan Saya</h3>
+            <div class="order-course-row">
+              <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=200&auto=format&fit=crop&q=80" alt="UI/UX Course Thumbnail" class="order-course-thumb">
+              <div>
+                <span class="order-course-category">KATEGORI KELAS</span>
+                <h4 class="order-course-name">Advanced UI/UX Design Mastery for SMK Students</h4>
+                <div class="order-course-meta">
+                  <span>⏱️ 12 Weeks</span>
+                  <span>🎓 Certification</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Kode Promo (Node 735:4055) -->
+          <div class="checkout-card">
+            <h3 class="checkout-card-title">Kode Promo</h3>
+            <div class="promo-input-group">
+              <input type="text" class="promo-input" id="input-promo-code" placeholder="Masukan Kode Promo (Coba: CRYGLE50)">
+              <button type="button" class="btn-promo-apply" id="btn-apply-promo">Pakai</button>
+            </div>
+            <div id="promo-message" class="promo-feedback-msg"></div>
+          </div>
+
+          <!-- Card 3: Rincian Harga (Node 735:4062) -->
+          <div class="checkout-card">
+            <h3 class="checkout-card-title">Rincian Harga</h3>
+            
+            <div class="price-breakdown-list">
+              <div class="price-breakdown-row">
+                <span class="price-label-sub">Invest Ilmu</span>
+                <span class="price-value-sub" id="summary-base-price">Rp499.000</span>
+              </div>
+              <div class="price-breakdown-row">
+                <span class="price-label-sub">Registration Fee</span>
+                <span class="price-value-sub" id="summary-reg-fee">Rp8.000</span>
+              </div>
+              <div class="price-breakdown-row" id="row-promo-discount" style="display: none;">
+                <span class="price-label-sub" style="color: var(--color-success);">Potongan Promo</span>
+                <span class="price-value-sub" style="color: var(--color-success);" id="summary-promo-discount">-Rp50.000</span>
+              </div>
+              <div class="price-breakdown-row total-row">
+                <div>
+                  <span class="price-label-total">Total Invest</span>
+                </div>
+                <div class="price-value-total" id="summary-total-price">Rp507.000</div>
+              </div>
+            </div>
+
+            <!-- CTA Next: Proceed to Review -->
+            <a href="payment-review.html" class="btn btn-primary btn-pay-now" id="btn-proceed-review">
+              Bayar Sekarang
+            </a>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       3. FOOTER (Node 735:4079)
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand-logo" aria-label="Crygle Academy Footer">
+            <img src="icon/Frame 36933.png" alt="Crygle Academy" class="footer-logo-img">
+          </a>
+
+          <p class="footer-brand-desc">
+            Belajar kreatif digital dari nol untuk masa depan yang lebih siap. Wadah eksplorasi desain, coding, dan robotika pemula.
+          </p>
+
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>tanya@crygleacademy.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Jl. Cipta Karya, Sidomulyo Bar., Kec. Tampan, Kota Pekanbaru, Riau 28293</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigasi</h4>
+          <ul class="footer-nav-list">
+            <li><a href="index.html" class="footer-nav-link">Beranda</a></li>
+            <li><a href="index.html#popular-courses" class="footer-nav-link">Video Kelas Populer</a></li>
+            <li><a href="index.html#program-section" class="footer-nav-link">Bootcamp Intensif</a></li>
+            <li><a href="course-details.html#mentor" class="footer-nav-link">Profil Mentor</a></li>
+            <li><a href="index.html#faq-section" class="footer-nav-link">Tentang Crygle</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Program</h4>
+          <ul class="footer-nav-list">
+            <li><a href="course-details.html" class="footer-nav-link">Creative Design</a></li>
+            <li><a href="#" class="footer-nav-link">Creative Coding</a></li>
+            <li><a href="#" class="footer-nav-link">Creative Robotics</a></li>
+            <li><a href="#" class="footer-nav-link">Consulting Mentorship</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Dukungan</h4>
+          <ul class="footer-nav-list">
+            <li><a href="index.html#faq-section" class="footer-nav-link">Pusat Bantuan</a></li>
+            <li><a href="#" class="footer-nav-link">Kontak Kami</a></li>
+            <li><a href="#" class="footer-nav-link">Kebijakan Privasi</a></li>
+            <li><a href="#" class="footer-nav-link">Syarat &amp; Ketentuan</a></li>
+            <li><a href="index.html#faq-section" class="footer-nav-link">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 CRYGLE Academy. All rights reserved.</span>
+        <span>Secured Transaction · Sanctuary System</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/main.js"></script>
+</body>
+</html>

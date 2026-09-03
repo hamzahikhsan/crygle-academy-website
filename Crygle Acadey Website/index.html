@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crygle Academy — Tempat Belajar Digital Kreatif untuk Pemula SD hingga SMK</title>
+  <meta name="description" content="Platform belajar kreatif digital: Desain UI/UX, Coding Web, dan Robotika untuk siswa SD hingga SMK. Belajar santai, berbobot, berbasis karya nyata bersama mentor praktisi.">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. NAVBAR (Node 956:566)
+       ======================================================================== -->
+  <header class="navbar-wrapper">
+    <div class="navbar-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Crygle Academy">
+        <img src="icon/logo.png" alt="Crygle Academy" class="navbar-logo-img">
+      </a>
+
+      <!-- Navigation Menu Pill -->
+      <nav class="nav-menu-pill" aria-label="Main Navigation">
+        <a href="#hero" class="nav-item active">Beranda</a>
+        <a href="#popular-courses" class="nav-item">
+          Video Kelas
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <a href="#program-section" class="nav-item">
+          Bootcamp Intensif
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <a href="#alumni-section" class="nav-item">Mentor</a>
+        <a href="#faq-section" class="nav-item">Tentang</a>
+      </nav>
+
+      <!-- Auth Actions -->
+      <div class="nav-actions">
+        <a href="#login" class="btn btn-outline btn-pill-auth">Masuk</a>
+        <a href="#signup" class="btn btn-primary btn-pill-auth">Daftar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. HERO SECTION (Node 735:1597)
+       ======================================================================== -->
+  <section class="section hero-section" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Left: Headline & Copy -->
+        <div class="hero-content">
+          <div class="badge badge-primary" style="align-self: flex-start;">
+            <span>✨ Kolaborasi Crygle Academy x Boarding School</span>
+          </div>
+
+          <h1 class="hero-title">
+            Tempat Perjuangan <br>
+            <span class="highlight">Kreatif Anak Muda</span> <br>
+            Dimulai
+          </h1>
+
+          <p class="hero-desc">
+            Bukan hanya teori, tapi juga aksi. Di sini, kamu bisa belajar sambil bikin karya nyata dan siap bersaing di era digital.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#popular-courses" class="btn btn-primary btn-lg btn-cta-glow">
+              Explore Kelas
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#video-preview" class="btn btn-outline btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              Tonton Trailer
+            </a>
+          </div>
+
+          <!-- Social Proof -->
+          <div class="hero-social-proof">
+            <div class="avatar-group">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Alumni">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Alumni">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Alumni">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="Alumni">
+            </div>
+            <div class="social-proof-text">
+              <div class="social-proof-rating">
+                <div class="hero-rating-stars">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                </div>
+                <span>4.5 / 5.0</span>
+              </div>
+              <span class="social-proof-sub">Dari 300+ Ulasan Siswa Boarding School</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Video Card Mockup -->
+        <div class="hero-video-card" id="video-preview">
+          <img src="https://images.unsplash.com/photo-1581291518655-9523c932edcf?w=1000&auto=format&fit=crop&q=80" alt="Crygle Academy Video Mockup" class="hero-video-poster">
+          
+          <div class="hero-video-overlay">
+            <span class="badge" style="background: rgba(255, 255, 255, 0.2); color: #ffffff; backdrop-filter: blur(8px); align-self: flex-start;">
+              🎬 Video Pengenalan & Kurikulum
+            </span>
+
+            <div class="hero-play-btn" title="Putar Trailer Kelas">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; color: #ffffff;">
+              <div>
+                <p style="font-size: 13px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8;">Mentor Utama</p>
+                <p style="font-size: 16px; font-weight: 700;">Dimas Pradipa Abiyuda, S.Tr.Kom.</p>
+              </div>
+              <span style="font-size: 13px; font-weight: 600; background: rgba(0,0,0,0.6); padding: 4px 10px; border-radius: 6px;">Durasi 03:45</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. RANGKAIAN PROGRAM (Node 735:1639)
+       ======================================================================== -->
+  <section class="section program-section" id="program-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Pilihan Peminatan</span>
+        <h2 class="section-title">Rangkaian Program</h2>
+        <p class="section-desc">
+          Dari seni hingga teknologi, setiap program kami dirancang untuk mengasah imajinasi dan keterampilan masa depan.
+        </p>
+      </div>
+
+      <div class="program-cards-grid">
+        <!-- Program List / Tabs -->
+        <div class="program-list">
+          <!-- Item 1: Tentang Kami -->
+          <div class="program-card-item" data-program="tentang">
+            <div class="program-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </div>
+            <div>
+              <h3 class="program-card-title">Tentang Kami</h3>
+              <p class="program-card-desc">Filosofi Sanctuary belajar kreatif digital ramah pemula untuk siswa tingkat SD hingga SMK.</p>
+            </div>
+          </div>
+
+          <!-- Item 2: Kreatif Design (Default Active in Figma) -->
+          <div class="program-card-item active" data-program="design">
+            <div class="program-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+            </div>
+            <div>
+              <h3 class="program-card-title">Kreatif Design</h3>
+              <p class="program-card-desc">Menyalurkan imajinasi menjadi karya. Di Kreatif Academy, kreativitas adalah kunci untuk menciptakan solusi unik.</p>
+            </div>
+          </div>
+
+          <!-- Item 3: Kreatif Coding -->
+          <div class="program-card-item" data-program="coding">
+            <div class="program-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+            </div>
+            <div>
+              <h3 class="program-card-title">Kreatif Coding</h3>
+              <p class="program-card-desc">Bahasa masa depan untuk membangun ide. Disini kamu diajarkan coding dengan cara kreatif dan aplikatif.</p>
+            </div>
+          </div>
+
+          <!-- Item 4: Kreatif Robot -->
+          <div class="program-card-item" data-program="robot">
+            <div class="program-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M19 8h-1V6c0-2.21-1.79-4-4-4h-4c-2.21 0-4 1.79-4 4v2H5c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-9c0-1.1-.9-2-2-2zM9 6c0-1.1.9-2 2-2h2c1.1 0 2 .9 2 2v2H9V6zm10 13H5v-7h14v7zm-5.5-4c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"/></svg>
+            </div>
+            <div>
+              <h3 class="program-card-title">Kreatif Robot</h3>
+              <p class="program-card-desc">Mengenal teknologi cerdas sejak dini. Belajar merancang dan mengendalikan robot secara kreatif dan menyenangkan.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Program Dynamic Preview Pane -->
+        <div class="program-preview-display">
+          <div class="preview-header">
+            <span class="badge badge-primary" style="margin-bottom: 16px;">Flagship Terpopuler</span>
+            <h3 style="font-size: 28px; font-weight: 800; color: var(--color-dark); margin-bottom: 8px;">Kreatif Design Track</h3>
+            <p style="font-size: 15px; font-weight: 600; color: var(--color-primary); margin-bottom: 16px;">UI/UX · 3D Modeling · Vector Art</p>
+            <p style="font-size: 15px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 24px;">
+              Mulai dari memahami dasar estetika, riset pengguna, hingga memproduksi UI Kit dan aset 3D yang siap dijual di platform global seperti Freepik & UI8.
+            </p>
+          </div>
+          
+          <div class="preview-skills" style="margin-bottom: 32px;">
+            <p style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-light); margin-bottom: 12px;">Fokus Keterampilan:</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--color-dark);">
+                <span style="color: var(--color-success); font-weight: bold;">✓</span> Figma Masterclass & Dev Mode
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--color-dark);">
+                <span style="color: var(--color-success); font-weight: bold;">✓</span> Pembuatan 3D di Blender
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--color-dark);">
+                <span style="color: var(--color-success); font-weight: bold;">✓</span> Desain UI Kit Komersial
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--color-dark);">
+                <span style="color: var(--color-success); font-weight: bold;">✓</span> Portfolio Review Berkala
+              </div>
+            </div>
+          </div>
+          
+          <div class="preview-action" style="display: flex; align-items: center; justify-content: space-between; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.06);">
+            <span style="font-size: 13px; color: var(--color-text-muted);">Diampu oleh Mentor Praktisi Industri</span>
+            <a href="#popular-courses" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;">Lihat Kurikulum Design →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. KELAS POPULER (Node 735:2606)
+       ======================================================================== -->
+  <section class="section popular-classes-section" id="popular-courses">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Mulai Belajar</span>
+        <h2 class="section-title">Kelas Populer</h2>
+        <p class="section-desc">
+          Beberapa kelas andalan kami yang bisa diikuti secara gratis sebelum mengikuti kelas LEVEL UP yang sudah kami sediakan.
+        </p>
+      </div>
+
+      <div class="courses-grid">
+        <!-- Card 1 (Node 735:2612) -->
+        <article class="course-card">
+          <div class="course-card-thumb">
+            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&auto=format&fit=crop&q=80" alt="3D Design Freepik">
+          </div>
+          <div class="course-card-body">
+            <div class="course-meta">
+              <span class="course-meta-level">Basic Level Class |</span>
+              <div class="course-rating">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span class="course-rating-score">4.3</span>
+                <span class="course-rating-count">(1.6K Reviews)</span>
+              </div>
+            </div>
+            <h3 class="course-card-title">3D Design : Bagaimana Cara Membuat 3D Objek yang Menjual di Freepik</h3>
+            <div class="course-card-price-row">
+              <span class="course-price-current">Rp. 0</span>
+              <div class="course-price-discount">
+                <span class="badge badge-discount">100% off</span>
+                <span class="course-price-original">Rp. 159.000</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 (Node 735:2634) -->
+        <article class="course-card">
+          <div class="course-card-thumb">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80" alt="3D Animation Blender">
+          </div>
+          <div class="course-card-body">
+            <div class="course-meta">
+              <span class="course-meta-level">Advanced Level Class |</span>
+              <div class="course-rating">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span class="course-rating-score">4.3</span>
+                <span class="course-rating-count">(1.6K Reviews)</span>
+              </div>
+            </div>
+            <h3 class="course-card-title">3D Design : Membuat Animation 3D Produk di Blender</h3>
+            <div class="course-card-price-row">
+              <span class="course-price-current">Rp. 99.000</span>
+              <div class="course-price-discount">
+                <span class="badge badge-danger">80% off</span>
+                <span class="course-price-original">Rp. 449.000</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 (Node 735:2656) - Flagship UI/UX -->
+        <article class="course-card" onclick="window.location.href='course-details.html'" style="cursor: pointer;" title="Klik untuk melihat detail kelas UI/UX Design">
+          <div class="course-card-thumb">
+            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&auto=format&fit=crop&q=80" alt="UI/UX Design UI Kit">
+          </div>
+          <div class="course-card-body">
+            <div class="course-meta">
+              <span class="course-meta-level">Advanced Level Class |</span>
+              <div class="course-rating">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span class="course-rating-score">4.3</span>
+                <span class="course-rating-count">(1.6K Reviews)</span>
+              </div>
+            </div>
+            <h3 class="course-card-title">
+              <a href="course-details.html" style="text-decoration: none; color: inherit;">UI/UX Design : Menghasilkan Dolar Hanya Dengan Menjual Produk UI Kit</a>
+            </h3>
+            <div class="course-card-price-row">
+              <span class="course-price-current">Rp. 449.000</span>
+              <div class="course-price-discount">
+                <span class="badge badge-primary">50% off</span>
+                <span class="course-price-original">Rp. 899.000</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 (Node 735:2679) -->
+        <article class="course-card">
+          <div class="course-card-thumb">
+            <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=600&auto=format&fit=crop&q=80" alt="3D Bangun Ruang">
+          </div>
+          <div class="course-card-body">
+            <div class="course-meta">
+              <span class="course-meta-level">Intermediate Level Class |</span>
+              <div class="course-rating">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span class="course-rating-score">4.3</span>
+                <span class="course-rating-count">(1.6K Reviews)</span>
+              </div>
+            </div>
+            <h3 class="course-card-title">3D Design : Mengembangkan 3D Objek Menjadi 3D Bangun Ruang</h3>
+            <div class="course-card-price-row">
+              <span class="course-price-current">Rp. 59.000</span>
+              <div class="course-price-discount">
+                <span class="badge badge-danger">76% off</span>
+                <span class="course-price-original">Rp. 249.000</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5 (Node 735:2701) -->
+        <article class="course-card">
+          <div class="course-card-thumb">
+            <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&auto=format&fit=crop&q=80" alt="Vector Figma">
+          </div>
+          <div class="course-card-body">
+            <div class="course-meta">
+              <span class="course-meta-level">Advanced Level Class |</span>
+              <div class="course-rating">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span class="course-rating-score">4.3</span>
+                <span class="course-rating-count">(1.6K Reviews)</span>
+              </div>
+            </div>
+            <h3 class="course-card-title">Vector Design : Membuat Vector Ilustrasi Menggunakan Figma</h3>
+            <div class="course-card-price-row">
+              <span class="course-price-current">Rp. 99.000</span>
+              <div class="course-price-discount">
+                <span class="badge badge-danger">80% off</span>
+                <span class="course-price-original">Rp. 449.000</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6 (Node 735:2723) -->
+        <article class="course-card">
+          <div class="course-card-thumb">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&auto=format&fit=crop&q=80" alt="Front-End Portfolio">
+          </div>
+          <div class="course-card-body">
+            <div class="course-meta">
+              <span class="course-meta-level">Basic Level Class |</span>
+              <div class="course-rating">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span class="course-rating-score">4.3</span>
+                <span class="course-rating-count">(1.6K Reviews)</span>
+              </div>
+            </div>
+            <h3 class="course-card-title">Front-End : Membuat Web Portfolio Simpel dan Berkelas</h3>
+            <div class="course-card-price-row">
+              <span class="course-price-current">Rp. 0</span>
+              <div class="course-price-discount">
+                <span class="badge badge-discount">100% off</span>
+                <span class="course-price-original">Rp. 159.000</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Action Button (Node 735:2745) -->
+      <div class="popular-actions">
+        <a href="#katalog" class="btn btn-outline btn-lg" style="padding: 16px 40px;">
+          Lihat Lainnya
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. HASIL KARYA ALUMNI (Node 735:2747)
+       ======================================================================== -->
+  <section class="section alumni-showcase-section" id="alumni-section">
+    <div class="container">
+      <div class="showcase-layout">
+        <!-- Info & Feature -->
+        <div class="showcase-info">
+          <div>
+            <span class="section-badge">Student Showcase</span>
+            <h2 class="section-title">Hasil Karya Alumni</h2>
+            <p class="section-desc">
+              Beberapa hasil karya alumni yang pernah mengikuti kelas CRYGLE Academy. Karya yang dihasilkan memiliki standarisasi industri dari setiap kelas yang diikuti peserta.
+            </p>
+          </div>
+
+          <!-- Feature Box (Node 735:2771) -->
+          <div class="showcase-feature-box">
+            <div class="showcase-feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 13h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zm0 8h6c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1zm10 0h6c.55 0 1-.45 1-1v-8c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zm0-18v4c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1z"/></svg>
+            </div>
+            <div>
+              <h3 class="showcase-feature-title">Strong Portfolio</h3>
+              <p class="showcase-feature-desc">Memiliki karya yang STRONG dan siap dipublikasikan menjadi portofolio nyata yang membanggakan bagi orang tua dan sekolah.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="showcase-gallery-grid">
+          <div class="gallery-col-1">
+            <div class="showcase-gallery-card" style="margin-bottom: 20px;">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&auto=format&fit=crop&q=80" alt="Student Dashboard UI">
+              <div class="showcase-gallery-info">
+                <h4 class="showcase-gallery-title">Fintech Kids Dashboard</h4>
+                <p class="showcase-gallery-student">Fajar · Kelas 9 SMP Asrama</p>
+              </div>
+            </div>
+            <div class="showcase-gallery-card">
+              <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&auto=format&fit=crop&q=80" alt="Code & Matrix App">
+              <div class="showcase-gallery-info">
+                <h4 class="showcase-gallery-title">Mini Arcade Game</h4>
+                <p class="showcase-gallery-student">Zulfa · Kelas 11 SMK</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-col-2">
+            <div class="showcase-gallery-card" style="margin-bottom: 20px;">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&auto=format&fit=crop&q=80" alt="3D Render Artwork">
+              <div class="showcase-gallery-info">
+                <h4 class="showcase-gallery-title">Isometric Bedroom 3D</h4>
+                <p class="showcase-gallery-student">Raka · Kelas 8 SMP</p>
+              </div>
+            </div>
+            <div class="showcase-gallery-card">
+              <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=400&auto=format&fit=crop&q=80" alt="Mobile App UI">
+              <div class="showcase-gallery-info">
+                <h4 class="showcase-gallery-title">E-Library School App</h4>
+                <p class="showcase-gallery-student">Sarah · Kelas 10 SMA</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-col-3">
+            <div class="showcase-gallery-card" style="margin-bottom: 20px;">
+              <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&auto=format&fit=crop&q=80" alt="Smart Robot Prototype">
+              <div class="showcase-gallery-info">
+                <h4 class="showcase-gallery-title">Obstacle Avoider Bot</h4>
+                <p class="showcase-gallery-student">Tim Robotika SMK</p>
+              </div>
+            </div>
+            <div class="showcase-gallery-card">
+              <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=400&auto=format&fit=crop&q=80" alt="Vector Art Figma">
+              <div class="showcase-gallery-info">
+                <h4 class="showcase-gallery-title">Travel Mascot Pack</h4>
+                <p class="showcase-gallery-student">Dimas Arya · Kelas 12 SMK</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. TESTIMONI ALUMNI (Node 735:2777)
+       ======================================================================== -->
+  <section class="section testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Kisah Nyata</span>
+        <h2 class="section-title">Apa Kata Alumni Kelas</h2>
+        <p class="section-desc">
+          Dari nggak tahu apa-apa, sekarang bisa bikin karya sendiri.
+        </p>
+      </div>
+
+      <div class="testimonial-wrapper">
+        <!-- Quote Content -->
+        <div>
+          <div class="testi-quote-icon">“</div>
+          <blockquote class="testi-quote-text">
+            “Awalnya aku nggak ngerti coding sama sekali dan bingung harus mulai dari mana. Setelah ikut Crygle Academy, materinya gampang dipahami karena step by step. Sekarang aku sudah bisa bikin game sederhana sendiri!”
+          </blockquote>
+
+          <div class="testi-author">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Andi Hidayat" class="testi-avatar">
+            <div>
+              <h3 class="testi-name">Andi Hidayat</h3>
+              <p class="testi-role">Peserta Creative Coding · Siswa SMK Asrama</p>
+            </div>
+
+            <!-- Navigation buttons -->
+            <div class="testi-nav-controls">
+              <button class="testi-btn-nav testi-btn-prev" aria-label="Testimoni Sebelumnya">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span class="testi-dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-primary); cursor: pointer; transition: all 0.2s;"></span>
+                <span class="testi-dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-border); cursor: pointer; transition: all 0.2s;"></span>
+                <span class="testi-dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-border); cursor: pointer; transition: all 0.2s;"></span>
+              </div>
+              <button class="testi-btn-nav testi-btn-next" aria-label="Testimoni Berikutnya">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side Banner / Image -->
+        <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; height: 360px; box-shadow: var(--shadow-card);">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop&q=80" alt="Suasana Belajar Crygle Academy" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(18,23,26,0.85) 100%); display: flex; align-items: flex-end; padding: 24px; color: #ffffff;">
+            <div>
+              <span class="badge" style="background: rgba(255,255,255,0.2); color: #fff; margin-bottom: 8px;">Sanctuary Digital</span>
+              <p style="font-size: 16px; font-weight: 700;">Belajar nyaman & aman untuk masa depan kreatifmu.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. FREQUENTLY ASKED QUESTIONS (Node 735:2814)
+       ======================================================================== -->
+  <section class="section faq-section" id="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Bantuan & Informasi</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">
+          Masih bingung? Kami bantu jawab di sini.
+        </p>
+      </div>
+
+      <div class="faq-grid">
+        <!-- Kolom Kiri -->
+        <div class="faq-column">
+          <!-- FAQ 1 (Active by default in Figma) -->
+          <div class="faq-item active">
+            <button class="faq-question">
+              <span>Siapa saja yang bisa ikut kelas di CRYGLE Academy?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              CRYGLE Academy dirancang khusus untuk pemula mulai dari tingkat SD, SMP, hingga SMK. Materi kami disusun bertahap (step-by-step) dari pemahaman dasar hingga menghasilkan karya nyata yang dapat diandalkan.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Apakah saya membutuhkan laptop berspesifikasi tinggi?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Tidak perlu laptop mahal. Untuk kelas UI/UX Design dan Web Coding dasar, browser modern dan laptop standar sekolah sudah sangat cukup karena kita memanfaatkan alat berbasis cloud seperti Figma dan web editor.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Bagaimana ritme belajar untuk siswa sekolah asrama (Boarding School)?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Jadwal belajar sangat fleksibel. Video materi dapat diakses kapan saja selama jam bebas asrama, dan sesi konsultasi mentor dapat dibooking pada akhir pekan atau slot jam khusus yang telah disepakati bersama pihak sekolah mitra.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Apakah materi kelas bisa diakses selamanya?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Ya, betul sekali! Sekali kamu mendaftar di kelas Crygle Academy, kamu mendapatkan akses seumur hidup (lifetime access) ke modul video, file latihan, serta update materi di masa mendatang.
+            </div>
+          </div>
+        </div>
+
+        <!-- Kolom Kanan -->
+        <div class="faq-column">
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Apakah ada sertifikat resmi setelah menyelesaikan kelas?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Setiap peserta yang menyelesaikan 100% modul dan mengunggah tugas/portofolio akhir akan mendapatkan Sertifikat Kompetensi Digital resmi dari Crygle Academy yang dapat dilampirkan dalam portofolio akademik.
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Bagaimana jika saya mengalami kendala saat mempraktikkan materi?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Kamu bisa langsung bertanya di Grup Komunitas Diskusi (WhatsApp Group) bersama mentor dan teman seangkatan, atau menggunakan fitur Chat Mentor untuk konsultasi langsung terkait materi modul.
+            </div>
+          </div>
+
+          <!-- FAQ 7 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Apa metode pembayaran yang didukung?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Kami mendukung pembayaran otomatis yang aman: QRIS (GoPay, OVO, Dana), Virtual Account bank nasional (BNI, Mandiri, BSI), dan Kartu Debit/Kredit.
+            </div>
+          </div>
+
+          <!-- FAQ 8 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Apakah sekolah saya bisa bekerja sama secara institusi?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Bisa! Kami memiliki program kemitraan khusus sekolah (Crygle Academy x Boarding School) untuk kurikulum ekstrakurikuler terintegrasi dan sistem pelaporan progres belajar ke wali kelas.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. FINAL CALL TO ACTION (Node 735:2830)
+       ======================================================================== -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2 class="cta-banner-title">Bangun Skill Masa Depanmu Hari Ini</h2>
+        <p class="cta-banner-desc">
+          Persiapkan dirimu dengan skill design, coding, dan robotics yang dibutuhkan di masa depan. Mulai perjalanan kreatifmu sekarang di Sanctuary kami.
+        </p>
+
+        <a href="#popular-courses" class="btn btn-lg btn-cta-glow" style="background: var(--color-secondary); color: var(--color-dark); font-weight: 700; box-shadow: 0 10px 30px rgba(252, 193, 18, 0.4);">
+          Mulai Perjalananmu
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+
+        <div class="cta-badges-row">
+          <div class="cta-badge-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color: var(--color-secondary);"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"/></svg>
+            <span>Akses Seumur Hidup</span>
+          </div>
+          <div class="cta-badge-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color: var(--color-secondary);"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span>Sertifikat Resmi</span>
+          </div>
+          <div class="cta-badge-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color: var(--color-secondary);"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            <span>Komunitas Diskusi Aktif</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9. FOOTER (Node 735:3017)
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Contact -->
+        <div>
+          <a href="index.html" class="brand-logo" aria-label="Crygle Academy Footer">
+            <img src="icon/Frame 36933.png" alt="Crygle Academy" class="footer-logo-img">
+          </a>
+
+          <p class="footer-brand-desc">
+            Belajar kreatif digital dari nol untuk masa depan yang lebih siap. Wadah eksplorasi desain, coding, dan robotika pemula.
+          </p>
+
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>tanya@crygleacademy.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Jl. Cipta Karya, Sidomulyo Bar., Kec. Tampan, Kota Pekanbaru, Riau 28293</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigasi -->
+        <div>
+          <h4 class="footer-col-title">Navigasi</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#hero" class="footer-nav-link">Beranda</a></li>
+            <li><a href="#popular-courses" class="footer-nav-link">Video Kelas Populer</a></li>
+            <li><a href="#program-section" class="footer-nav-link">Bootcamp Intensif</a></li>
+            <li><a href="#alumni-section" class="footer-nav-link">Profil Mentor</a></li>
+            <li><a href="#faq-section" class="footer-nav-link">Tentang Crygle</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Program -->
+        <div>
+          <h4 class="footer-col-title">Program</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#popular-courses" class="footer-nav-link">UI/UX Design Flagship</a></li>
+            <li><a href="#popular-courses" class="footer-nav-link">3D Blender & Freepik</a></li>
+            <li><a href="#popular-courses" class="footer-nav-link">Front-End Web Development</a></li>
+            <li><a href="#popular-courses" class="footer-nav-link">Robotika & IoT Pemula</a></li>
+            <li><a href="#program-section" class="footer-nav-link">Boarding School Track</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Dukungan -->
+        <div>
+          <h4 class="footer-col-title">Dukungan</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#faq-section" class="footer-nav-link">Pusat Bantuan (FAQ)</a></li>
+            <li><a href="#faq-section" class="footer-nav-link">Bantuan Pembayaran</a></li>
+            <li><a href="#" class="footer-nav-link">Syarat & Ketentuan</a></li>
+            <li><a href="#" class="footer-nav-link">Kebijakan Privasi</a></li>
+            <li><a href="#" class="footer-nav-link">Kemitraan Sekolah Mitra</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Line -->
+      <div class="footer-bottom">
+        <span>© 2026 CRYGLE Academy. All rights reserved.</span>
+        <span>Crygle Academy x Boarding School Partnership</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Scripts -->
+  <script src="scripts/main.js"></script>
+</body>
+</html>

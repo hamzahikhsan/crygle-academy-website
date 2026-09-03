@@ -1,0 +1,83 @@
+/* ==========================================================================
+   CRYGLE ACADEMY - DESIGN SYSTEM TOKENS
+   Extracted from Figma Variables & Component Specs
+   ========================================================================== */
+
+:root {
+  /* Brand Colors */
+  --color-primary: #235F9C;
+  --color-primary-hover: #1b4b7c;
+  --color-primary-active: #153b62;
+  --color-primary-100: #C4D5E8;
+  --color-primary-50: #EEF4FA;
+  
+  /* Accent & Secondary */
+  --color-secondary: #FCC112;
+  --color-secondary-hover: #e5ad0f;
+  --color-secondary-light: #FFF9E6;
+  
+  /* Neutrals & Dark */
+  --color-dark: #12171A;
+  --color-text-main: #202020;
+  --color-text-muted: #797979;
+  --color-text-light: #A6A6A6;
+  --color-border: #E6ECF2;
+  --color-border-light: #F0F4F8;
+  
+  /* Backgrounds */
+  --color-bg-body: #FCFCFC;
+  --color-bg-canvas: #F7FDFF;
+  --color-bg-card: #FFFFFF;
+  --color-bg-subtle: #F5F8FB;
+  
+  /* Status & Alerts */
+  --color-danger: #F91B50;
+  --color-danger-bg: #FFECF0;
+  --color-success: #10B981;
+  --color-success-bg: #ECFDF5;
+  
+  /* Typography */
+  --font-family-base: 'SF UI Text', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Font Sizes */
+  --font-size-display: 48px;
+  --font-size-h2: 36px;
+  --font-size-h3: 28px;
+  --font-size-h4: 22px;
+  --font-size-subheading: 20px;
+  --font-size-body-large: 18px;
+  --font-size-body: 16px;
+  --font-size-caption: 14px;
+  --font-size-small: 12px;
+  
+  /* Line Heights */
+  --line-height-tight: 1.1;
+  --line-height-snug: 1.25;
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.6;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(35, 95, 156, 0.04);
+  --shadow-card: 0 8px 30px rgba(35, 95, 156, 0.08);
+  --shadow-hover: 0 14px 40px rgba(35, 95, 156, 0.14);
+  --shadow-pill: 0 4px 15px rgba(35, 95, 156, 0.2);
+  --shadow-nav: 0 10px 30px rgba(18, 23, 26, 0.05);
+  
+  /* Border Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+  --radius-pill: 38px;
+  
+  /* Layout Dimensions */
+  --max-width-container: 1200px;
+  --section-padding-x: 120px;
+  --section-spacing-y: 100px;
+  
+  /* Transitions */
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
