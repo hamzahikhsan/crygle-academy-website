@@ -1,0 +1,13 @@
+/* CRYGLE Academy — webfonts. SF UI Text is the product typeface (TTFs supplied by the brand). */
+@font-face{font-family:"SF UI Text";src:url("/fonts/SFUIText-Light.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"SF UI Text";src:url("/fonts/SFUIText-LightItalic.ttf") format("truetype");font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:"SF UI Text";src:url("/fonts/SFUIText-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"SF UI Text";src:url("/fonts/SFUIText-RegularItalic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"SF UI Text";src:url("/fonts/SFUIText-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"SF UI Text";src:url("/fonts/SFUIText-MediumItalic.ttf") format("truetype");font-weight:500;font-style:italic;font-display:swap}
+@font-face{font-family:"SF UI Text";src:url("/fonts/SFUIText-Semibold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"SF UI Text";src:url("/fonts/SFUIText-SemiboldItalic.ttf") format("truetype");font-weight:600;font-style:italic;font-display:swap}
+@font-face{font-family:"SF UI Text";src:url("/fonts/SFUIText-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"SF UI Text";src:url("/fonts/SFUIText-BoldItalic.ttf") format("truetype");font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:"SF UI Text";src:url("/fonts/SFUIText-Heavy.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"SF UI Text";src:url("/fonts/SFUIText-HeavyItalic.ttf") format("truetype");font-weight:800;font-style:italic;font-display:swap}

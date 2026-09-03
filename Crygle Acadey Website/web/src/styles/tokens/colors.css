@@ -1,0 +1,77 @@
+/* CRYGLE Academy — colour system.
+   Ramps transcribed verbatim from the Colors board of the Figma Design System page. */
+:root{
+  /* Primary — Blue */
+  --blue-100:rgb(196,213,232);
+  --blue-200:rgb(156,184,213);
+  --blue-300:rgb(115,154,194);
+  --blue-400:rgb(75,125,175);
+  --blue-500:rgb(35,95,156);
+
+  /* Secondary — Yellow */
+  --yellow-100:rgb(254,243,208);
+  --yellow-200:rgb(254,230,160);
+  --yellow-300:rgb(253,218,113);
+  --yellow-400:rgb(253,205,65);
+  --yellow-500:rgb(252,193,18);
+
+  /* Text neutral — Grey */
+  --grey-100:rgb(233,233,233);
+  --grey-200:rgb(210,210,210);
+  --grey-300:rgb(166,166,166);
+  --grey-400:rgb(121,121,121);
+  --grey-500:rgb(77,77,77);
+  --black:rgb(32,32,32);
+  --white:rgb(255,255,255);
+
+  /* Success */
+  --success-100:rgb(219,251,214);
+  --success-200:rgb(178,248,174);
+  --success-300:rgb(130,234,136);
+  --success-400:rgb(49,188,83);
+  --success-500:rgb(24,135,73);
+
+  /* Danger */
+  --danger-100:rgb(255,215,215);
+  --danger-200:rgb(255,175,175);
+  --danger-300:rgb(255,136,136);
+  --danger-400:rgb(255,96,96);
+  --danger-500:rgb(255,56,56);
+
+  /* Background ramp (Background 1–3 on the Colors board) */
+  --background-1:rgb(252,252,252);
+  --background-2:rgb(252,252,252);
+  --background-3:rgb(252,252,252);
+
+  /* Surfaces observed in the product screens */
+  --page-bg:rgb(247,251,255);          /* Home Page canvas */
+  --surface-tint:rgb(241,246,252);     /* FAQ / soft section band */
+  --surface-card:rgb(252,252,252);     /* card bodies */
+  --surface-subtle:rgb(249,250,252);   /* tertiary button rest */
+  --surface-subtle-hover:rgb(242,245,248);
+  --blue-deep:rgb(38,98,158);          /* alumni-work band */
+  --blue-bright:rgb(75,157,241);       /* feature icon tile */
+
+  /* Lines */
+  --border-default:rgb(223,229,238);
+  --border-soft:rgb(216,229,241);
+  --rule-on-blue:rgb(196,213,232);
+
+  /* Discount pill (course cards) */
+  --discount-bg:rgb(255,236,240);
+  --discount-fg:rgb(249,27,80);
+
+  /* Semantic aliases */
+  --brand:var(--blue-500);
+  --brand-accent:var(--yellow-500);
+  --text-primary:var(--black);
+  --text-ink:rgb(19,19,28);
+  --text-secondary:var(--grey-500);
+  --text-muted:var(--grey-400);
+  --text-placeholder:var(--grey-300);
+  --text-on-brand:var(--white);
+  --text-on-brand-soft:var(--blue-100);
+  --text-brand:var(--blue-500);
+  --text-link:var(--blue-500);
+  --focus-ring:rgba(17,17,17,0.5);
+}

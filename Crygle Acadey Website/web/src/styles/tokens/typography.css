@@ -1,0 +1,40 @@
+/* CRYGLE Academy — type scale, transcribed from the Typography board.
+   One family: SF UI Text. Weights in use: 400 / 500 / 600 / 700. */
+:root{
+  --font-core:"SF UI Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  /* Buttons in the Figma Buttons board are set in SF Pro Display; that binary was not
+     supplied, so the stack falls through to SF UI Text / the platform UI face. */
+  --font-control:"SF Pro Display","SF UI Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  /* Plus Jakarta Sans appears on a handful of product CTAs ("Lihat Lainnya"). */
+  --font-alt:"Plus Jakarta Sans","SF UI Text",-apple-system,sans-serif;
+
+  --weight-regular:400; /* @kind other */
+  --weight-medium:500; /* @kind other */
+  --weight-semibold:600; /* @kind other */
+  --weight-bold:700; /* @kind other */
+
+  --size-display-1:64px;   --lh-display-1:1.1; /* @kind other */
+  --size-display-2:56px;   --lh-display-2:1.1; /* @kind other */
+  --size-display-3:48px;   --lh-display-3:1.1; /* @kind other */
+  --size-heading-1:42px;   --lh-heading-1:1.1; /* @kind other */
+  --size-heading-2:32px;   --lh-heading-2:1.2; /* @kind other */
+  --size-heading-3:26px;   --lh-heading-3:1.2; /* @kind other */
+  --size-heading-4:24px;   --lh-heading-4:1.2; /* @kind other */
+  --size-subheading-1:20px;--lh-subheading-1:1.4; /* @kind other */
+  --size-subheading-2:18px;--lh-subheading-2:1.4; /* @kind other */
+  --size-paragraph-1:16px; --lh-paragraph-1:1.4; /* @kind other */
+  --size-paragraph-2:14px; --lh-paragraph-2:1.4; /* @kind other */
+  --size-label-1:12px;     --lh-label-1:1.4; /* @kind other */
+  --size-label-2:10px;     --lh-label-2:1.4; /* @kind other */
+
+  /* Display / heading tracking used across the product screens */
+  --tracking-display:-0.01em; /* @kind other */
+  --tracking-tight:-0.02em; /* @kind other */
+}
+.crygle-display-1{font:var(--weight-bold) var(--size-display-1)/var(--lh-display-1) var(--font-core);letter-spacing:var(--tracking-display)}
+.crygle-heading-1{font:var(--weight-bold) var(--size-heading-1)/var(--lh-heading-1) var(--font-core);letter-spacing:var(--tracking-display)}
+.crygle-heading-4{font:var(--weight-bold) var(--size-heading-4)/var(--lh-heading-4) var(--font-core);letter-spacing:var(--tracking-display)}
+.crygle-subheading-1{font:var(--weight-semibold) var(--size-subheading-1)/var(--lh-subheading-1) var(--font-core)}
+.crygle-subheading-2{font:var(--weight-regular) var(--size-subheading-2)/var(--lh-subheading-2) var(--font-core)}
+.crygle-paragraph-1{font:var(--weight-regular) var(--size-paragraph-1)/var(--lh-paragraph-1) var(--font-core)}
+.crygle-label-1{font:var(--weight-regular) var(--size-label-1)/var(--lh-label-1) var(--font-core)}

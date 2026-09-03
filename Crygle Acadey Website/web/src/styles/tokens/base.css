@@ -1,0 +1,6 @@
+/* Element defaults so consumers inherit the brand voice without extra classes. */
+:root{color-scheme:light}
+body{margin:0;font-family:var(--font-core);font-size:var(--size-paragraph-1);line-height:var(--lh-paragraph-1);color:var(--text-primary);background:var(--page-bg);-webkit-font-smoothing:antialiased}
+a{color:var(--text-link);text-decoration:none}
+a:hover{color:var(--blue-400);text-decoration:underline}
+*,*::before,*::after{box-sizing:border-box}
