@@ -1,3 +1,4 @@
+import type { ComponentType } from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
@@ -28,8 +29,12 @@ const routes = [
 describe('route stubs', () => {
   it.each(routes)('$heading renders its placeholder heading', async ({ importPage, heading, params }) => {
     const mod = await importPage();
-    const Page = mod.default;
-    render(<Page params={params ?? {}} />);
+    // Each stub page types its own `params` narrowly (e.g. `{ slug: string }`),
+    // which is correct per-page but means the aggregate type across this
+    // heterogeneous route table doesn't unify — this is a routing smoke test,
+    // not a place to preserve per-page param typing, so widen deliberately.
+    const Page = mod.default as ComponentType<{ params: Record<string, string> }>;
+    render(<Page params={(params ?? {}) as Record<string, string>} />);
     expect(screen.getByText(heading)).toBeInTheDocument();
   });
 });
