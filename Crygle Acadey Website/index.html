@@ -145,87 +145,69 @@
   </header>
 
   <!-- ========================================================================
-       2. HERO SECTION (Node 735:1597)
+       2. HERO SECTION (Figma Node 735:1597 & 735:1604)
        ======================================================================== -->
   <section class="section hero-section" id="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <!-- Left: Headline & Copy -->
-        <div class="hero-content">
-          <div class="badge badge-primary" style="align-self: flex-start;">
-            <span>✨ Kolaborasi Crygle Academy x Boarding School</span>
-          </div>
-
-          <h1 class="hero-title">
-            Tempat Perjuangan <br>
-            <span class="highlight">Kreatif Anak Muda</span> <br>
-            Dimulai
-          </h1>
-
-          <p class="hero-desc">
-            Bukan hanya teori, tapi juga aksi. Di sini, kamu bisa belajar sambil bikin karya nyata dan siap bersaing di era digital.
+    <div class="container hero-container">
+      <!-- Top Split Header (Node 735:1598) -->
+      <div class="hero-top-row">
+        <h1 class="hero-headline">
+          Tempat Perjuangan<br>Kreatif Anak Muda<br>Dimulai
+        </h1>
+        <div class="hero-sub-action">
+          <p class="hero-subtext">
+            Bukan hanya teori, tapi juga aksi. Di sini, kamu bisa belajar sambil bikin karya nyata.
           </p>
-
-          <div class="hero-cta-group">
-            <a href="#popular-courses" class="btn btn-primary btn-lg btn-cta-glow">
-              Explore Kelas
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a href="#video-preview" class="btn btn-outline btn-lg">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-              Tonton Trailer
-            </a>
-          </div>
-
-          <!-- Social Proof -->
-          <div class="hero-social-proof">
-            <div class="avatar-group">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Alumni">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Alumni">
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Alumni">
-              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="Alumni">
-            </div>
-            <div class="social-proof-text">
-              <div class="social-proof-rating">
-                <div class="hero-rating-stars">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                </div>
-                <span>4.5 / 5.0</span>
-              </div>
-              <span class="social-proof-sub">Dari 300+ Ulasan Siswa Boarding School</span>
-            </div>
-          </div>
+          <a href="#popular-courses" class="btn-hero-explore">Explore Kelas</a>
         </div>
+      </div>
 
-        <!-- Right: Interactive Video Card Mockup -->
-        <div class="hero-video-card" id="video-preview">
-          <img src="https://images.unsplash.com/photo-1581291518655-9523c932edcf?w=1000&auto=format&fit=crop&q=80" alt="Crygle Academy Video Mockup" class="hero-video-poster">
-          
-          <div class="hero-video-overlay">
-            <span class="badge" style="background: rgba(255, 255, 255, 0.2); color: #ffffff; backdrop-filter: blur(8px); align-self: flex-start;">
-              🎬 Video Pengenalan & Kurikulum
-            </span>
+      <!-- Hero Visual Banner 1200x686 (Node 735:1604) -->
+      <div class="hero-banner-visual" id="hero-banner-visual">
+        <img src="icon/hero-banner-main.png" alt="Suasana Belajar Kreatif Crygle Studio" class="hero-banner-img">
+        
+        <!-- Center Play Button (165px in Figma) -->
+        <button type="button" class="hero-play-center-btn" id="btn-play-hero-video" aria-label="Putar Video Trailer">
+          <img src="icon/hero-play-icon.svg" alt="Play Video">
+        </button>
 
-            <div class="hero-play-btn" title="Putar Trailer Kelas">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <!-- Bottom-Left Cutout Corner Shape (Figma Node 735:1613) & Social Proof -->
+        <div class="hero-corner-cutout-wrap">
+          <img src="icon/hero-cutout-corner.svg" alt="" class="hero-cutout-svg">
+          <div class="hero-corner-badge-content">
+            <div class="hero-avatar-stack">
+              <img src="icon/hero-avatar-1.png" alt="Siswa 1" class="hero-avatar-item av-1">
+              <img src="icon/hero-avatar-2.png" alt="Siswa 2" class="hero-avatar-item av-2">
+              <img src="icon/hero-avatar-3.png" alt="Siswa 3" class="hero-avatar-item av-3">
             </div>
-
-            <div style="display: flex; justify-content: space-between; align-items: flex-end; color: #ffffff;">
-              <div>
-                <p style="font-size: 13px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8;">Mentor Utama</p>
-                <p style="font-size: 16px; font-weight: 700;">Dimas Pradipa Abiyuda, S.Tr.Kom.</p>
+            <div class="hero-rating-col">
+              <div class="hero-stars-row">
+                <div class="stars-flex">
+                  <img src="icon/hero-star-icon.svg" alt="Star">
+                  <img src="icon/hero-star-icon.svg" alt="Star">
+                  <img src="icon/hero-star-icon.svg" alt="Star">
+                  <img src="icon/hero-star-icon.svg" alt="Star">
+                  <img src="icon/hero-star-icon.svg" alt="Star">
+                </div>
+                <span class="hero-rating-num">4.5</span>
               </div>
-              <span style="font-size: 13px; font-weight: 600; background: rgba(0,0,0,0.6); padding: 4px 10px; border-radius: 6px;">Durasi 03:45</span>
+              <span class="hero-reviews-label">From 300+ Reviews</span>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Video Trailer Modal -->
+  <div class="hero-video-modal" id="hero-video-modal" role="dialog" aria-modal="true" aria-label="Trailer Crygle Academy">
+    <div class="hero-video-modal-inner">
+      <button type="button" class="hero-video-modal-close" id="btn-close-hero-modal" aria-label="Tutup Video">✕</button>
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+        <iframe id="hero-iframe-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?enablejsapi=1" title="Crygle Academy Video Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
 
   <!-- ========================================================================
        3. RANGKAIAN PROGRAM (Node 735:1639)

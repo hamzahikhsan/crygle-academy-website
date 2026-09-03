@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSettingsForm();
   initAuthForms();
   initNavbarDropdowns();
+  initHeroVideoModal();
   initClassroomPlayer();
   initClassroomSyllabus();
   initClassroomTabs();
@@ -105,6 +106,48 @@ function initNavbarDropdowns() {
         const btn = w.querySelector('button.nav-item');
         if (btn) btn.setAttribute('aria-expanded', 'false');
       });
+    }
+  });
+}
+
+/* -------------------------------------------------------------------------- */
+/* 1.2 HERO VIDEO TRAILER MODAL                                              */
+/* -------------------------------------------------------------------------- */
+function initHeroVideoModal() {
+  const playBtn = document.getElementById('btn-play-hero-video');
+  const modal = document.getElementById('hero-video-modal');
+  const closeBtn = document.getElementById('btn-close-hero-modal');
+  const iframe = document.getElementById('hero-iframe-video');
+  if (!playBtn || !modal) return;
+
+  const originalSrc = iframe ? iframe.src : '';
+
+  const openModal = () => {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (iframe) {
+      iframe.src = originalSrc.includes('autoplay=1') ? originalSrc : originalSrc + '&autoplay=1';
+    }
+  };
+
+  const closeModal = () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    if (iframe) {
+      iframe.src = originalSrc;
+    }
+  };
+
+  playBtn.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
     }
   });
 }
