@@ -1,0 +1,73 @@
+{
+  "cleanUrls": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/Crygle%20Acadey%20Website/index.html"
+    },
+    {
+      "source": "/index.html",
+      "destination": "/Crygle%20Acadey%20Website/index.html"
+    },
+    {
+      "source": "/course-details.html",
+      "destination": "/Crygle%20Acadey%20Website/course-details.html"
+    },
+    {
+      "source": "/checkout.html",
+      "destination": "/Crygle%20Acadey%20Website/checkout.html"
+    },
+    {
+      "source": "/payment-review.html",
+      "destination": "/Crygle%20Acadey%20Website/payment-review.html"
+    },
+    {
+      "source": "/payment-processing.html",
+      "destination": "/Crygle%20Acadey%20Website/payment-processing.html"
+    },
+    {
+      "source": "/payment-success.html",
+      "destination": "/Crygle%20Acadey%20Website/payment-success.html"
+    },
+    {
+      "source": "/dashboard.html",
+      "destination": "/Crygle%20Acadey%20Website/dashboard.html"
+    },
+    {
+      "source": "/classroom.html",
+      "destination": "/Crygle%20Acadey%20Website/classroom.html"
+    },
+    {
+      "source": "/styles/:path*",
+      "destination": "/Crygle%20Acadey%20Website/styles/:path*"
+    },
+    {
+      "source": "/scripts/:path*",
+      "destination": "/Crygle%20Acadey%20Website/scripts/:path*"
+    },
+    {
+      "source": "/images/:path*",
+      "destination": "/Crygle%20Acadey%20Website/images/:path*"
+    },
+    {
+      "source": "/icon/:path*",
+      "destination": "/Crygle%20Acadey%20Website/icon/:path*"
+    },
+    {
+      "source": "/downloads/:path*",
+      "destination": "/Crygle%20Acadey%20Website/downloads/:path*"
+    },
+    {
+      "source": "/font%20typhography/:path*",
+      "destination": "/Crygle%20Acadey%20Website/font%20typhography/:path*"
+    },
+    {
+      "source": "/font typhography/:path*",
+      "destination": "/Crygle%20Acadey%20Website/font%20typhography/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/Crygle%20Acadey%20Website/$1"
+    }
+  ]
+}
