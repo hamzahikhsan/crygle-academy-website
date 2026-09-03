@@ -3,9 +3,9 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
 const routes = [
-  { heading: 'Home Page', importPage: () => import('./page') },
+  { heading: 'Tempat Perjuangan Kreatif Anak Muda Dimulai', importPage: () => import('./page') },
   { heading: 'Katalog Kelas', importPage: () => import('./kelas/page') },
-  { heading: 'Course Details', importPage: () => import('./kelas/[slug]/page'), params: { slug: 'ui-ux-design' } },
+  { heading: 'UI/UX Design : Menghasilkan Dolar Hanya Dengan Menjual Produk UI Kit', importPage: () => import('./kelas/[slug]/page'), params: { slug: 'ui-ux-design' } },
   { heading: 'Masuk', importPage: () => import('./login/page') },
   { heading: 'Buat Akun', importPage: () => import('./signup/page') },
   { heading: 'Lupa Password', importPage: () => import('./lupa-password/page') },
@@ -22,17 +22,13 @@ const routes = [
   { heading: 'Jadwal dan Absensi', importPage: () => import('./bootcamp/jadwal/page') },
   { heading: 'Pengumpulan Tugas dan Quiz', importPage: () => import('./bootcamp/tugas/page') },
   { heading: 'Leaderboard Ranking', importPage: () => import('./bootcamp/leaderboard/page') },
-  { heading: 'Mentor', importPage: () => import('./mentor/page') },
-  { heading: 'Tentang Crygle Academy', importPage: () => import('./tentang/page') },
+  { heading: 'Para Mentor Praktisi Industri', importPage: () => import('./mentor/page') },
+  { heading: 'Sanctuary Belajar Kreatif Digital untuk Masa Depan Nyata', importPage: () => import('./tentang/page') },
 ];
 
-describe('route stubs', () => {
-  it.each(routes)('$heading renders its placeholder heading', async ({ importPage, heading, params }) => {
+describe('route smoke tests', () => {
+  it.each(routes)('$heading renders correctly', async ({ importPage, heading, params }) => {
     const mod = await importPage();
-    // Each stub page types its own `params` narrowly (e.g. `{ slug: string }`),
-    // which is correct per-page but means the aggregate type across this
-    // heterogeneous route table doesn't unify — this is a routing smoke test,
-    // not a place to preserve per-page param typing, so widen deliberately.
     const Page = mod.default as ComponentType<{ params: Record<string, string> }>;
     render(<Page params={(params ?? {}) as Record<string, string>} />);
     expect(screen.getByText(heading)).toBeInTheDocument();
