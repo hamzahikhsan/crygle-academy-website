@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAffiliateCopy();
   initSettingsForm();
   initAuthForms();
+  initNavbarDropdowns();
   initClassroomPlayer();
   initClassroomSyllabus();
   initClassroomTabs();
@@ -49,6 +50,63 @@ function initStickyNavbar() {
 
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
+}
+
+/* -------------------------------------------------------------------------- */
+/* 1.1 MEGA DROPDOWN WORKSPACE (VIDEO KELAS & BOOTCAMP INTENSIF)              */
+/* -------------------------------------------------------------------------- */
+function initNavbarDropdowns() {
+  const dropdownWrappers = document.querySelectorAll('.nav-dropdown-wrapper');
+  if (!dropdownWrappers.length) return;
+
+  dropdownWrappers.forEach(wrapper => {
+    const triggerBtn = wrapper.querySelector('button.nav-item');
+    if (!triggerBtn) return;
+
+    triggerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = wrapper.classList.contains('open');
+
+      // Close all other dropdowns
+      dropdownWrappers.forEach(w => {
+        if (w !== wrapper) {
+          w.classList.remove('open');
+          const btn = w.querySelector('button.nav-item');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      if (isOpen) {
+        wrapper.classList.remove('open');
+        triggerBtn.setAttribute('aria-expanded', 'false');
+      } else {
+        wrapper.classList.add('open');
+        triggerBtn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Close on click outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-dropdown-wrapper')) {
+      dropdownWrappers.forEach(w => {
+        w.classList.remove('open');
+        const btn = w.querySelector('button.nav-item');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      dropdownWrappers.forEach(w => {
+        w.classList.remove('open');
+        const btn = w.querySelector('button.nav-item');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
 }
 
 /* -------------------------------------------------------------------------- */

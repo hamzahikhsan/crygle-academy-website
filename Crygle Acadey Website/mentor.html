@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Direktori Mentor — Crygle Academy</title>
+  <meta name="description" content="Kenali instruktur dan mentor praktisi industri di Crygle Academy. Bimbingan 1-on-1 untuk 3D Blender, UI/UX Figma, Web Coding, dan Robotika Cerdas.">
+  <link rel="icon" type="image/png" href="icon/logo.png">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/main.css?v=3.5">
+  <link rel="stylesheet" href="styles/components.css?v=3.6">
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. NAVIGATION BAR (Figma Node 956:566)
+       ======================================================================== -->
+  <header class="navbar-wrapper">
+    <div class="navbar-container">
+      <a href="index.html" class="brand-logo" aria-label="Crygle Academy">
+        <img src="icon/logo.png" alt="Crygle Academy" class="navbar-logo-img">
+      </a>
+
+      <!-- Navigation Menu Pill -->
+      <nav class="nav-menu-pill" aria-label="Main Navigation">
+        <a href="index.html" class="nav-item">Beranda</a>
+
+        <!-- Dropdown 1: Video Kelas -->
+        <div class="nav-dropdown-wrapper" id="dropdown-wrapper-courses">
+          <button type="button" class="nav-item" aria-expanded="false" aria-haspopup="true">
+            Video Kelas
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="nav-mega-dropdown nav-dropdown-courses" role="menu">
+            <div class="dropdown-header-bar">
+              <div class="dropdown-title-group">
+                <span class="dropdown-heading-text">Kategori Video Kelas</span>
+                <span class="dropdown-badge-pill">Akses Selamanya</span>
+              </div>
+              <a href="course-details.html" class="dropdown-footer-link" style="font-size: 12px;">Kelas Populer ➔</a>
+            </div>
+            <div class="dropdown-grid-2col">
+              <a href="course-details.html" class="dropdown-card-item">
+                <div class="dropdown-card-icon">🎨</div>
+                <div class="dropdown-card-info">
+                  <div class="dropdown-card-name">3D Design &amp; Animation</div>
+                  <div class="dropdown-card-desc">Blender modeling &amp; animasi produk komersial.</div>
+                </div>
+              </a>
+              <a href="course-details.html" class="dropdown-card-item">
+                <div class="dropdown-card-icon">📱</div>
+                <div class="dropdown-card-info">
+                  <div class="dropdown-card-name">UI/UX &amp; Product Design</div>
+                  <div class="dropdown-card-desc">Figma design system &amp; UI Kit komersial.</div>
+                </div>
+              </a>
+              <a href="index.html#popular-courses" class="dropdown-card-item">
+                <div class="dropdown-card-icon">💻</div>
+                <div class="dropdown-card-info">
+                  <div class="dropdown-card-name">Creative Coding &amp; Web</div>
+                  <div class="dropdown-card-desc">Front-end portfolio &amp; web interaktif.</div>
+                </div>
+              </a>
+              <a href="index.html#popular-courses" class="dropdown-card-item">
+                <div class="dropdown-card-icon">🤖</div>
+                <div class="dropdown-card-info">
+                  <div class="dropdown-card-name">Robotics &amp; Smart IoT</div>
+                  <div class="dropdown-card-desc">Arduino cerdas &amp; otomasi mikrokontroler.</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dropdown 2: Bootcamp Intensif -->
+        <div class="nav-dropdown-wrapper" id="dropdown-wrapper-bootcamp">
+          <button type="button" class="nav-item" aria-expanded="false" aria-haspopup="true">
+            Bootcamp Intensif
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="nav-mega-dropdown nav-dropdown-bootcamp" role="menu">
+            <div class="dropdown-header-bar">
+              <div class="dropdown-title-group">
+                <span class="dropdown-heading-text">Program Unggulan Bootcamp</span>
+                <span class="dropdown-badge-pill">Batch 2026</span>
+              </div>
+            </div>
+            <div class="dropdown-grid-2col">
+              <a href="index.html#program-section" class="dropdown-card-item">
+                <div class="dropdown-card-icon">🚀</div>
+                <div class="dropdown-card-info">
+                  <div class="dropdown-card-name">Fullstack UI/UX Designer</div>
+                  <div class="dropdown-card-desc">8 Minggu • Live mentoring &amp; portofolio riil.</div>
+                </div>
+              </a>
+              <a href="index.html#program-section" class="dropdown-card-item">
+                <div class="dropdown-card-icon">⚡</div>
+                <div class="dropdown-card-info">
+                  <div class="dropdown-card-name">Frontend Web Engineering</div>
+                  <div class="dropdown-card-desc">10 Minggu • HTML/CSS modern &amp; capstone app.</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="mentor.html" class="nav-item active">Mentor</a>
+        <a href="tentang.html" class="nav-item">Tentang</a>
+      </nav>
+
+      <!-- Auth Actions -->
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-pill-auth">Masuk</a>
+        <a href="signup.html" class="btn btn-primary btn-pill-auth">Daftar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. HERO SECTION MENTOR
+       ======================================================================== -->
+  <section class="section" style="padding: 60px 0 40px; background: #F8FAFD; border-bottom: 1px solid #EAF0F6;">
+    <div class="container text-center" style="max-width: 800px; margin: 0 auto;">
+      <span class="section-badge" style="background: #EBF4FC; color: #235F9C;">Direktori Instruktur</span>
+      <h1 class="section-title" style="font-size: 42px; margin-top: 12px;">Para Mentor Praktisi Industri</h1>
+      <p class="section-desc" style="font-size: 17px; margin-top: 14px;">
+        Belajar langsung dari praktisi yang aktif berkarya di studio 3D, agency desain global, dan tech startup. Dapatkan bimbingan 1-on-1, code review, dan kurasi karir.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. MENTOR DIRECTORY GRID
+       ======================================================================== -->
+  <section class="section mentor-section-wrap" style="padding-top: 40px;">
+    <div class="container">
+      <div class="mentor-grid-3col">
+        <!-- Mentor 1 -->
+        <div class="mentor-profile-card">
+          <div class="mentor-card-header">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" alt="Dion Ahza Pratama" class="mentor-avatar-box">
+            <div class="mentor-title-info">
+              <h3 class="mentor-name-title">Dion Ahza Pratama</h3>
+              <span class="mentor-role-label">Lead 3D &amp; Motion Director</span>
+              <div class="mentor-stat-pill-row">
+                <span class="mentor-rating-badge">⭐ 4.9</span>
+                <span class="mentor-students-badge">1.420+ Santri</span>
+              </div>
+            </div>
+          </div>
+          <p class="mentor-bio-text">
+            7+ tahun memproduksi aset 3D &amp; motion graphics komersial di platform global. Pembina utama kelas 3D Blender Crygle Studio.
+          </p>
+          <div class="mentor-skills-flex">
+            <span class="mentor-skill-tag">Blender 3D</span>
+            <span class="mentor-skill-tag">Product Render</span>
+            <span class="mentor-skill-tag">Freepik Seller</span>
+          </div>
+          <div class="mentor-actions-row">
+            <a href="dashboard.html#chat" class="btn-mentor-book">Konsultasi Mentor</a>
+            <a href="dashboard.html#chat" class="btn-mentor-profile">Chat</a>
+          </div>
+        </div>
+
+        <!-- Mentor 2 -->
+        <div class="mentor-profile-card">
+          <div class="mentor-card-header">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80" alt="Sarah Aulia Rahma" class="mentor-avatar-box">
+            <div class="mentor-title-info">
+              <h3 class="mentor-name-title">Sarah Aulia Rahma</h3>
+              <span class="mentor-role-label">Senior UI/UX Specialist</span>
+              <div class="mentor-stat-pill-row">
+                <span class="mentor-rating-badge">⭐ 4.9</span>
+                <span class="mentor-students-badge">1.600+ Santri</span>
+              </div>
+            </div>
+          </div>
+          <p class="mentor-bio-text">
+            Praktisi product design berpengalaman merancang antarmuka aplikasi fintech dan sistem desain skala enterprise berstandar industri.
+          </p>
+          <div class="mentor-skills-flex">
+            <span class="mentor-skill-tag">Figma Pro</span>
+            <span class="mentor-skill-tag">Design System</span>
+            <span class="mentor-skill-tag">User Research</span>
+          </div>
+          <div class="mentor-actions-row">
+            <a href="dashboard.html#chat" class="btn-mentor-book">Konsultasi Mentor</a>
+            <a href="dashboard.html#chat" class="btn-mentor-profile">Chat</a>
+          </div>
+        </div>
+
+        <!-- Mentor 3 -->
+        <div class="mentor-profile-card">
+          <div class="mentor-card-header">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" alt="Fahri Al-Farizi" class="mentor-avatar-box">
+            <div class="mentor-title-info">
+              <h3 class="mentor-name-title">Fahri Al-Farizi</h3>
+              <span class="mentor-role-label">Principal Frontend Engineer</span>
+              <div class="mentor-stat-pill-row">
+                <span class="mentor-rating-badge">⭐ 4.8</span>
+                <span class="mentor-students-badge">980+ Santri</span>
+              </div>
+            </div>
+          </div>
+          <p class="mentor-bio-text">
+            Software engineer fokus pada rekayasa antarmuka web modern, animasi performa tinggi, dan clean architecture front-end.
+          </p>
+          <div class="mentor-skills-flex">
+            <span class="mentor-skill-tag">Modern JS</span>
+            <span class="mentor-skill-tag">Web Animation</span>
+            <span class="mentor-skill-tag">Front-End UI</span>
+          </div>
+          <div class="mentor-actions-row">
+            <a href="dashboard.html#chat" class="btn-mentor-book">Konsultasi Mentor</a>
+            <a href="dashboard.html#chat" class="btn-mentor-profile">Chat</a>
+          </div>
+        </div>
+
+        <!-- Mentor 4 -->
+        <div class="mentor-profile-card">
+          <div class="mentor-card-header">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" alt="Dr. Hendra Wijaya" class="mentor-avatar-box">
+            <div class="mentor-title-info">
+              <h3 class="mentor-name-title">Dr. Ir. Hendra Wijaya, M.T.</h3>
+              <span class="mentor-role-label">Robotics &amp; Embedded IoT</span>
+              <div class="mentor-stat-pill-row">
+                <span class="mentor-rating-badge">⭐ 5.0</span>
+                <span class="mentor-students-badge">750+ Santri</span>
+              </div>
+            </div>
+          </div>
+          <p class="mentor-bio-text">
+            Dosen dan peneliti robotika terkemuka. Pembimbing kompetisi robotika nasional dengan pendekatan riset aplikatif ramah santri.
+          </p>
+          <div class="mentor-skills-flex">
+            <span class="mentor-skill-tag">Arduino</span>
+            <span class="mentor-skill-tag">IoT Automation</span>
+            <span class="mentor-skill-tag">Robotics</span>
+          </div>
+          <div class="mentor-actions-row">
+            <a href="dashboard.html#chat" class="btn-mentor-book">Konsultasi Mentor</a>
+            <a href="dashboard.html#chat" class="btn-mentor-profile">Chat</a>
+          </div>
+        </div>
+
+        <!-- Mentor 5 -->
+        <div class="mentor-profile-card">
+          <div class="mentor-card-header">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80" alt="Nadia Putri" class="mentor-avatar-box">
+            <div class="mentor-title-info">
+              <h3 class="mentor-name-title">Nadia Putri</h3>
+              <span class="mentor-role-label">Illustrator &amp; Vector Artist</span>
+              <div class="mentor-stat-pill-row">
+                <span class="mentor-rating-badge">⭐ 4.9</span>
+                <span class="mentor-students-badge">1.100+ Santri</span>
+              </div>
+            </div>
+          </div>
+          <p class="mentor-bio-text">
+            Top-rated vector designer di pasar microstock internasional. Mengajarkan teknik menggambar karakter dan ikon grafis komersial.
+          </p>
+          <div class="mentor-skills-flex">
+            <span class="mentor-skill-tag">Vector Art</span>
+            <span class="mentor-skill-tag">Illustration</span>
+            <span class="mentor-skill-tag">Microstock</span>
+          </div>
+          <div class="mentor-actions-row">
+            <a href="dashboard.html#chat" class="btn-mentor-book">Konsultasi Mentor</a>
+            <a href="dashboard.html#chat" class="btn-mentor-profile">Chat</a>
+          </div>
+        </div>
+
+        <!-- Mentor 6 -->
+        <div class="mentor-profile-card">
+          <div class="mentor-card-header">
+            <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=200&auto=format&fit=crop&q=80" alt="Reza Kurniawan" class="mentor-avatar-box">
+            <div class="mentor-title-info">
+              <h3 class="mentor-name-title">Reza Kurniawan</h3>
+              <span class="mentor-role-label">Career Coach &amp; Portfolio Lead</span>
+              <div class="mentor-stat-pill-row">
+                <span class="mentor-rating-badge">⭐ 4.9</span>
+                <span class="mentor-students-badge">890+ Santri</span>
+              </div>
+            </div>
+          </div>
+          <p class="mentor-bio-text">
+            Spesialis kurasi portofolio santri bootcamp. Membantu mempersiapkan CV, interview simulasi, dan penyaluran bakat ke ekosistem industri.
+          </p>
+          <div class="mentor-skills-flex">
+            <span class="mentor-skill-tag">Career Prep</span>
+            <span class="mentor-skill-tag">Portfolio Curation</span>
+            <span class="mentor-skill-tag">Sanbercode Model</span>
+          </div>
+          <div class="mentor-actions-row">
+            <a href="dashboard.html#chat" class="btn-mentor-book">Konsultasi Mentor</a>
+            <a href="dashboard.html#chat" class="btn-mentor-profile">Chat</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="background: #235F9C; color: #ffffff; padding: 60px 0 30px;">
+    <div class="container text-center">
+      <img src="icon/Frame 36933.png" alt="Crygle Academy" style="height: 48px; margin-bottom: 16px;">
+      <p style="color: rgba(255,255,255,0.8); font-size: 14px; max-width: 500px; margin: 0 auto 24px;">
+        Sanctuary pembelajaran kreatif digital ramah pemula dari tingkat SD hingga SMK.
+      </p>
+      <div style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 20px; font-size: 13px; color: rgba(255,255,255,0.7);">
+        © 2026 CRYGLE Academy. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-notification-container"></div>
+  <script src="scripts/main.js"></script>
+</body>
+</html>

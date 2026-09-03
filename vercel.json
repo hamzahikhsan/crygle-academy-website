@@ -54,6 +54,22 @@
       "destination": "/Crygle%20Acadey%20Website/signup.html"
     },
     {
+      "source": "/mentor",
+      "destination": "/Crygle%20Acadey%20Website/mentor.html"
+    },
+    {
+      "source": "/mentor.html",
+      "destination": "/Crygle%20Acadey%20Website/mentor.html"
+    },
+    {
+      "source": "/tentang",
+      "destination": "/Crygle%20Acadey%20Website/tentang.html"
+    },
+    {
+      "source": "/tentang.html",
+      "destination": "/Crygle%20Acadey%20Website/tentang.html"
+    },
+    {
       "source": "/styles/:path*",
       "destination": "/Crygle%20Acadey%20Website/styles/:path*"
     },

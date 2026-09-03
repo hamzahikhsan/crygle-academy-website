@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tentang Kami — Crygle Academy</title>
+  <meta name="description" content="Profil lengkap Crygle Academy. Sanctuary edukasi kreatif digital santri dan pemuda Indonesia di bidang 3D Design, Creative Coding, dan Robotika Cerdas.">
+  <link rel="icon" type="image/png" href="icon/logo.png">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/main.css?v=3.5">
+  <link rel="stylesheet" href="styles/components.css?v=3.6">
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. NAVIGATION BAR (Figma Node 956:566)
+       ======================================================================== -->
+  <header class="navbar-wrapper">
+    <div class="navbar-container">
+      <a href="index.html" class="brand-logo" aria-label="Crygle Academy">
+        <img src="icon/logo.png" alt="Crygle Academy" class="navbar-logo-img">
+      </a>
+
+      <!-- Navigation Menu Pill -->
+      <nav class="nav-menu-pill" aria-label="Main Navigation">
+        <a href="index.html" class="nav-item">Beranda</a>
+
+        <!-- Dropdown 1: Video Kelas -->
+        <div class="nav-dropdown-wrapper" id="dropdown-wrapper-courses">
+          <button type="button" class="nav-item" aria-expanded="false" aria-haspopup="true">
+            Video Kelas
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="nav-mega-dropdown nav-dropdown-courses" role="menu">
+            <div class="dropdown-header-bar">
+              <div class="dropdown-title-group">
+                <span class="dropdown-heading-text">Kategori Video Kelas</span>
+                <span class="dropdown-badge-pill">Akses Selamanya</span>
+              </div>
+              <a href="course-details.html" class="dropdown-footer-link" style="font-size: 12px;">Kelas Populer ➔</a>
+            </div>
+            <div class="dropdown-grid-2col">
+              <a href="course-details.html" class="dropdown-card-item">
+                <div class="dropdown-card-icon">🎨</div>
+                <div class="dropdown-card-info">
+                  <div class="dropdown-card-name">3D Design &amp; Animation</div>
+                  <div class="dropdown-card-desc">Blender modeling &amp; animasi produk komersial.</div>
+                </div>
+              </a>
+              <a href="course-details.html" class="dropdown-card-item">
+                <div class="dropdown-card-icon">📱</div>
+                <div class="dropdown-card-info">
+                  <div class="dropdown-card-name">UI/UX &amp; Product Design</div>
+                  <div class="dropdown-card-desc">Figma design system &amp; UI Kit komersial.</div>
+                </div>
+              </a>
+              <a href="index.html#popular-courses" class="dropdown-card-item">
+                <div class="dropdown-card-icon">💻</div>
+                <div class="dropdown-card-info">
+                  <div class="dropdown-card-name">Creative Coding &amp; Web</div>
+                  <div class="dropdown-card-desc">Front-end portfolio &amp; web interaktif.</div>
+                </div>
+              </a>
+              <a href="index.html#popular-courses" class="dropdown-card-item">
+                <div class="dropdown-card-icon">🤖</div>
+                <div class="dropdown-card-info">
+                  <div class="dropdown-card-name">Robotics &amp; Smart IoT</div>
+                  <div class="dropdown-card-desc">Arduino cerdas &amp; otomasi mikrokontroler.</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dropdown 2: Bootcamp Intensif -->
+        <div class="nav-dropdown-wrapper" id="dropdown-wrapper-bootcamp">
+          <button type="button" class="nav-item" aria-expanded="false" aria-haspopup="true">
+            Bootcamp Intensif
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="nav-mega-dropdown nav-dropdown-bootcamp" role="menu">
+            <div class="dropdown-header-bar">
+              <div class="dropdown-title-group">
+                <span class="dropdown-heading-text">Program Unggulan Bootcamp</span>
+                <span class="dropdown-badge-pill">Batch 2026</span>
+              </div>
+            </div>
+            <div class="dropdown-grid-2col">
+              <a href="index.html#program-section" class="dropdown-card-item">
+                <div class="dropdown-card-icon">🚀</div>
+                <div class="dropdown-card-info">
+                  <div class="dropdown-card-name">Fullstack UI/UX Designer</div>
+                  <div class="dropdown-card-desc">8 Minggu • Live mentoring &amp; portofolio riil.</div>
+                </div>
+              </a>
+              <a href="index.html#program-section" class="dropdown-card-item">
+                <div class="dropdown-card-icon">⚡</div>
+                <div class="dropdown-card-info">
+                  <div class="dropdown-card-name">Frontend Web Engineering</div>
+                  <div class="dropdown-card-desc">10 Minggu • HTML/CSS modern &amp; capstone app.</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="mentor.html" class="nav-item">Mentor</a>
+        <a href="tentang.html" class="nav-item active">Tentang</a>
+      </nav>
+
+      <!-- Auth Actions -->
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-pill-auth">Masuk</a>
+        <a href="signup.html" class="btn btn-primary btn-pill-auth">Daftar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. HERO SECTION TENTANG
+       ======================================================================== -->
+  <section class="section" style="padding: 70px 0 50px; background: #F8FAFD; border-bottom: 1px solid #EAF0F6;">
+    <div class="container text-center" style="max-width: 860px; margin: 0 auto;">
+      <span class="section-badge" style="background: #EBF4FC; color: #235F9C;">Mengenal Crygle Academy</span>
+      <h1 class="section-title" style="font-size: 42px; margin-top: 14px; line-height: 1.25;">Sanctuary Belajar Kreatif Digital untuk Masa Depan Nyata</h1>
+      <p class="section-desc" style="font-size: 17px; margin-top: 16px;">
+        Bukan hanya menghafal teori, tetapi belajar sambil bikin karya nyata. Kami mendampingi santri, pelajar, dan generasi muda dari nol hingga memiliki karya berdaya saing global.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. 3 PILAR UTAMA (Figma Node 735:2582)
+       ======================================================================== -->
+  <section class="section about-section-wrap" style="background: #ffffff; padding: 70px 0;">
+    <div class="container">
+      <div class="section-header text-center" style="max-width: 700px; margin: 0 auto 40px;">
+        <span class="section-badge">Fondasi Kurikulum</span>
+        <h2 class="section-title">Tiga Pilar Pembelajaran Crygle</h2>
+        <p class="section-desc">
+          Setiap program kami dirancang terintegrasi untuk mengasah daya imajinasi, logika komputasi, dan kecakapan rekayasa teknologi.
+        </p>
+      </div>
+
+      <div class="about-pillars-grid">
+        <div class="about-pillar-card">
+          <div class="about-pillar-icon-wrap" style="color: #235F9C;">🎨</div>
+          <h3 class="about-pillar-title">Kreatif Design</h3>
+          <p class="about-pillar-desc">
+            Menyalurkan imajinasi menjadi karya yang menghasilkan. Mulai dari pemodelan 3D Blender, desain antarmuka mobile/web di Figma, hingga produksi aset microstock komersial bernilai dolar.
+          </p>
+          <div style="font-size: 13px; font-weight: 700; color: #235F9C; margin-top: auto;">Blender 3D • UI/UX Figma • Digital Assets</div>
+        </div>
+
+        <div class="about-pillar-card">
+          <div class="about-pillar-icon-wrap" style="color: #31BC53;">💻</div>
+          <h3 class="about-pillar-title">Kreatif Coding</h3>
+          <p class="about-pillar-desc">
+            Bahasa masa depan untuk merealisasikan ide menjadi produk digital. Diajarkan melalui studi kasus interaktif, pembangunan web portfolio, dan logika pemrograman praktis yang menyenangkan.
+          </p>
+          <div style="font-size: 13px; font-weight: 700; color: #31BC53; margin-top: auto;">HTML5/CSS3 • JavaScript • Web Portfolio</div>
+        </div>
+
+        <div class="about-pillar-card">
+          <div class="about-pillar-icon-wrap" style="color: #E29C00;">🤖</div>
+          <h3 class="about-pillar-title">Kreatif Robot</h3>
+          <p class="about-pillar-desc">
+            Mengenal teknologi cerdas dan otomasi sejak dini. Belajar merancang mikrokontroler Arduino, sensor IoT, serta rekayasa mekanik otomatis yang aplikatif untuk memecahkan masalah sehari-hari.
+          </p>
+          <div style="font-size: 13px; font-weight: 700; color: #E29C00; margin-top: auto;">Arduino • Sensor IoT • Smart Automation</div>
+        </div>
+      </div>
+
+      <!-- Stats Strip -->
+      <div class="about-stats-counter-strip">
+        <div class="about-stat-item">
+          <span class="about-stat-number">10.000+</span>
+          <span class="about-stat-label">Santri &amp; Pelajar Terlatih</span>
+        </div>
+        <div class="about-stat-item">
+          <span class="about-stat-number">94%</span>
+          <span class="about-stat-label">Tingkat Kelulusan &amp; Kepuasan</span>
+        </div>
+        <div class="about-stat-item">
+          <span class="about-stat-number">150+</span>
+          <span class="about-stat-label">Mitra Industri &amp; Studio</span>
+        </div>
+        <div class="about-stat-item">
+          <span class="about-stat-number">350+</span>
+          <span class="about-stat-label">Karya Portofolio Komersial</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. METODOLOGI & BUDAYA BELAJAR
+       ======================================================================== -->
+  <section class="section" style="padding: 70px 0; background: #F8FAFD;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+        <div>
+          <span class="section-badge" style="background: #EBF4FC; color: #235F9C;">Metodologi Belajar</span>
+          <h2 class="section-title" style="margin-top: 12px; font-size: 34px;">80% Praktek Nyata, 20% Fondasi Konsep</h2>
+          <p style="color: #64748b; font-size: 15.5px; line-height: 1.65; margin: 16px 0 24px;">
+            Kami percaya keahlian digital tidak lahir dari sekadar membaca slide presentasi, melainkan dari keberanian mengotak-atik tools, memecahkan error, dan menyelesaikan proyek nyata.
+          </p>
+          <ul style="display: flex; flex-direction: column; gap: 12px; list-style: none; padding: 0;">
+            <li style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: #202020;">
+              <span style="color: #31BC53; font-size: 18px;">✓</span> Proyek berbasis studi kasus industri nyata.
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: #202020;">
+              <span style="color: #31BC53; font-size: 18px;">✓</span> Feedback langsung dan code review mingguan oleh mentor.
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; font-weight: 600; color: #202020;">
+              <span style="color: #31BC53; font-size: 18px;">✓</span> Komunitas santri saling dukung dan sharing peluang karir.
+            </li>
+          </ul>
+        </div>
+        <div style="background: #ffffff; border: 1px solid #EAF0F6; border-radius: 24px; padding: 36px; box-shadow: 0 8px 30px rgba(0,0,0,0.04);">
+          <h3 style="font-size: 20px; font-weight: 800; color: #202020; margin-bottom: 12px;">Studio &amp; Hub Pembelajaran</h3>
+          <p style="font-size: 14.5px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
+            Berlokasi di Pekanbaru, Riau, Crygle Studio memadukan kenyamanan fasilitas studio fisik dengan platform digital modern untuk menjangkau santri dari seluruh penjuru nusantara.
+          </p>
+          <div style="font-size: 13.5px; color: #235F9C; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+            📍 Jl. Cipta Karya, Sidomulyo Bar., Kec. Tampan, Kota Pekanbaru, Riau
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="background: #235F9C; color: #ffffff; padding: 60px 0 30px;">
+    <div class="container text-center">
+      <img src="icon/Frame 36933.png" alt="Crygle Academy" style="height: 48px; margin-bottom: 16px;">
+      <p style="color: rgba(255,255,255,0.8); font-size: 14px; max-width: 500px; margin: 0 auto 24px;">
+        Sanctuary pembelajaran kreatif digital ramah pemula dari tingkat SD hingga SMK.
+      </p>
+      <div style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 20px; font-size: 13px; color: rgba(255,255,255,0.7);">
+        © 2026 CRYGLE Academy. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-notification-container"></div>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
