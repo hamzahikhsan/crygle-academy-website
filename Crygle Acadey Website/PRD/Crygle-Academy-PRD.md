@@ -1,7 +1,9 @@
 # Crygle Academy — Product Requirements Document
 
-**Versi:** 2.2 (Markdown handoff edition + Design System resmi) · **Tanggal:** 3 September 2026 · **Status:** Draft — siap untuk handoff development & design
-**Sumber desain:** Figma — [Research Web Academy (Copy)](https://www.figma.com/design/ueGJd0omZ8gQNmGvAaz9G2/Research-Web-Academy--Copy-?node-id=735-1568), page **Prototype**
+**Versi:** 3.1 (11 gap ditutup langsung di situs statis live — lihat §14) · **Tanggal:** 4 September 2026 · **Status:** Draft — siap untuk handoff development & design
+**Sumber desain:** Figma — [Research Web Academy (Copy)](https://www.figma.com/design/ueGJd0omZ8gQNmGvAaz9G2/Research-Web-Academy--Copy-?node-id=735-1568), page **Prototype** · Frontend audit: `Crygle Acadey Website/*.html` (20 halaman per v3.1, dari 12) · Diagram user flow: [FigJam ↗](https://www.figma.com/board/JoA7Gvz89pjGJFIVFYHLXt/Untitled?node-id=0-1) (belum diperbarui ke status v3.1, lihat catatan §16.4)
+
+> **v3.1 (4 Sep 2026):** karena tekanan tenggat, prioritas dialihkan dari migrasi Next.js (plan lengkap tetap tersedia di `PLAN-Fase1..4-*.md` untuk dilanjutkan nanti) ke menutup gap alur/tampilan langsung di situs statis yang sudah live di Vercel. 8 halaman baru dibangun (`kelas.html`, `lupa-password.html`, `verifikasi-otp.html`, `payment-failed.html`, `bootcamp.html`, `bootcamp-join.html`, `privasi.html`, `syarat-ketentuan.html`) memakai token &amp; class CSS yang sudah ada — tanpa bahasa desain baru. Detail per item ada di §14.
 
 ---
 
@@ -76,11 +78,13 @@ Empat dokumen kerja di luar file Figma mengonfirmasi &amp; memperdalam konteks p
 
 FAQ pada Home Page: *"CRYGLE Academy dirancang khusus untuk pemula dari tingkat SD hingga SMK."* Kemungkinan besar disalurkan lewat kemitraan sekolah asrama (§2), bukan pasar umum.
 
+> **Keputusan istilah (v3.0, dikonfirmasi user 3 Sep 2026):** tim implementasi frontend sudah mulai memakai **"Santri"/"Santriwati"** (bukan "siswa"/"pelajar") secara konsisten di beberapa layar (panel Affiliate &amp; Setting dashboard, ulasan di tab Reviews Course Details — mis. *"Santriwati Boarding School · 1 bulan lalu"*). Ini diformalkan jadi istilah resmi produk: pakai **Santri** (laki-laki/netral) / **Santriwati** (perempuan) di seluruh copy baru, bukan "siswa" generik. "Pelajar" boleh tetap dipakai di konteks marketing umum (SEO, meta description) yang menyasar pencarian publik.
+
 | Persona | Peran | Kebutuhan |
 |---|---|---|
-| **Pelajar SD–SMK** (utama) | Boarding school, minim/tanpa pengalaman desain/coding/robotika | Materi bertahap, jadwal terstruktur (cocok ritme asrama), sertifikat, akses seumur hidup |
+| **Santri/Santriwati SD–SMK** (utama) | Boarding school, minim/tanpa pengalaman desain/coding/robotika | Materi bertahap, jadwal terstruktur (cocok ritme asrama — "waktu luang di asrama terbatas"), sertifikat, akses seumur hidup |
 | **Orang Tua / Wali** (sekunder) | Pengambil keputusan pembelian | Transparansi harga/diskon, sertifikat resmi, trust badge ("Akses Selamanya", "Grup Komunitas") |
-| **Mentor / Pengajar** (sisi supply) | Berbasis orang nyata, mis. Dimas Pradipa Abiyuda, S.Tr.Kom. | Halaman profil ("Tentang Mentor"), jalur chat langsung dengan siswa |
+| **Mentor / Pengajar** (sisi supply) | Berbasis orang nyata, mis. Dimas Pradipa Abiyuda, S.Tr.Kom. | Halaman profil ("Tentang Mentor"), jalur chat langsung dengan Santri |
 | **Admin Sekolah Mitra** 💭 IDEATION | Belum ada di desain manapun | Lihat §15 — tersirat dari branding "x Boarding School" |
 
 ---
@@ -113,7 +117,7 @@ FAQ pada Home Page: *"CRYGLE Academy dirancang khusus untuk pemula dari tingkat 
 
 ### 5.3 Peta positioning vs. kompetitor riil
 
-Tiga nama berikut bukan asumsi — dua disebut eksplisit di catatan Figma tim (§2) dan satu terlihat dari pola desain checkout. Profil dirangkum dari situs resmi masing-masing (dicek September 2026, lihat §16 untuk tautan).
+Tiga nama berikut bukan asumsi — dua disebut eksplisit di catatan Figma tim (§2) dan satu terlihat dari pola desain checkout. Profil dirangkum dari situs resmi masing-masing (dicek September 2026, lihat §17 untuk tautan).
 
 ```mermaid
 quadrantChart
@@ -139,7 +143,7 @@ quadrantChart
 | **easy-course-buy.lovable.app** | Template checkout kelas (dibangun di Lovable) | Referensi teknis, bukan brand kompetitor | ✅ **Baru ditemukan** — library kedua yang di-*import* langsung ke file Figma menurut Design System resmi; kemungkinan sumber pola UI Checkout §9.5 |
 | **Crygle Academy** | Sanctuary belajar untuk K-12 | Satu-satunya yang menyasar SD–SMK secara formal, terintegrasi ke sekolah asrama | — |
 
-> **Sumber:** profil Binar Academy &amp; Sanbercode dari riset web (September 2026, tautan di §16). Baris BuildWithAngga &amp; easy-course-buy.lovable.app dikonfirmasi langsung dari isi Readme [CRYGLE Academy Design System ↗](https://claude.ai/design/p/d21a7fbc-41df-41a5-9ad8-4fa47db01baf) — bukan inferensi.
+> **Sumber:** profil Binar Academy &amp; Sanbercode dari riset web (September 2026, tautan di §17). Baris BuildWithAngga &amp; easy-course-buy.lovable.app dikonfirmasi langsung dari isi Readme [CRYGLE Academy Design System ↗](https://claude.ai/design/p/d21a7fbc-41df-41a5-9ad8-4fa47db01baf) — bukan inferensi.
 
 ### 5.4 Pertanyaan terbuka dari Design System resmi ⚠️
 
@@ -360,9 +364,11 @@ Dashboard "Kelas Saya" punya sidebar 7 menu, hanya "Course Saya" yang punya laya
 
 ---
 
-## 10. Alur Bootcamp Intensif 🆕 DIUSULKAN
+## 10. Alur Bootcamp Intensif 🟡 SEBAGIAN DIBANGUN — bentuk final belum sesuai target
 
-**Sumber:** catatan tim di kanvas Figma (dikonfirmasi ulang lewat screenshot yang dikirim user). Belum ada satupun layar resmi. Model bisnis eksplisit mencontoh **Sanbercode** (§5): materi gratis + konsultasi mentor berbayar dengan jam terjadwal.
+**Sumber:** catatan tim di kanvas Figma (dikonfirmasi ulang lewat screenshot yang dikirim user). Model bisnis eksplisit mencontoh **Sanbercode** (§5): materi gratis + konsultasi mentor berbayar dengan jam terjadwal.
+
+> **Status implementasi (v3.0):** tim frontend sudah membangun 4 dari 6 sub-fitur (§10.2, §10.4, §10.5, §10.6) sebagai **4 sub-tab dalam satu panel dashboard** (`dashboard.html` → "Bootcamp Saya"), lengkap dengan fungsi JS (`initBootcampSubTabs`, `initBookingSlotPicker`). **Keputusan produk (dikonfirmasi user 3 Sep 2026): bentuk akhirnya tetap 6 halaman/route terpisah** seperti tabel di bawah, bukan konsolidasi 1 panel — implementasi saat ini diperlakukan sebagai **Fase 1 / prototipe fungsional**, bukan bentuk final. §10.1 (Landing publik) dan §10.3 (Join WA sebagai step tersendiri) belum dibangun sama sekali. Detail migrasi Fase 1 → Fase 2 ada di §16.
 
 ```mermaid
 flowchart TD
@@ -377,37 +383,39 @@ flowchart TD
 ```
 *Diagram 4 — Alur Bootcamp Intensif, dari catatan tim ke 6 layar konkret.*
 
-| # | Layar diusulkan | Konsep | Pattern yang dipakai ulang |
-|---|---|---|---|
-| 10.1 | **Bootcamp Intensif — Landing** | Halaman jual: deskripsi program, video materi gratis, 2 kartu harga berdampingan (per-sesi vs. bulanan) — mirror layout sidebar harga Course Details | Sidebar harga §9.2–4 |
-| 10.2 | **Booking Slot Konsultasi** | Kalender/slot picker jam tersedia mentor ("jam jam tertentu yang sudah disediakan" — catatan tim), konfirmasi sebelum lanjut Checkout | Stepper Checkout §9.5 |
-| 10.3 | **Join Grup WhatsApp** | CTA sekali-klik pasca-booking, identik dengan link komunitas yang sudah ada di Play Kelas | Resources §9.12 |
-| 10.4 | **Tracker Jadwal &amp; Absensi** | Tabel mirip spreadsheet: tanggal sesi, status hadir, catatan mentor — menjawab wishlist "spreadsheet isinya jadwal, nama siswa, absensi" | Progress bar Dashboard §9.11 |
-| 10.5 | **Pengumpulan Tugas &amp; Quiz** | Upload file/link per minggu + quiz pilihan ganda inline, deadline countdown | Accordion modul Play Kelas §9.12 |
-| 10.6 | **Leaderboard Ranking Siswa** | Papan peringkat berbasis akumulasi nilai tugas+quiz — insentif gamifikasi eksplisit diminta di catatan tim | Kartu rating §9.2 (pola angka+badge) |
+| # | Layar (route final) | Status | Konsep | Pattern yang dipakai ulang |
+|---|---|---|---|---|
+| 10.1 | **Bootcamp Intensif — Landing** (publik, `/bootcamp.html`) | ⚠️ Belum dibangun | Halaman jual: deskripsi program, video materi gratis, 2 kartu harga berdampingan (per-sesi vs. bulanan) — mirror layout sidebar harga Course Details | Sidebar harga §9.2–4 |
+| 10.2 | **Booking Slot Konsultasi** (`/bootcamp/booking.html`) | 🟡 Ada sebagai sub-tab | Kalender/slot picker jam tersedia mentor ("jam jam tertentu yang sudah disediakan" — catatan tim), konfirmasi sebelum lanjut Checkout | Stepper Checkout §9.5 |
+| 10.3 | **Join Grup WhatsApp** (step, bukan halaman) | ⚠️ Belum dibangun terpisah | CTA sekali-klik pasca-booking, identik dengan link komunitas yang sudah ada di Play Kelas | Resources §9.12 |
+| 10.4 | **Tracker Jadwal &amp; Absensi** (`/bootcamp/jadwal.html`) | 🟡 Ada sebagai sub-tab | Tabel mirip spreadsheet: tanggal sesi, status hadir, catatan mentor — menjawab wishlist "spreadsheet isinya jadwal, nama siswa, absensi" | Progress bar Dashboard §9.11 |
+| 10.5 | **Pengumpulan Tugas &amp; Quiz** (`/bootcamp/tugas.html`) | 🟡 Ada sebagai sub-tab | Upload file/link per minggu + quiz pilihan ganda inline, deadline countdown | Accordion modul Play Kelas §9.12 |
+| 10.6 | **Leaderboard Ranking Santri** (`/bootcamp/leaderboard.html`) | 🟡 Ada sebagai sub-tab | Papan peringkat berbasis akumulasi nilai tugas+quiz — insentif gamifikasi eksplisit diminta di catatan tim | Kartu rating §9.2 (pola angka+badge) |
 
-> ⚠️ **Perlu diputuskan tim bisnis:** apakah Bootcamp Intensif dijual terpisah dari kelas berbayar reguler, atau sebagai add-on. Catatan tim menyebut "video materi gratis" tapi konsultasi berbayar — model freemium ini perlu disepakati sebelum §10.1–2 didesain penuh.
+> ⚠️ **Perlu diputuskan tim bisnis:** apakah Bootcamp Intensif dijual terpisah dari kelas berbayar reguler, atau sebagai add-on. Catatan tim menyebut "video materi gratis" tapi konsultasi berbayar — model freemium ini perlu disepakati sebelum §10.1 didesain penuh.
+>
+> **Rencana migrasi (v3.0):** §10.2/10.4/10.5/10.6 sudah punya markup &amp; logika JS yang benar (di dalam `dashboard.html` + `scripts/main.js`) — migrasi ke halaman terpisah berarti **mengekstrak markup existing** ke route baru + menambah `assetBase`/link navigasi, bukan membangun dari nol. §10.1 dan §10.3 baru perlu dibangun murni baru.
 
 ---
 
-## 11. Alur Tambahan Diusulkan 🆕 DIUSULKAN
+## 11. Alur Tambahan Diusulkan — Status Diperbarui (v3.0)
 
-Menutup 12 gap dari analisis awal. Setiap baris memakai kembali pola komponen yang sudah ada di 11 layar terdesain (§9) — bukan komponen baru dari nol.
+Menutup 12 gap dari analisis awal (§14). Setiap baris memakai kembali pola komponen yang sudah ada di 11 layar terdesain (§9). **Status per v3.0** disandingkan dengan audit langsung terhadap 12 file HTML yang sudah dibangun tim frontend (§16) — 6 dari 12 gap ternyata sudah dikerjakan, sebagian dengan pendekatan berbeda dari usulan awal (dicatat di kolom Status).
 
-| # | Gap | Solusi diusulkan |
-|---|---|---|
-| 11.1 | Tab "Reviews" kelas | Reuse pola testimoni Home (§9.1): histogram rating 5★–1★ + daftar ulasan (avatar, rating, komentar) + filter urutkan |
-| 11.2 | Katalog "Semua Kelas" | Grid kartu (reuse Kelas Populer) + sidebar filter Kategori/Level/Harga + search bar (reuse Dashboard §9.11) + pagination |
-| 11.3 | State pembayaran gagal | 4th state "Konfirmasi": icon merah, alasan gagal spesifik (kartu ditolak/VA expired/QRIS timeout), CTA "Coba Metode Lain" + "Hubungi Bantuan" |
-| 11.4 | Halaman "Lihat Kuitansi" | Invoice sederhana — no. order, tanggal, item, total, tombol unduh PDF — reuse info-row Konfirmasi Review |
-| 11.5 | Dropdown navbar | Mega-menu ringan: "Video Kelas" → kategori populer + "Lihat Semua" (→ §11.2); "Bootcamp Intensif" → link ke §10.1 + "Bootcamp Saya" bila login |
-| 11.6 | 6 menu sidebar dashboard | Overview = ringkasan gabungan progress; Explore Kelas = alias §11.2; Chat Mentor = daftar thread per mentor/kelas; Affiliate = dashboard referral (kode, klik, komisi); Setting = form profil standar |
-| 11.7 | "Chat Mentor Terkait" | Buka thread spesifik ke mentor kelas terkait dari §11.6, prefill konteks modul yang sedang ditonton |
-| 11.8 | Tab "Ringkasan" (Play Kelas) | Rekap key takeaway per modul — reuse pola "Apa yang Akan Kamu Dapat?" dari Course Details |
-| 11.9 | Tab "Review" (Play Kelas) | Sama seperti §11.1, di-scope ke kelas berjalan + CTA "Beri Ulasan" saat progress ≥ 80% |
-| 11.10 | "Lupa Password?" | Form email → layar "cek email kamu" → link reset password (pola 3 langkah standar) |
-| 11.11 | Verifikasi email/OTP | Step baru antara Signup dan Dashboard — 6 digit OTP + timer kirim ulang |
-| 11.12 | Tentang / Mentor / halaman legal | "Mentor" → grid semua mentor (reuse kartu §9.4); "Tentang" → company story; legal → template teks panjang dengan TOC internal |
+| # | Gap | Status | Solusi (diperbarui) |
+|---|---|---|---|
+| 11.1 | Tab "Reviews" kelas | ✅ **Sudah dibangun** | `course-details.html` `#tab-reviews` sudah berisi heading rating + daftar ulasan nyata (avatar, nama, rating, komentar) — sesuai usulan awal. Belum ada histogram 5★–1★ maupun filter urutkan — tambahan kecil, bukan gap struktural. |
+| 11.2 | Katalog "Semua Kelas" | 🔴 **Bug + belum dibangun** | **Bug ditemukan:** tombol "Lihat Lainnya" di Home mengarah ke `#katalog` — anchor ini **tidak ada** di halaman manapun (link mati). **Keputusan (3 Sep 2026): dibangun sebagai halaman publik baru** `kelas.html` (bisa diakses tanpa login, untuk SEO — pola Udemy/Coursera: filter Kategori, Level, Harga di sidebar kiri + search + grid kartu, reuse `CourseCard`). Panel "Explore Kelas" di dashboard (§11.6) tetap ada sebagai versi in-app untuk Santri yang sudah login, tapi keduanya **harus berbagi satu sumber data kelas** — jangan duplikasi katalog independen. |
+| 11.3 | State pembayaran gagal | 🔴 **Masih gap kritikal** | **Tidak ada fungsi/halaman sama sekali** di `main.js`/`payment-*.html` — dikonfirmasi ulang di audit v3.0. Riset pola Midtrans/Xendit (real-world Indonesian payment gateway) menunjukkan minimal 3 alasan gagal berbeda perlu copy spesifik: **kartu ditolak** (retryable — kode error tertentu minta coba lagi setelah jeda), **VA expired** (auto-cancel setelah jendela waktu, mis. 15 menit sesuai copy `checkout.html` sendiri), **QRIS timeout**. 4th state "Konfirmasi" — icon merah, pesan sesuai 3 skenario di atas, CTA "Coba Metode Lain" (→ Checkout) + "Hubungi Bantuan". |
+| 11.4 | Halaman "Lihat Kuitansi" | ✅ **Sudah dibangun (sebagai modal)** | `payment-success.html` punya `#btn-open-receipt` yang membuka **modal** (`initReceiptModal()`) — bukan halaman terpisah seperti usulan awal. Pendekatan modal ini valid &amp; lebih ringan; PRD diperbarui mengikuti implementasi. |
+| 11.5 | Dropdown navbar | ✅ **Sudah dibangun** | `index.html` sudah punya mega-dropdown penuh untuk "Video Kelas" &amp; "Bootcamp Intensif" (`initNavbarDropdowns()`) — kartu kategori + deskripsi, lebih detail dari usulan awal. |
+| 11.6 | 6 menu sidebar dashboard | ✅ **Sudah dibangun — semua 7 panel** | `dashboard.html` membangun *seluruh* 7 view via `initDashboardHashRouter()` (Overview, Course Saya, Bootcamp Saya, Explore Kelas, Chat Mentor, Affiliate, Setting) — melebihi cakupan usulan awal (yang cuma menandai 6 sebagai gap). |
+| 11.7 | "Chat Mentor Terkait" | ✅ **Sudah dibangun (sebagai modal)** | `initMentorChatModal()` di `classroom.html` — modal chat, bukan halaman terpisah. Konsisten dengan pola modal di §11.4. |
+| 11.8 | Tab "Ringkasan" (Play Kelas) | ⚠️ Perlu verifikasi konten | Tab ada di `classroom.html` (`initClassroomTabs()`) — kedalaman konten belum diverifikasi baris-per-baris, prioritas rendah. |
+| 11.9 | Tab "Review" (Play Kelas) | ⚠️ Perlu verifikasi konten | Sama seperti §11.8 — tab-nya ada, kedalaman konten belum diverifikasi. |
+| 11.10 | "Lupa Password?" | 🔴 **Masih gap** | Link ada di `login.html` (`#btn-forgot-password`) tapi `href="javascript:void(0)"` — dead-end terkonfirmasi. Solusi: form email → layar "Cek email kamu, link reset sudah dikirim" → halaman set password baru (token dari link email) — pola 3 langkah standar, reuse `Input`/`Button` dari Design System §13. |
+| 11.11 | Verifikasi email/OTP | 🔴 **Masih gap** | Tidak ada fungsi terkait OTP/verifikasi di `main.js`. Solusi: step baru antara Signup dan Dashboard — layar 6-digit OTP + timer kirim ulang 60 detik + link "Kirim ulang" setelah timer habis. **Perlu keputusan bisnis**: wajib untuk semua Santri, atau opsional (mengingat target SD–SMK mungkin belum punya email pribadi — pertimbangkan verifikasi via WhatsApp orang tua sebagai alternatif, lihat §15). |
+| 11.12 | Tentang / Mentor / halaman legal | ✅ **Sudah dibangun (Tentang + Mentor)** | `tentang.html` &amp; `mentor.html` sudah ada, di luar dugaan awal PRD v2.x. Halaman legal (Kebijakan Privasi, Syarat &amp; Ketentuan) masih belum ada — footer link masih placeholder. |
 
 ---
 
@@ -523,24 +531,26 @@ Design System resmi sudah membangun satu **click-through prototype** (`ui_kits/a
 
 ---
 
-## 14. Gap Analysis — Ringkasan Status
+## 14. Gap Analysis — Ringkasan Status (diperbarui v3.1 setelah 2 putaran perbaikan langsung di situs statis live)
 
-| # | Item | Dampak | Solusi diusulkan |
-|---|---|---|---|
-| 1 | Tab "Reviews" kelas | 🟡 Medium | §11.1 |
-| 2 | Halaman katalog "Semua Kelas" | 🟠 High | §11.2 |
-| 3 | State pembayaran gagal | 🔴 **Critical** | §11.3 |
-| 4 | Halaman "Lihat Kuitansi" | ⚪ Low | §11.4 |
-| 5 | Submenu dropdown navbar | 🟡 Medium | §11.5 |
-| 6 | 6 menu sidebar dashboard | 🟠 High | §11.6, §10 |
-| 7 | UI "Chat Mentor Terkait" | 🟡 Medium | §11.7 |
-| 8 | Tab "Ringkasan" &amp; "Review" kosong | ⚪ Low | §11.8–9 |
-| 9 | "Lupa Password?" | 🟡 Medium | §11.10 |
-| 10 | Verifikasi email/OTP | 🟡 Medium | §11.11 |
-| 11 | Duplikasi frame "01 Login" | ⚪ Low | Housekeeping — hapus/rename di file Figma |
-| 12 | Halaman Tentang/Mentor/legal | 🟡 Medium | §11.12 |
+| # | Item | Dampak | Status v3.1 | Ref |
+|---|---|---|---|---|
+| 1 | Tab "Reviews" kelas | 🟡 Medium | ✅ Selesai | §11.1 |
+| 2 | Halaman katalog "Semua Kelas" | 🟠 High | ✅ Selesai — `kelas.html` (10 kelas, filter kategori), bug link mati diperbaiki | §11.2 |
+| 3 | State pembayaran gagal | 🔴 **Critical** | ✅ Selesai — `payment-failed.html` + toggle Sandbox Mode di Konfirmasi Review | §11.3 |
+| 4 | Halaman "Lihat Kuitansi" | ⚪ Low | ✅ Selesai (sbg modal) | §11.4 |
+| 5 | Submenu dropdown navbar | 🟡 Medium | ✅ Selesai | §11.5 |
+| 6 | 6 menu sidebar dashboard | 🟠 High | ✅ Selesai (7/7 panel) | §11.6, §10 |
+| 7 | UI "Chat Mentor Terkait" | 🟡 Medium | ✅ Selesai (sbg modal) | §11.7 |
+| 8 | Tab "Ringkasan" &amp; "Review" kosong | ⚪ Low | ✅ Diverifikasi langsung dari `classroom.html` — kontennya lengkap (4 key takeaway + 1 review + form ulasan), bukan kosong | §11.8–9 |
+| 9 | "Lupa Password?" | 🟡 Medium | ✅ Selesai — `lupa-password.html` | §11.10 |
+| 10 | Verifikasi email/OTP | 🟡 Medium | ✅ Selesai — `verifikasi-otp.html`, disisipkan ke alur Signup | §11.11 |
+| 11 | Duplikasi frame "01 Login" | ⚪ Low | ⚪ Belum dicek (housekeeping Figma) | Hapus/rename di file Figma |
+| 12 | Halaman Tentang/Mentor/legal | 🟡 Medium | ✅ Selesai — Tentang &amp; Mentor sudah ada, Privasi/S&amp;K baru dibangun (`privasi.html`, `syarat-ketentuan.html`) | §11.12 |
 
-> ⚠️ **Masih perlu keputusan manusia, bukan sekadar desain** — §11.3 (pembayaran gagal) dan §12 (konten kurikulum) levelnya bisnis/konten, bukan cuma UI. Usulan di dokumen ini adalah titik awal diskusi, bukan keputusan final.
+**Ringkasan v3.1:** Ke-12 gap dari v1.0 sekarang tuntas (11 ✅, 1 ⚪ housekeeping Figma non-kode). Plus 2 temuan baru selama audit yang juga sudah ditutup: **Bootcamp Landing publik** (§10.1, `bootcamp.html`) dan **Join WA sebagai step terpisah** (§10.3, `bootcamp-join.html`) — keduanya bukan bagian dari 12 gap asli tapi flagged di §16.1/§16.4 sebagai 🔴. Juga ditemukan &amp; diperbaiki: link navbar/footer "Bootcamp Intensif" di 10 halaman salah arah ke `#program-section` (section "Rangkaian Program" generik, bukan konten Bootcamp).
+
+> ⚠️ **Tetap perlu keputusan manusia di level bisnis, bukan lagi soal UI yang hilang** — §11.3 (aturan kapan status pembayaran benar-benar dianggap gagal oleh payment gateway sungguhan), §11.11 (kewajiban OTP untuk target usia SD–SMK — implementasi UI-nya sudah ada, tinggal keputusan apakah wajib atau opsional), dan §12 (konten kurikulum) levelnya bisnis/konten. Halaman Kebijakan Privasi &amp; Syarat &amp; Ketentuan berisi draf standar — **wajib direview tim legal/bisnis sebelum dianggap final**, bukan dokumen hukum yang sudah disahkan.
 
 ---
 
@@ -556,7 +566,66 @@ Branding "Crygle Academy x Boarding School" (§2) tersirat sebagai kemitraan B2B
 
 ---
 
-## 16. Lampiran
+## 16. Audit Implementasi Frontend &amp; Peta Migrasi ✅ BARU (v3.0)
+
+Section ini adalah hasil evaluasi langsung terhadap frontend statis (HTML/CSS/JS) yang sudah dibangun tim lain di folder proyek `Crygle Acadey Website/`, dibandingkan dengan spesifikasi PRD ini. Tujuannya: jadi **satu sumber kebenaran** sebelum migrasi ke arsitektur final (React/Next.js + Design System resmi §13), dan jadi blueprint langsung untuk diagram FigJam (§16.4).
+
+### 16.1 Status per halaman
+
+| File | Layar PRD | Status | Catatan audit |
+|---|---|---|---|
+| `index.html` | Home Page (§9.1) | ✅ Lengkap | 9 section sesuai PRD; navbar dropdown (§11.5) &amp; testimonial slider berfungsi. Bug "Lihat Lainnya" → `#katalog` **diperbaiki**, sekarang → `kelas.html` (§11.2). |
+| `login.html` | 01 Login (§9.9) | ✅ Lengkap | Form &amp; Google SSO lengkap. "Lupa Password?" sekarang mengarah ke `lupa-password.html` nyata (§11.10). |
+| `signup.html` | 02 Signup (§9.10) | ✅ Lengkap | Form lengkap (4 input + T&amp;C). Sekarang mengalir ke `verifikasi-otp.html` sebelum Dashboard (§11.11), bukan langsung asumsi berhasil. |
+| `course-details.html` | Course Details (§9.2–4) | ✅ Lengkap | 4 tab: Overview, Kurikulum Kelas, Tentang Mentor, **Reviews (§11.1)**. |
+| `checkout.html` | Checkout (§9.5) | ✅ Lengkap | Stepper + 5 metode bayar + kode promo lengkap. |
+| `payment-review.html` | Konfirmasi Review (§9.6) | ✅ Lengkap + tambahan | Ditambah toggle **Sandbox Mode** (Berhasil/Gagal) supaya alur pembayaran gagal bisa direview on-demand (§11.3). |
+| `payment-processing.html` | Konfirmasi Processing (§9.7) | ✅ Lengkap | Copy "Sanctuary" brand voice sudah dipakai (§5.1). Redirect sekarang bercabang ke Berhasil/Gagal sesuai pilihan Sandbox Mode, bukan selalu ke Berhasil. |
+| `payment-success.html` | Konfirmasi Berhasil (§9.8) | ✅ Lengkap + tambahan | "Lihat Kuitansi" dibangun sebagai modal (§11.4) — melebihi spesifikasi awal. |
+| `dashboard.html` | Kelas Saya (§9.11) | ✅ Lengkap + tambahan | Ke-7 panel sidebar dibangun (§11.6) via hash router — jauh melebihi cakupan PRD v1–2. Termasuk Bootcamp Saya (§10) sebagai 4 sub-tab (masih 🟡, lihat §10 &amp; §16.3). |
+| `classroom.html` | Play Kelas (§9.12) | ✅ Lengkap + tambahan | Video player custom, accordion modul, Chat Mentor modal (§11.7). Tab Ringkasan/Review **diverifikasi** (§11.8–9) — kontennya lengkap. |
+| `mentor.html` | *(tidak ada di PRD asli)* | ✅ Dibangun | Sesuai usulan §11.12 — halaman baru di luar 12 layar Figma asli. |
+| `tentang.html` | *(tidak ada di PRD asli)* | ✅ Dibangun | Sesuai usulan §11.12. |
+| `kelas.html` | Katalog publik "Semua Kelas" | ✅ Dibangun (v3.1) | §11.2 — 10 kelas nyata (6 dari Home + 4 unik dari panel Explore Kelas dashboard), filter 4 kategori. |
+| `payment-failed.html` | Payment Failed | ✅ Dibangun (v3.1) | Gap kritikal §11.3 — sekarang ditutup, mirror struktur visual `payment-success.html` dengan token `--color-danger`. |
+| `lupa-password.html` | Reset Password | ✅ Dibangun (v3.1) | §11.10 — 2 state (form + konfirmasi terkirim). |
+| `verifikasi-otp.html` | Verifikasi OTP | ✅ Dibangun (v3.1) | §11.11 — 6 digit OTP dengan auto-advance, resend cooldown 30s. |
+| `bootcamp.html` | Bootcamp Landing (publik) | ✅ Dibangun (v3.1) | §10.1 — 3 track ditampilkan (Fullstack UI/UX, Frontend Web, 3D Environment &amp; Motion), sama seperti mega-dropdown navbar `index.html`. |
+| `bootcamp-join.html` | Join WA (step terpisah) | ✅ Dibangun (v3.1) | §10.3 — 3 langkah (akun → checkout → grup WA cohort). |
+| `privasi.html`, `syarat-ketentuan.html` | Halaman legal (Privasi, S&amp;K) | ✅ Dibangun (v3.1) | §11.12 — draf standar, **perlu review tim legal** sebelum final. |
+
+### 16.2 Temuan tambahan di luar cakupan PRD sebelumnya
+- **Istilah "Santri/Santriwati"** dipakai konsisten di beberapa layar — sekarang diformalkan (§4).
+- **Pola modal** dipakai berulang untuk fitur sekunder (Kuitansi, Chat Mentor) alih-alih halaman terpisah — pola yang valid &amp; efisien, PRD ini mengikuti pendekatan tersebut untuk §11.4 &amp; §11.7.
+- **`initDashboardHashRouter()`** di `main.js` — dashboard sudah jadi SPA ber-hash-route (`#overview`, `#course-saya`, dst.) sebelum framework apapun dipasang — sinyal kuat bahwa migrasi ke Next.js App Router (routing berbasis file) akan jadi peningkatan natural, bukan perubahan arsitektur asing.
+
+### 16.3 Kesiapan migrasi (ringkas — bukan rencana teknis penuh)
+Stack saat ini: HTML/CSS/JS statis (`styles/*.css`, `scripts/main.js`), token warna sudah dekat dengan Design System resmi (§13.1) tapi belum identik (radius, shadow, font-scale berbeda — lihat catatan versi 2.0). Tiga hal yang mengurangi beban migrasi ke React/Next.js (§13, stack disepakati sebelumnya):
+1. Struktur per-fungsi di `main.js` (satu `init...()` per fitur) map hampir 1:1 ke komponen React yang akan dibuat.
+2. Komentar `<!-- Node XXXX:YYYY -->` di tiap file HTML mempermudah verifikasi ulang ke Figma saat porting.
+3. Bagian Bootcamp Intensif (§10) sudah py markup benar, tinggal diekstrak ke route terpisah (§10 catatan migrasi).
+
+Rencana teknis detail (folder structure, urutan migrasi per halaman, penanganan `main.js` → komponen) di luar cakupan dokumen ini — akan jadi implementation plan terpisah setelah PRD &amp; diagram FigJam ini disepakati.
+
+### 16.4 Peta alur master — sumber untuk diagram FigJam
+
+Tujuh kelompok alur berikut adalah struktur langsung yang dipetakan ke board FigJam (§16.5). Warna status: 🟢 selesai · 🟡 sebagian/perlu verifikasi · 🔴 belum dibangun/gap.
+
+1. **Marketing → Discovery** — Home 🟢 → (Explore Kelas / kartu Kelas Populer / Lihat Lainnya 🟢→) Katalog Publik 🟢 → Course Details 🟢 (tab Overview/Kurikulum/Mentor/Reviews, semua 🟢)
+2. **Autentikasi** — Login 🟢 ⇄ Signup 🟢 → Lupa Password 🟢 → Verifikasi OTP 🟢 → Dashboard
+3. **Commerce** — Course Details "Mulai Belajar" → Checkout 🟢 → Konfirmasi Review 🟢 (+ toggle Sandbox Mode 🟢) → Processing 🟢 → **cabang:** Berhasil 🟢 (+ Lihat Kuitansi 🟢 modal) **atau** Gagal 🟢
+4. **Dashboard &amp; Learning** — Dashboard 🟢 (7 panel, semua 🟢) → kartu kelas → Classroom 🟢 (player, syllabus, Chat Mentor 🟢 modal, tab Resources 🟢/Ringkasan 🟢/Review 🟢)
+5. **Bootcamp Intensif** — Landing 🟢 → Booking Konsultasi 🟡 → Join WA 🟢 (step terpisah, `bootcamp-join.html`) → Jadwal&amp;Absensi 🟡 → Tugas&amp;Quiz 🟡 → Leaderboard 🟡 *(🟡 = masih sub-tab dalam panel dashboard "Bootcamp Saya" — arsitektur "6 halaman terpisah penuh" tetap target migrasi Next.js, §16.3, bukan gap fungsional; sudah bisa diakses &amp; dipakai apa adanya)*
+6. **Halaman info statis** — Navbar/Footer → Mentor 🟢 · Tentang 🟢 · Kebijakan Privasi 🟢 · Syarat &amp; Ketentuan 🟢
+7. **Ekspansi B2B (§15)** — 💭 belum ada implementasi apapun, tetap murni ideation di diagram (ditandai jelas terpisah)
+
+> **Catatan v3.1:** diagram FigJam di §16.5 digambar berdasarkan status v3.0 (sebelum 2 putaran perbaikan di atas) — warnanya belum mencerminkan status 🟢 terbaru. Perlu digambar ulang kalau diagram akan dipakai untuk presentasi/handoff berikutnya.
+
+### 16.5 Diagram FigJam — status: ✅ dibuat
+
+Diagram flowchart 7 kelompok di atas sudah digambar langsung di board FigJam yang disediakan user: **[Peta User Flow &amp; Fitur — Crygle Academy ↗](https://www.figma.com/board/JoA7Gvz89pjGJFIVFYHLXt/Untitled?node-id=0-1)** (dibuat 3 Sep 2026, via Figma MCP `generate_diagram`). Legenda warna sesuai §16.4. Tata letak otomatis dari Mermaid — kalau perlu dirapikan manual (drag-and-drop antar cluster), itu perlu dilakukan langsung di FigJam (di luar kemampuan tool generate).
+
+## 17. Lampiran
 
 ### A. Sumber internal
 - Figma: [Research Web Academy (Copy)](https://www.figma.com/design/ueGJd0omZ8gQNmGvAaz9G2/Research-Web-Academy--Copy-?node-id=735-1568) — page "Prototype" (`735:1568`), 11 layar (§7, §9); page "Design-System" (`467:326`) belum ditelusuri langsung oleh PRD ini, hanya lewat ekstraksi §B
@@ -564,11 +633,14 @@ Branding "Crygle Academy x Boarding School" (§2) tersirat sebagai kemitraan B2B
 - Screenshot catatan tim (dikirim user, 2 Sep 2026) — dasar §10 Alur Bootcamp Intensif
 - `Outline Lanjutan Section 1 - Apa Itu UI dan UX Design.md` &amp; `Outline Sejarah UI-UX Design - Point 2.md` — dasar §2, §12
 - `Audit Relevansi Materi UI-UX Binar Academy untuk Crygle Academy.docx` (Juli 2026) — dasar §12
+- **12 file HTML frontend** (`Crygle Acadey Website/*.html` + `scripts/main.js` + `styles/*.css`) dibangun tim lain, diaudit langsung 3 Sep 2026 — dasar §16 seluruhnya
 
 ### B. Sumber riset eksternal (dicek September 2026)
 - [Binar Academy — Bootcamp UI/UX Research &amp; Design](https://www.binar.co.id/ui-ux-design-1)
 - [BuildWithAngga (BWA)](https://buildwithangga.com/)
 - [Sanbercode — Katalog Bootcamp Online](https://sanbercode.com/bootcamp-katalog)
+- [Xendit — Virtual Account expiration](https://help.xendit.co/hc/en-us/articles/360032276451-What-is-Expiration-Date-and-how-do-I-set-it) &amp; [Card declines and error codes](https://docs.xendit.co/credit-cards/understanding-card-declines) — dasar copy state Pembayaran Gagal §11.3
+- [Udemy — How to Search for Courses](https://support.udemy.com/hc/en-us/articles/115012244007-How-to-Search-for-Courses-on-Udemy) — dasar pola filter Katalog §11.2 (kategori, level, harga, rating)
 
 ### C. Riwayat Dokumen
 
@@ -578,7 +650,8 @@ Branding "Crygle Academy x Boarding School" (§2) tersirat sebagai kemitraan B2B
 | 2.0 | 2 Sep 2026 | Ditambah: konteks kurikulum &amp; boarding school (§2), strategi brand &amp; positioning vs. 3 kompetitor riil (§5), alur Bootcamp Intensif lengkap (§10), 12 solusi gap-fill (§11), risiko konten kurikulum (§12), ideation ekspansi B2B sekolah (§15). Dipublikasikan sebagai artifact HTML interaktif. |
 | 2.1 | 2 Sep 2026 | Dikonversi ke format Markdown tunggal untuk keperluan handoff ke AI agent development &amp; design. Ditambahkan sistem label status (§0) dan tabel inventaris komponen (§13). |
 | 2.2 | 3 Sep 2026 | Disinkronkan dengan **Design System resmi** yang ditemukan di Claude Design — §5 &amp; §13 ditulis ulang total dari rekonstruksi spekulatif menjadi token &amp; voice-guide resmi (warna, tipografi SF UI Text, spacing/radius/shadow, 58 komponen, ikonografi Huge Icons). Ditambahkan: model bisnis "LEVEL UP" &amp; syarat sertifikat rata-rata ≥80 (§2), konfirmasi hard-evidence BuildWithAngga + temuan baru easy-course-buy.lovable.app sebagai library yang di-*import* langsung ke Figma (§5.3), dan pertanyaan terbuka soal typeface Roboto vs. SF UI Text yang diwariskan dari sesi Design System sebelumnya (§5.4). |
+| 3.0 | 3 Sep 2026 | **Audit langsung terhadap 12 halaman frontend** yang sudah dibangun tim lain (§16, baru) — 6 dari 12 gap v1.0 ternyata sudah selesai (kadang dengan pendekatan lebih baik: modal alih-alih halaman terpisah), 1 bug baru ditemukan (link "Lihat Lainnya" mati), 3 gap kritikal terkonfirmasi masih terbuka (pembayaran gagal, lupa password, verifikasi OTP). Diformalkan istilah **"Santri/Santriwati"** (§4). Diputuskan: katalog jadi halaman publik baru, Bootcamp Intensif tetap 6 halaman terpisah (bukan konsolidasi panel). §11 &amp; §14 ditulis ulang dengan status per-item. Ditambahkan riset pola Midtrans/Xendit &amp; Udemy untuk memperkuat spesifikasi §11.2–3. Disiapkan §16.4 sebagai blueprint langsung untuk diagram user-flow di FigJam. |
 
 ---
 
-*Dokumen ini disusun dari reverse-engineering desain Figma + dokumen kerja internal tim, bukan spesifikasi resmi dari product owner. Semua item berlabel 🆕 dan 💭 wajib direview manusia sebelum dieksekusi.*
+*Dokumen ini disusun dari reverse-engineering desain Figma + dokumen kerja internal tim + audit langsung terhadap frontend yang sudah dibangun, bukan spesifikasi resmi dari product owner. Semua item berlabel 🆕, 🔴, dan 💭 wajib direview manusia sebelum dieksekusi.*

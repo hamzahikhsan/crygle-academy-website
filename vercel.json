@@ -102,6 +102,38 @@
       "destination": "/Crygle%20Acadey%20Website/payment-failed.html"
     },
     {
+      "source": "/bootcamp",
+      "destination": "/Crygle%20Acadey%20Website/bootcamp.html"
+    },
+    {
+      "source": "/bootcamp.html",
+      "destination": "/Crygle%20Acadey%20Website/bootcamp.html"
+    },
+    {
+      "source": "/bootcamp-join",
+      "destination": "/Crygle%20Acadey%20Website/bootcamp-join.html"
+    },
+    {
+      "source": "/bootcamp-join.html",
+      "destination": "/Crygle%20Acadey%20Website/bootcamp-join.html"
+    },
+    {
+      "source": "/privasi",
+      "destination": "/Crygle%20Acadey%20Website/privasi.html"
+    },
+    {
+      "source": "/privasi.html",
+      "destination": "/Crygle%20Acadey%20Website/privasi.html"
+    },
+    {
+      "source": "/syarat-ketentuan",
+      "destination": "/Crygle%20Acadey%20Website/syarat-ketentuan.html"
+    },
+    {
+      "source": "/syarat-ketentuan.html",
+      "destination": "/Crygle%20Acadey%20Website/syarat-ketentuan.html"
+    },
+    {
       "source": "/styles/:path*",
       "destination": "/Crygle%20Acadey%20Website/styles/:path*"
     },
