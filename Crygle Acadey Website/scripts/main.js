@@ -25,6 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initAffiliateCopy();
   initSettingsForm();
   initAuthForms();
+  initForgotPasswordForm();
+  initOtpVerification();
+  initKatalogFilters();
+  initPaymentSimulation();
   initNavbarDropdowns();
   initHeroVideoModal();
   initClassroomPlayer();
@@ -1337,7 +1341,13 @@ function initAuthForms() {
         return;
       }
 
-      showToastNotification('🎉 Akun berhasil didaftarkan! Selamat bergabung di Crygle Academy.');
+      const emailInput = document.getElementById('signup-email');
+      const emailVal = emailInput ? emailInput.value.trim() : '';
+      if (emailVal) {
+        sessionStorage.setItem('crygle-pending-verification-email', emailVal);
+      }
+
+      showToastNotification('📩 Kode verifikasi OTP sudah dikirim ke email kamu.');
       const submitBtn = document.getElementById('btn-submit-signup');
       if (submitBtn) {
         submitBtn.disabled = true;
@@ -1345,7 +1355,7 @@ function initAuthForms() {
       }
 
       setTimeout(() => {
-        window.location.href = 'dashboard.html#courses';
+        window.location.href = 'verifikasi-otp.html';
       }, 900);
     });
   }
@@ -1362,13 +1372,164 @@ function initAuthForms() {
       });
     }
   });
+}
 
-  // 5. Forgot Password Simulation
-  const forgotBtn = document.getElementById('btn-forgot-password');
-  if (forgotBtn) {
-    forgotBtn.addEventListener('click', () => {
-      showToastNotification('📩 Instruksi reset kata sandi telah dikirim ke alamat email Anda.');
+/**
+ * Halaman Lupa Password (lupa-password.html) — PRD §11.10.
+ * Form request → tampilkan state "Cek Email Kamu" tanpa reload halaman.
+ */
+function initForgotPasswordForm() {
+  const form = document.getElementById('forgot-password-form');
+  if (!form) return;
+
+  const requestState = document.getElementById('forgot-password-request-state');
+  const sentState = document.getElementById('forgot-password-sent-state');
+  const emailDisplay = document.getElementById('forgot-email-display');
+  const resendBtn = document.getElementById('btn-resend-forgot-password');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('forgot-email')?.value.trim();
+    if (!email) return;
+
+    if (emailDisplay) emailDisplay.textContent = email;
+    if (requestState) requestState.style.display = 'none';
+    if (sentState) sentState.style.display = 'block';
+    showToastNotification(`📩 Instruksi reset kata sandi telah dikirim ke ${email}`);
+  });
+
+  if (resendBtn) {
+    resendBtn.addEventListener('click', () => {
+      showToastNotification('📩 Email reset password dikirim ulang.');
     });
+  }
+}
+
+/**
+ * Halaman Verifikasi OTP (verifikasi-otp.html) — PRD §11.11.
+ * Step baru setelah Signup, sebelum masuk Dashboard.
+ */
+function initOtpVerification() {
+  const form = document.getElementById('otp-verification-form');
+  if (!form) return;
+
+  const emailDisplay = document.getElementById('otp-email-display');
+  const pendingEmail = sessionStorage.getItem('crygle-pending-verification-email');
+  if (emailDisplay && pendingEmail) emailDisplay.textContent = pendingEmail;
+
+  // Auto-advance ke digit berikutnya saat diisi
+  const digitInputs = Array.from(document.querySelectorAll('.otp-digit-input'));
+  digitInputs.forEach((input, index) => {
+    input.addEventListener('input', () => {
+      input.value = input.value.replace(/[^0-9]/g, '').slice(0, 1);
+      if (input.value && index < digitInputs.length - 1) {
+        digitInputs[index + 1].focus();
+      }
+    });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' && !input.value && index > 0) {
+        digitInputs[index - 1].focus();
+      }
+    });
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const code = digitInputs.map((i) => i.value).join('');
+    if (code.length < 6) {
+      showToastNotification('⚠️ Masukkan 6 digit kode OTP terlebih dahulu.');
+      return;
+    }
+
+    sessionStorage.removeItem('crygle-pending-verification-email');
+    showToastNotification('🎉 Email berhasil diverifikasi! Selamat bergabung di Crygle Academy.');
+    const submitBtn = document.getElementById('btn-submit-otp');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span>Memverifikasi...</span>`;
+    }
+    setTimeout(() => {
+      window.location.href = 'dashboard.html#courses';
+    }, 900);
+  });
+
+  // Resend dengan cooldown 30 detik, konsisten dgn pola showToastNotification di file ini
+  const resendLink = document.getElementById('btn-resend-otp');
+  const cooldownLabel = document.getElementById('otp-resend-cooldown');
+  if (resendLink && cooldownLabel) {
+    resendLink.addEventListener('click', () => {
+      showToastNotification('📩 Kode OTP baru sudah dikirim ulang.');
+      let secondsLeft = 30;
+      resendLink.style.display = 'none';
+      cooldownLabel.style.display = 'inline';
+      cooldownLabel.textContent = `Kirim ulang dalam ${secondsLeft}s`;
+      const timer = setInterval(() => {
+        secondsLeft -= 1;
+        cooldownLabel.textContent = `Kirim ulang dalam ${secondsLeft}s`;
+        if (secondsLeft <= 0) {
+          clearInterval(timer);
+          cooldownLabel.style.display = 'none';
+          resendLink.style.display = 'inline';
+        }
+      }, 1000);
+    });
+  }
+}
+
+/**
+ * Filter kategori di Katalog Publik (kelas.html) — PRD §11.2.
+ * Pola identik dengan initExploreCatalogFilters() di dashboard, disamakan agar UX konsisten.
+ */
+function initKatalogFilters() {
+  const chipsRow = document.getElementById('katalog-filter-chips');
+  const grid = document.getElementById('katalog-courses-grid');
+  if (!chipsRow || !grid) return;
+
+  const chips = Array.from(chipsRow.querySelectorAll('.category-chip-pill'));
+  const cards = Array.from(grid.querySelectorAll('.course-card'));
+  const emptyState = document.getElementById('katalog-empty-state');
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      chips.forEach((c) => c.classList.remove('active'));
+      chip.classList.add('active');
+      const category = chip.dataset.cat;
+
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const matches = category === 'all' || card.dataset.cat === category;
+        card.style.display = matches ? '' : 'none';
+        if (matches) visibleCount += 1;
+      });
+
+      if (emptyState) emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    });
+  });
+}
+
+/**
+ * Sandbox mode di payment-review.html + payment-processing.html — PRD §11.3.
+ * Menyimpan skenario "Berhasil"/"Gagal" yang dipilih user secara sadar (bukan acak),
+ * supaya alur Pembayaran Gagal bisa ditinjau on-demand tanpa menebak-nebak.
+ */
+function initPaymentSimulation() {
+  // Bagian A: di payment-review.html — simpan pilihan skenario sebelum redirect ke processing
+  const confirmPaymentBtn = document.getElementById('btn-submit-payment');
+  if (confirmPaymentBtn) {
+    confirmPaymentBtn.addEventListener('click', () => {
+      const scenarioInput = document.querySelector('input[name="payment-scenario"]:checked');
+      const scenario = scenarioInput ? scenarioInput.value : 'success';
+      sessionStorage.setItem('crygle-payment-scenario', scenario);
+    });
+  }
+
+  // Bagian B: di payment-processing.html — baca skenario, arahkan ke halaman yang sesuai
+  const processingCard = document.querySelector('.processing-card');
+  if (processingCard) {
+    const scenario = sessionStorage.getItem('crygle-payment-scenario') || 'success';
+    setTimeout(() => {
+      window.location.href = scenario === 'failed' ? 'payment-failed.html' : 'payment-success.html';
+    }, 2400);
   }
 }
 

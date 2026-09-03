@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verifikasi Email — Crygle Academy</title>
+  <meta name="description" content="Verifikasi alamat email akun baru Crygle Academy kamu dengan kode OTP 6 digit yang sudah dikirimkan.">
+  <link rel="icon" type="image/png" href="icon/logo.png">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/main.css?v=3.5">
+  <link rel="stylesheet" href="styles/components.css?v=3.5">
+  <link rel="stylesheet" href="styles/auth.css?v=1.0">
+</head>
+<body>
+
+  <div class="auth-page-container">
+
+    <aside class="auth-illustration-col" aria-label="Crygle Academy Showcase">
+      <div class="auth-illus-top-wrap">
+        <img src="icon/Design 1 login page.svg" alt="Crygle Academy Digital Learning Illustration" class="auth-illus-top-img">
+      </div>
+      <div class="auth-illus-bottom-wrap">
+        <img src="icon/Design Bawah Login.svg" alt="Pilar Pembelajaran: Robotic, Coding, dan UI/UX Design" class="auth-illus-bottom-img">
+      </div>
+    </aside>
+
+    <main class="auth-form-col">
+      <div class="auth-form-wrapper">
+
+        <a href="index.html" class="auth-brand-header" aria-label="Kembali ke Beranda Crygle Academy">
+          <img src="icon/logo.png" alt="Crygle Academy" class="auth-brand-logo">
+        </a>
+
+        <div class="auth-heading-group">
+          <h1 class="auth-heading-title">Verifikasi Email Kamu</h1>
+          <p class="auth-heading-subtitle">
+            Masukkan 6 digit kode OTP yang sudah kami kirim ke <strong id="otp-email-display">email kamu</strong>
+          </p>
+        </div>
+
+        <form class="auth-form-body" id="otp-verification-form">
+
+          <div class="otp-digit-row" role="group" aria-label="Kode OTP 6 digit">
+            <input type="text" inputmode="numeric" maxlength="1" class="otp-digit-input" aria-label="Digit OTP ke-1" required>
+            <input type="text" inputmode="numeric" maxlength="1" class="otp-digit-input" aria-label="Digit OTP ke-2" required>
+            <input type="text" inputmode="numeric" maxlength="1" class="otp-digit-input" aria-label="Digit OTP ke-3" required>
+            <input type="text" inputmode="numeric" maxlength="1" class="otp-digit-input" aria-label="Digit OTP ke-4" required>
+            <input type="text" inputmode="numeric" maxlength="1" class="otp-digit-input" aria-label="Digit OTP ke-5" required>
+            <input type="text" inputmode="numeric" maxlength="1" class="otp-digit-input" aria-label="Digit OTP ke-6" required>
+          </div>
+
+          <button type="submit" class="auth-btn-primary" id="btn-submit-otp">
+            <span>Verifikasi</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </button>
+
+          <p class="auth-footer-switch">
+            Tidak menerima kode?
+            <a href="javascript:void(0)" class="auth-footer-switch-link" id="btn-resend-otp">Kirim ulang kode</a>
+            <span id="otp-resend-cooldown" style="display: none; color: #A6A6A6;"></span>
+          </p>
+        </form>
+
+      </div>
+    </main>
+
+  </div>
+
+  <div id="toast-notification-container"></div>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>

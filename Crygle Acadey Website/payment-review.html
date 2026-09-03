@@ -106,6 +106,21 @@
           </div>
         </div>
 
+        <!-- Sandbox Mode: pilih skenario verifikasi untuk keperluan demo/review alur (PRD §11.3) -->
+        <div class="sandbox-scenario-box">
+          <span class="sandbox-scenario-label">🧪 Mode Sandbox — Simulasikan Hasil Verifikasi:</span>
+          <div class="sandbox-scenario-options">
+            <label class="sandbox-scenario-option">
+              <input type="radio" name="payment-scenario" value="success" checked>
+              <span>✅ Pembayaran Berhasil</span>
+            </label>
+            <label class="sandbox-scenario-option">
+              <input type="radio" name="payment-scenario" value="failed">
+              <span>❌ Pembayaran Gagal</span>
+            </label>
+          </div>
+        </div>
+
         <!-- Confirm CTA -> Leads to Processing -->
         <a href="payment-processing.html" class="btn btn-primary btn-confirm-pay" id="btn-submit-payment">
           Konfirmasi &amp; Bayar

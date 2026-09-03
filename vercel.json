@@ -70,6 +70,38 @@
       "destination": "/Crygle%20Acadey%20Website/tentang.html"
     },
     {
+      "source": "/kelas",
+      "destination": "/Crygle%20Acadey%20Website/kelas.html"
+    },
+    {
+      "source": "/kelas.html",
+      "destination": "/Crygle%20Acadey%20Website/kelas.html"
+    },
+    {
+      "source": "/lupa-password",
+      "destination": "/Crygle%20Acadey%20Website/lupa-password.html"
+    },
+    {
+      "source": "/lupa-password.html",
+      "destination": "/Crygle%20Acadey%20Website/lupa-password.html"
+    },
+    {
+      "source": "/verifikasi-otp",
+      "destination": "/Crygle%20Acadey%20Website/verifikasi-otp.html"
+    },
+    {
+      "source": "/verifikasi-otp.html",
+      "destination": "/Crygle%20Acadey%20Website/verifikasi-otp.html"
+    },
+    {
+      "source": "/payment-failed",
+      "destination": "/Crygle%20Acadey%20Website/payment-failed.html"
+    },
+    {
+      "source": "/payment-failed.html",
+      "destination": "/Crygle%20Acadey%20Website/payment-failed.html"
+    },
+    {
       "source": "/styles/:path*",
       "destination": "/Crygle%20Acadey%20Website/styles/:path*"
     },

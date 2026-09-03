@@ -178,6 +178,33 @@
   box-shadow: 0 0 0 3px rgba(35, 95, 156, 0.15);
 }
 
+/* OTP Digit Boxes (verifikasi-otp.html) — reuses .auth-input-field's border/focus language */
+.otp-digit-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.otp-digit-input {
+  width: 100%;
+  height: 56px;
+  text-align: center;
+  font-family: inherit;
+  font-size: 22px;
+  font-weight: 700;
+  color: #202020;
+  background: #ffffff;
+  border: 1.5px solid #235F9C;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.otp-digit-input:focus {
+  border-color: #17426e;
+  box-shadow: 0 0 0 3px rgba(35, 95, 156, 0.15);
+}
+
 .auth-password-toggle-btn {
   position: absolute;
   right: 14px;

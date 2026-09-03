@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memproses Pembayaran — Crygle Academy</title>
-  <meta name="description" content="Mohon tunggu sebentar, sistem Sanctuary Crygle Academy sedang memverifikasi transaksi pembayaran Anda secara aman.">
+  <title>Pembayaran Gagal — Crygle Academy</title>
+  <meta name="description" content="Pembayaran kelas kamu belum berhasil diverifikasi. Coba lagi dengan metode pembayaran lain atau hubungi bantuan Crygle Academy.">
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 
   <!-- ========================================================================
-       1. NAVBAR (Node 735:4235)
+       1. NAVBAR (sama seperti payment-success.html, Node 735:4334)
        ======================================================================== -->
   <header class="navbar-wrapper">
     <div class="navbar-container">
@@ -40,58 +40,103 @@
   </header>
 
   <!-- ========================================================================
-       2. PROCESSING CONTENT (Node 735:4234)
+       2. FAILED PAYMENT CONTENT
        ======================================================================== -->
   <main class="commerce-page-wrapper">
     <div class="container">
-      
-      <div class="processing-card">
-        <!-- Visualizer Spinner (Node 735:4263) -->
-        <div class="processing-spinner-frame">
-          <div class="spinner-track"></div>
-          <div class="spinner-ring"></div>
-          <div class="spinner-center-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+
+      <div class="success-screen-card">
+
+        <!-- Failed Badge (versi merah dari success-badge, Node pattern sama seperti 735:4361) -->
+        <div class="success-badge-wrapper">
+          <div class="failed-badge-blur"></div>
+          <div class="failed-badge-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </div>
         </div>
 
-        <h1 class="processing-heading">Memproses pembayaran kamu...</h1>
-        <p class="processing-desc">
-          Mohon tunggu sebentar, kami sedang memastikan transaksi kamu berjalan aman di Sanctuary kami.
+        <h1 class="success-heading">Pembayaran Belum Berhasil</h1>
+        <p class="success-subheading" id="failed-reason-text">
+          Transaksi kamu tidak dapat diverifikasi. Saldo tidak mencukupi atau metode pembayaran ditolak oleh penyedia layanan.
         </p>
 
-        <!-- Summary Box (Node 735:4272) -->
-        <div class="processing-summary-box">
-          <div class="processing-summary-row">
-            <span style="color: #797979; font-weight: 500;">Merchant</span>
-            <span style="color: #202020; font-weight: 700;">CRYGLE Academy</span>
+        <!-- Order Recap Box (versi merah dari enrolled-course-box) -->
+        <div class="enrolled-course-box" style="background: var(--color-danger-bg);">
+          <div class="enrolled-course-header">
+            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=160&auto=format&fit=crop&q=80" alt="UI/UX Course Thumbnail" class="enrolled-course-thumb">
+            <div>
+              <h2 class="enrolled-course-title">UI/UX Design : Menghasilkan Dolar Hanya Dengan Menjual Produk UI Kit</h2>
+              <span class="enrolled-course-badge">Advanced UI/UX Design Mastery</span>
+            </div>
           </div>
-          <div class="processing-summary-row">
-            <span style="color: #797979; font-weight: 500;">Order ID</span>
-            <span style="color: #202020; font-weight: 700;" id="order-id-label">#CR-99201-AX</span>
+
+          <div style="display: flex; justify-content: space-between; font-size: 14px;">
+            <span style="color: #5A6062; font-weight: 500;">Order ID</span>
+            <strong id="failed-order-id" style="color: #202020;">#CR-99201-AX</strong>
           </div>
-          <div style="height: 1px; background: rgba(173,179,181,0.25); margin: 4px 0;"></div>
-          <div class="processing-summary-row">
-            <span style="color: #797979; font-weight: 500;">Total</span>
-            <span style="color: var(--color-primary); font-size: 18px; font-weight: 800;" id="processing-total-label">Rp 507.000</span>
+          <div style="display: flex; justify-content: space-between; font-size: 14px;">
+            <span style="color: #5A6062; font-weight: 500;">Metode Pembayaran</span>
+            <strong id="failed-payment-method" style="color: #202020;">Transfer Bank BNI</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 14px; border-top: 1px dashed rgba(249,27,80,0.25); padding-top: 10px;">
+            <span style="color: #5A6062; font-weight: 700;">Total Tagihan</span>
+            <strong style="color: var(--color-danger); font-size: 17px;">Rp507.000</strong>
           </div>
         </div>
 
-        <!-- Security Gateway Note (Node 735:4282) -->
-        <div class="processing-security-note">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
-          <span>Secured by Encrypted Gateway · Sanctuary Protocol</span>
+        <!-- Kemungkinan Penyebab -->
+        <div style="width: 100%; text-align: left; margin-bottom: 32px;">
+          <h3 style="font-size: 14px; font-weight: 800; color: #202020; margin-bottom: 10px;">Kemungkinan Penyebab:</h3>
+          <ul style="padding-left: 20px; font-size: 13.5px; color: #5A6062; line-height: 1.8;">
+            <li>Saldo rekening atau limit kartu tidak mencukupi</li>
+            <li>Nomor Virtual Account atau kode QRIS sudah kedaluwarsa (berlaku 15–60 menit)</li>
+            <li>Transaksi ditolak sistem keamanan bank penerbit kartu</li>
+            <li>Koneksi terputus saat proses verifikasi berlangsung</li>
+          </ul>
         </div>
+
+        <!-- Dual CTA -->
+        <div class="success-action-row">
+          <a href="checkout.html" class="btn-success-primary">
+            Coba Metode Lain
+          </a>
+          <a href="mailto:tanya@crygleacademy.com" class="btn-success-outline">
+            Hubungi Bantuan
+          </a>
+        </div>
+
+        <div class="success-trust-grid">
+          <div class="trust-item-block">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+            </svg>
+            <span class="trust-item-label">Dana Aman Tersimpan</span>
+          </div>
+          <div class="trust-item-block">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span class="trust-item-label">Live Chat Support</span>
+          </div>
+          <div class="trust-item-block">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span class="trust-item-label">Coba Lagi Kapan Saja</span>
+          </div>
+        </div>
+
       </div>
 
     </div>
   </main>
 
   <!-- ========================================================================
-       3. FOOTER (Node 735:4286)
+       3. FOOTER (sama seperti semua halaman commerce)
        ======================================================================== -->
   <footer class="site-footer">
     <div class="container">
@@ -157,8 +202,6 @@
     </div>
   </footer>
 
-  <!-- Redirect otomatis ditangani oleh initPaymentSimulation() di scripts/main.js
-       (membaca skenario Berhasil/Gagal yang dipilih di payment-review.html) -->
   <script src="scripts/main.js"></script>
 </body>
 </html>

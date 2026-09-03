@@ -2447,6 +2447,46 @@
   text-align: right;
 }
 
+/* Sandbox Mode toggle di Konfirmasi Review (PRD §11.3) */
+.sandbox-scenario-box {
+  background: var(--color-bg-subtle);
+  border: 1.5px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  margin: 20px 0;
+}
+
+.sandbox-scenario-label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+}
+
+.sandbox-scenario-options {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.sandbox-scenario-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #202020;
+  cursor: pointer;
+}
+
+.sandbox-scenario-option input {
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
 .btn-confirm-pay {
   width: 100%;
   padding: 18px 24px;
@@ -2593,6 +2633,33 @@
 }
 
 .success-badge-circle svg {
+  width: 54px;
+  height: 54px;
+}
+
+/* Failed state — sama persis strukturnya dengan success-badge-*, tema danger (payment-failed.html) */
+.failed-badge-blur {
+  position: absolute;
+  inset: -16px;
+  background: rgba(249, 27, 80, 0.12);
+  filter: blur(28px);
+  border-radius: 50%;
+}
+
+.failed-badge-circle {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--color-danger-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-danger);
+  box-shadow: 0 14px 30px rgba(249, 27, 80, 0.2);
+}
+
+.failed-badge-circle svg {
   width: 54px;
   height: 54px;
 }

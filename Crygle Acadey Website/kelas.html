@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Kelas — Crygle Academy</title>
+  <meta name="description" content="Jelajahi semua kelas Crygle Academy — UI/UX Design, 3D & Animation, Front-End Coding, dan AI for Designers. Belajar kreatif digital dari mentor praktisi industri.">
+  <link rel="icon" type="image/png" href="icon/logo.png">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. NAVBAR (sama seperti index.html)
+       ======================================================================== -->
+  <header class="navbar-wrapper">
+    <div class="navbar-container">
+      <a href="index.html" class="brand-logo" aria-label="Crygle Academy">
+        <img src="icon/logo.png" alt="Crygle Academy" class="navbar-logo-img">
+      </a>
+
+      <nav class="nav-menu-pill" aria-label="Main Navigation">
+        <a href="index.html" class="nav-item">Beranda</a>
+        <a href="kelas.html" class="nav-item active">Video Kelas</a>
+        <a href="index.html#program-section" class="nav-item">Bootcamp Intensif</a>
+        <a href="mentor.html" class="nav-item">Mentor</a>
+        <a href="tentang.html" class="nav-item">Tentang</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-pill-auth">Masuk</a>
+        <a href="signup.html" class="btn btn-primary btn-pill-auth">Daftar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. KATALOG CONTENT
+       ======================================================================== -->
+  <main>
+    <section class="section" style="padding-bottom: 40px;">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-badge">Katalog Lengkap</span>
+          <h1 class="section-title">Semua Kelas Crygle Academy</h1>
+          <p class="section-desc">
+            Dari desain, 3D animation, coding, hingga kelas AI-assisted terbaru — semua kelas praktikal untuk santri &amp; siswa SD sampai SMK.
+          </p>
+        </div>
+
+        <!-- Category Filter Chips -->
+        <div class="category-chips-row" id="katalog-filter-chips" style="justify-content: center; margin-bottom: 48px;">
+          <button type="button" class="category-chip-pill active" data-cat="all">Semua Kelas</button>
+          <button type="button" class="category-chip-pill" data-cat="design">UI/UX Design</button>
+          <button type="button" class="category-chip-pill" data-cat="3d">3D &amp; Animation</button>
+          <button type="button" class="category-chip-pill" data-cat="code">Front-End Coding</button>
+          <button type="button" class="category-chip-pill" data-cat="ai">AI for Designers</button>
+        </div>
+
+        <div class="courses-grid" id="katalog-courses-grid">
+
+          <!-- Card 1 -->
+          <article class="course-card" data-cat="3d">
+            <div class="course-card-thumb">
+              <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&auto=format&fit=crop&q=80" alt="3D Design Freepik">
+            </div>
+            <div class="course-card-body">
+              <div class="course-meta">
+                <span class="course-meta-level">Basic Level Class |</span>
+                <div class="course-rating">
+                  <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span class="course-rating-score">4.3</span>
+                  <span class="course-rating-count">(1.6K Reviews)</span>
+                </div>
+              </div>
+              <h3 class="course-card-title"><a href="course-details.html" style="text-decoration: none; color: inherit;">3D Design : Bagaimana Cara Membuat 3D Objek yang Menjual di Freepik</a></h3>
+              <div class="course-card-price-row">
+                <span class="course-price-current">Rp. 0</span>
+                <div class="course-price-discount">
+                  <span class="badge badge-discount">100% off</span>
+                  <span class="course-price-original">Rp. 159.000</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="course-card" data-cat="3d">
+            <div class="course-card-thumb">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80" alt="3D Animation Blender">
+            </div>
+            <div class="course-card-body">
+              <div class="course-meta">
+                <span class="course-meta-level">Advanced Level Class |</span>
+                <div class="course-rating">
+                  <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span class="course-rating-score">4.3</span>
+                  <span class="course-rating-count">(1.6K Reviews)</span>
+                </div>
+              </div>
+              <h3 class="course-card-title"><a href="course-details.html" style="text-decoration: none; color: inherit;">3D Design : Membuat Animation 3D Produk di Blender</a></h3>
+              <div class="course-card-price-row">
+                <span class="course-price-current">Rp. 99.000</span>
+                <div class="course-price-discount">
+                  <span class="badge badge-danger">80% off</span>
+                  <span class="course-price-original">Rp. 449.000</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Flagship UI/UX -->
+          <article class="course-card" data-cat="design" onclick="window.location.href='course-details.html'" style="cursor: pointer;" title="Klik untuk melihat detail kelas UI/UX Design">
+            <div class="course-card-thumb">
+              <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&auto=format&fit=crop&q=80" alt="UI/UX Design UI Kit">
+            </div>
+            <div class="course-card-body">
+              <div class="course-meta">
+                <span class="course-meta-level">Advanced Level Class |</span>
+                <div class="course-rating">
+                  <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span class="course-rating-score">4.3</span>
+                  <span class="course-rating-count">(1.6K Reviews)</span>
+                </div>
+              </div>
+              <h3 class="course-card-title">UI/UX Design : Menghasilkan Dolar Hanya Dengan Menjual Produk UI Kit</h3>
+              <div class="course-card-price-row">
+                <span class="course-price-current">Rp. 449.000</span>
+                <div class="course-price-discount">
+                  <span class="badge badge-primary">50% off</span>
+                  <span class="course-price-original">Rp. 899.000</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="course-card" data-cat="3d">
+            <div class="course-card-thumb">
+              <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=600&auto=format&fit=crop&q=80" alt="3D Bangun Ruang">
+            </div>
+            <div class="course-card-body">
+              <div class="course-meta">
+                <span class="course-meta-level">Intermediate Level Class |</span>
+                <div class="course-rating">
+                  <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span class="course-rating-score">4.3</span>
+                  <span class="course-rating-count">(1.6K Reviews)</span>
+                </div>
+              </div>
+              <h3 class="course-card-title"><a href="course-details.html" style="text-decoration: none; color: inherit;">3D Design : Mengembangkan 3D Objek Menjadi 3D Bangun Ruang</a></h3>
+              <div class="course-card-price-row">
+                <span class="course-price-current">Rp. 59.000</span>
+                <div class="course-price-discount">
+                  <span class="badge badge-danger">76% off</span>
+                  <span class="course-price-original">Rp. 249.000</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="course-card" data-cat="design">
+            <div class="course-card-thumb">
+              <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&auto=format&fit=crop&q=80" alt="Vector Figma">
+            </div>
+            <div class="course-card-body">
+              <div class="course-meta">
+                <span class="course-meta-level">Advanced Level Class |</span>
+                <div class="course-rating">
+                  <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span class="course-rating-score">4.3</span>
+                  <span class="course-rating-count">(1.6K Reviews)</span>
+                </div>
+              </div>
+              <h3 class="course-card-title"><a href="course-details.html" style="text-decoration: none; color: inherit;">Vector Design : Membuat Vector Ilustrasi Menggunakan Figma</a></h3>
+              <div class="course-card-price-row">
+                <span class="course-price-current">Rp. 99.000</span>
+                <div class="course-price-discount">
+                  <span class="badge badge-danger">80% off</span>
+                  <span class="course-price-original">Rp. 449.000</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="course-card" data-cat="code">
+            <div class="course-card-thumb">
+              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&auto=format&fit=crop&q=80" alt="Front-End Portfolio">
+            </div>
+            <div class="course-card-body">
+              <div class="course-meta">
+                <span class="course-meta-level">Basic Level Class |</span>
+                <div class="course-rating">
+                  <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span class="course-rating-score">4.3</span>
+                  <span class="course-rating-count">(1.6K Reviews)</span>
+                </div>
+              </div>
+              <h3 class="course-card-title"><a href="course-details.html" style="text-decoration: none; color: inherit;">Front-End : Membuat Web Portfolio Simpel dan Berkelas</a></h3>
+              <div class="course-card-price-row">
+                <span class="course-price-current">Rp. 0</span>
+                <div class="course-price-discount">
+                  <span class="badge badge-discount">100% off</span>
+                  <span class="course-price-original">Rp. 159.000</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 7 (dari panel Explore Kelas dashboard.html — 3D Object Building) -->
+          <article class="course-card" data-cat="3d" onclick="window.location.href='course-details.html'" style="cursor: pointer;">
+            <div class="course-card-thumb">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80" alt="3D Object Building">
+            </div>
+            <div class="course-card-body">
+              <div class="course-meta">
+                <span class="course-meta-level">Beginner to Pro · 6 Modul |</span>
+                <div class="course-rating">
+                  <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span class="course-rating-score">4.7</span>
+                  <span class="course-rating-count">(620 Siswa)</span>
+                </div>
+              </div>
+              <h3 class="course-card-title">3D Design : Mengembangkan Objek Menjadi Bangunan Digital</h3>
+              <div class="course-card-price-row">
+                <span class="course-price-current">Rp 290.000</span>
+                <div class="course-price-discount">
+                  <span class="badge badge-primary">50% off</span>
+                  <span class="course-price-original">Rp 580.000</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 8 (Front-End Modern — Explore Kelas) -->
+          <article class="course-card" data-cat="code" onclick="window.location.href='course-details.html'" style="cursor: pointer;">
+            <div class="course-card-thumb">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80" alt="Front-End Modern">
+            </div>
+            <div class="course-card-body">
+              <div class="course-meta">
+                <span class="course-meta-level">Intermediate · 10 Modul |</span>
+                <div class="course-rating">
+                  <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span class="course-rating-score">4.9</span>
+                  <span class="course-rating-count">(1.2K Siswa)</span>
+                </div>
+              </div>
+              <h3 class="course-card-title">Front-End Modern: Slicing Desain Figma ke HTML, CSS &amp; JavaScript</h3>
+              <div class="course-card-price-row">
+                <span class="course-price-current">Rp 340.000</span>
+                <div class="course-price-discount">
+                  <span class="badge badge-primary">50% off</span>
+                  <span class="course-price-original">Rp 680.000</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 9 (AI-Assisted UI/UX — Explore Kelas) -->
+          <article class="course-card" data-cat="ai" onclick="window.location.href='course-details.html'" style="cursor: pointer;">
+            <div class="course-card-thumb">
+              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&auto=format&fit=crop&q=80" alt="AI-Assisted UI/UX Design">
+            </div>
+            <div class="course-card-body">
+              <div class="course-meta">
+                <span class="course-meta-level">Trending 2026 · 5 Modul |</span>
+                <div class="course-rating">
+                  <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span class="course-rating-score">5.0</span>
+                  <span class="course-rating-count">(820 Siswa)</span>
+                </div>
+              </div>
+              <h3 class="course-card-title">AI-Assisted UI/UX Design: Akselerasi Wireframing &amp; Riset Bersama AI</h3>
+              <div class="course-card-price-row">
+                <span class="course-price-current">Rp 280.000</span>
+                <div class="course-price-discount">
+                  <span class="badge badge-primary">50% off</span>
+                  <span class="course-price-original">Rp 560.000</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 10 (Fintech & Banking App Design — Explore Kelas) -->
+          <article class="course-card" data-cat="design" onclick="window.location.href='course-details.html'" style="cursor: pointer;">
+            <div class="course-card-thumb">
+              <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&auto=format&fit=crop&q=80" alt="Fintech Banking App Design">
+            </div>
+            <div class="course-card-body">
+              <div class="course-meta">
+                <span class="course-meta-level">Advanced · 7 Modul |</span>
+                <div class="course-rating">
+                  <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span class="course-rating-score">4.8</span>
+                  <span class="course-rating-count">(710 Siswa)</span>
+                </div>
+              </div>
+              <h3 class="course-card-title">Fintech &amp; Banking App Design: Master Auto Layout &amp; Design System</h3>
+              <div class="course-card-price-row">
+                <span class="course-price-current">Rp 350.000</span>
+                <div class="course-price-discount">
+                  <span class="badge badge-primary">50% off</span>
+                  <span class="course-price-original">Rp 700.000</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Empty state ketika filter tidak menemukan hasil (defensive, harusnya tidak pernah muncul dgn 4 kategori di atas) -->
+        <p id="katalog-empty-state" style="display: none; text-align: center; color: var(--color-text-muted); margin-top: 40px;">
+          Belum ada kelas di kategori ini.
+        </p>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       3. FOOTER (sama seperti index.html)
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand-logo" aria-label="Crygle Academy Footer">
+            <img src="icon/Frame 36933.png" alt="Crygle Academy" class="footer-logo-img">
+          </a>
+          <p class="footer-brand-desc">
+            Belajar kreatif digital dari nol untuk masa depan yang lebih siap. Wadah eksplorasi desain, coding, dan robotika pemula.
+          </p>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>tanya@crygleacademy.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Jl. Cipta Karya, Sidomulyo Bar., Kec. Tampan, Kota Pekanbaru, Riau 28293</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigasi</h4>
+          <ul class="footer-nav-list">
+            <li><a href="index.html" class="footer-nav-link">Beranda</a></li>
+            <li><a href="kelas.html" class="footer-nav-link">Video Kelas Populer</a></li>
+            <li><a href="index.html#program-section" class="footer-nav-link">Bootcamp Intensif</a></li>
+            <li><a href="mentor.html" class="footer-nav-link">Profil Mentor</a></li>
+            <li><a href="tentang.html" class="footer-nav-link">Tentang Crygle</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Program</h4>
+          <ul class="footer-nav-list">
+            <li><a href="course-details.html" class="footer-nav-link">Creative Design</a></li>
+            <li><a href="#" class="footer-nav-link">Creative Coding</a></li>
+            <li><a href="#" class="footer-nav-link">Creative Robotics</a></li>
+            <li><a href="#" class="footer-nav-link">Consulting Mentorship</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Dukungan</h4>
+          <ul class="footer-nav-list">
+            <li><a href="index.html#faq-section" class="footer-nav-link">Pusat Bantuan</a></li>
+            <li><a href="#" class="footer-nav-link">Kontak Kami</a></li>
+            <li><a href="#" class="footer-nav-link">Kebijakan Privasi</a></li>
+            <li><a href="#" class="footer-nav-link">Syarat &amp; Ketentuan</a></li>
+            <li><a href="index.html#faq-section" class="footer-nav-link">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 CRYGLE Academy. All rights reserved.</span>
+        <span>Secured Transaction · Sanctuary System</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>
