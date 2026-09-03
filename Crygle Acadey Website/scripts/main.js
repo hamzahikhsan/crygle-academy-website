@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initChatWorkspace();
   initAffiliateCopy();
   initSettingsForm();
+  initAuthForms();
   initClassroomPlayer();
   initClassroomSyllabus();
   initClassroomTabs();
@@ -1164,6 +1165,112 @@ function initSettingsForm() {
     });
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/* 23. AUTHENTICATION MODULE (LOGIN & SIGNUP - Nodes 735:4450 & 735:5405)     */
+/* -------------------------------------------------------------------------- */
+function initAuthForms() {
+  // 1. Password Visibility Toggle
+  const toggleBtns = document.querySelectorAll('.auth-password-toggle-btn');
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const input = document.getElementById(targetId);
+      if (!input) return;
+
+      const isPassword = input.type === 'password';
+      input.type = isPassword ? 'text' : 'password';
+
+      // Swap SVG icon
+      if (isPassword) {
+        btn.innerHTML = `
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+            <line x1="1" y1="1" x2="23" y2="23"></line>
+          </svg>
+        `;
+        btn.setAttribute('aria-label', 'Sembunyikan Password');
+      } else {
+        btn.innerHTML = `
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        `;
+        btn.setAttribute('aria-label', 'Lihat Password');
+      }
+    });
+  });
+
+  // 2. Login Form Submission
+  const loginForm = document.getElementById('login-form');
+  if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const emailInput = document.getElementById('login-email');
+      const emailVal = emailInput ? emailInput.value.trim() : 'Santri';
+
+      showToastNotification(`👋 Selamat datang kembali! Mengalihkan ke dashboard...`);
+      const submitBtn = document.getElementById('btn-submit-login');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span>Memproses...</span>`;
+      }
+
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 800);
+    });
+  }
+
+  // 3. Signup Form Submission
+  const signupForm = document.getElementById('signup-form');
+  if (signupForm) {
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const password = document.getElementById('signup-password')?.value;
+      const confirmPassword = document.getElementById('signup-confirm-password')?.value;
+
+      if (password !== confirmPassword) {
+        showToastNotification('⚠️ Konfirmasi password tidak cocok. Silakan periksa kembali.');
+        return;
+      }
+
+      showToastNotification('🎉 Akun berhasil didaftarkan! Selamat bergabung di Crygle Academy.');
+      const submitBtn = document.getElementById('btn-submit-signup');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span>Membuat Akun...</span>`;
+      }
+
+      setTimeout(() => {
+        window.location.href = 'dashboard.html#courses';
+      }, 900);
+    });
+  }
+
+  // 4. Google SSO Simulation
+  const googleBtns = [document.getElementById('btn-google-auth'), document.getElementById('btn-google-signup')];
+  googleBtns.forEach(btn => {
+    if (btn) {
+      btn.addEventListener('click', () => {
+        showToastNotification('🔐 Masuk dengan Google Workspace Santri... Mengalihkan...');
+        setTimeout(() => {
+          window.location.href = 'dashboard.html';
+        }, 800);
+      });
+    }
+  });
+
+  // 5. Forgot Password Simulation
+  const forgotBtn = document.getElementById('btn-forgot-password');
+  if (forgotBtn) {
+    forgotBtn.addEventListener('click', () => {
+      showToastNotification('📩 Instruksi reset kata sandi telah dikirim ke alamat email Anda.');
+    });
+  }
+}
+
 
 
 

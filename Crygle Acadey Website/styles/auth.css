@@ -1,0 +1,379 @@
+/* ==========================================================================
+   CRYGLE ACADEMY - AUTHENTICATION STYLING (LOGIN & SIGNUP)
+   Specifications based on Figma Node 735:4450 & 735:5405
+   ========================================================================== */
+
+.auth-page-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #ffffff;
+  font-family: var(--font-family-base, 'SF UI Text', -apple-system, sans-serif);
+  color: var(--color-text-main, #202020);
+  overflow-x: hidden;
+}
+
+/* --- 1. LEFT COLUMN: ILLUSTRATIONS & BRAND SHOWCASE --- */
+.auth-illustration-col {
+  flex: 1.15;
+  max-width: 845px;
+  min-height: 100vh;
+  background-color: #F1F6FC;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 48px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-illus-top-wrap {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.auth-illus-top-img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+  transition: transform var(--transition-normal, 0.3s ease);
+}
+
+.auth-illus-top-img:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.auth-illus-bottom-wrap {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  margin-top: auto;
+}
+
+.auth-illus-bottom-img {
+  width: 100%;
+  max-height: 440px;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 36px rgba(35, 95, 156, 0.08));
+  transition: transform var(--transition-normal, 0.3s ease);
+}
+
+.auth-illus-bottom-img:hover {
+  transform: translateY(-6px);
+}
+
+/* --- 2. RIGHT COLUMN: FORM WORKSPACE (445px Content Area) --- */
+.auth-form-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 32px;
+  background-color: #ffffff;
+  overflow-y: auto;
+}
+
+.auth-form-wrapper {
+  width: 100%;
+  max-width: 445px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Brand Logo */
+.auth-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.auth-brand-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Header Text */
+.auth-heading-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.auth-heading-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: #202020;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.auth-heading-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: #A6A6A6;
+  line-height: 26px;
+}
+
+/* Form Fields */
+.auth-form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.auth-input-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.auth-input-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #202020;
+}
+
+.auth-input-control-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-input-field {
+  width: 100%;
+  height: 52px;
+  padding: 12px 18px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  color: #202020;
+  background: #ffffff;
+  border: 1.5px solid #235F9C;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.auth-input-field::placeholder {
+  color: #A6A6A6;
+  font-weight: 400;
+}
+
+.auth-input-field:focus {
+  border-color: #17426e;
+  box-shadow: 0 0 0 3px rgba(35, 95, 156, 0.15);
+}
+
+.auth-password-toggle-btn {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  color: #797979;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: color 0.2s ease;
+}
+
+.auth-password-toggle-btn:hover {
+  color: #235F9C;
+}
+
+/* Checkbox & Forgot Password Row */
+.auth-options-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.auth-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 14.5px;
+  color: #202020;
+}
+
+.auth-checkbox-input {
+  width: 20px;
+  height: 20px;
+  accent-color: #235F9C;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.auth-forgot-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: #202020;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.auth-forgot-link:hover {
+  color: #235F9C;
+  text-decoration: underline;
+}
+
+/* Primary Action Button (Pill 100px) */
+.auth-btn-primary {
+  width: 100%;
+  height: 56px;
+  background-color: #235F9C;
+  color: #FCFCFC;
+  border: none;
+  border-radius: 100px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(35, 95, 156, 0.25);
+  transition: all 0.25s ease;
+  margin-top: 8px;
+}
+
+.auth-btn-primary:hover {
+  background-color: #1a4978;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(35, 95, 156, 0.35);
+}
+
+.auth-btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Divider Line */
+.auth-divider-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 6px 0;
+}
+
+.auth-divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: #E9E9E9;
+}
+
+.auth-divider-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: #B5B5B5;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+}
+
+/* Google SSO Button */
+.auth-btn-google {
+  width: 100%;
+  height: 56px;
+  background-color: #FAFAFA;
+  border: 1.5px solid #E9E9E9;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: #202020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auth-btn-google:hover {
+  background-color: #F4F8FC;
+  border-color: #C6DDF4;
+  transform: translateY(-1px);
+}
+
+.auth-google-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* Footer Switch Question */
+.auth-footer-switch {
+  text-align: center;
+  font-size: 15px;
+  color: #202020;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+.auth-footer-switch-link {
+  font-weight: 800;
+  color: #235F9C;
+  text-decoration: none;
+  margin-left: 4px;
+  transition: text-decoration 0.2s ease;
+}
+
+.auth-footer-switch-link:hover {
+  text-decoration: underline;
+}
+
+/* --- 3. RESPONSIVE BREAKPOINTS --- */
+@media (max-width: 1100px) {
+  .auth-illustration-col {
+    flex: 0.9;
+    padding: 32px 24px;
+  }
+  
+  .auth-illus-top-img {
+    max-height: 300px;
+  }
+  
+  .auth-illus-bottom-img {
+    max-height: 340px;
+  }
+}
+
+@media (max-width: 900px) {
+  .auth-page-container {
+    flex-direction: column;
+  }
+  
+  .auth-illustration-col {
+    display: none;
+  }
+  
+  .auth-form-col {
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+  
+  .auth-form-wrapper {
+    max-width: 420px;
+  }
+}

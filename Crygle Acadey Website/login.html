@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masuk ke Akun — Crygle Academy</title>
+  <meta name="description" content="Masuk ke dashboard pembelajaran Crygle Academy. Akses kelas desain, bootcamp santri, konsultasi mentor, dan materi belajar eksklusif.">
+  <link rel="icon" type="image/png" href="icon/logo.png">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/main.css?v=3.5">
+  <link rel="stylesheet" href="styles/components.css?v=3.5">
+  <link rel="stylesheet" href="styles/auth.css?v=1.0">
+</head>
+<body>
+
+  <div class="auth-page-container">
+    
+    <!-- LEFT COLUMN: ILLUSTRATIONS (Figma Node 735:4450) -->
+    <aside class="auth-illustration-col" aria-label="Crygle Academy Showcase">
+      <div class="auth-illus-top-wrap">
+        <img src="icon/Design 1 login page.svg" alt="Crygle Academy Digital Learning Illustration" class="auth-illus-top-img">
+      </div>
+      <div class="auth-illus-bottom-wrap">
+        <img src="icon/Design Bawah Login.svg" alt="Pilar Pembelajaran: Robotic, Coding, dan UI/UX Design" class="auth-illus-bottom-img">
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN: LOGIN FORM (Figma Node 735:4459) -->
+    <main class="auth-form-col">
+      <div class="auth-form-wrapper">
+        
+        <!-- Brand Logo (Node 735:4454) -->
+        <a href="index.html" class="auth-brand-header" aria-label="Kembali ke Beranda Crygle Academy">
+          <img src="icon/logo.png" alt="Crygle Academy" class="auth-brand-logo">
+        </a>
+
+        <!-- Header Title & Subtitle (Node 735:4460) -->
+        <div class="auth-heading-group">
+          <h1 class="auth-heading-title">Halo, Selamat Datang 👋</h1>
+          <p class="auth-heading-subtitle">Silahkan Login dan Masukin Akun Kamu</p>
+        </div>
+
+        <!-- Login Form Body -->
+        <form class="auth-form-body" id="login-form">
+          
+          <!-- Input 1: Alamat Email (Node 735:4466) -->
+          <div class="auth-input-box">
+            <label class="auth-input-label" for="login-email">Alamat Email</label>
+            <div class="auth-input-control-wrap">
+              <input 
+                type="email" 
+                id="login-email" 
+                name="email" 
+                class="auth-input-field" 
+                placeholder="nama@email.com" 
+                value="dionahza@crygleacademy.com" 
+                required 
+                autocomplete="email">
+            </div>
+          </div>
+
+          <!-- Input 2: Password (Node 735:4467) -->
+          <div class="auth-input-box">
+            <label class="auth-input-label" for="login-password">Password</label>
+            <div class="auth-input-control-wrap">
+              <input 
+                type="password" 
+                id="login-password" 
+                name="password" 
+                class="auth-input-field" 
+                placeholder="Masukkan kata sandi" 
+                value="CrygleSantri2026!" 
+                required 
+                autocomplete="current-password">
+              <button type="button" class="auth-password-toggle-btn" data-target="login-password" aria-label="Lihat Password">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Checkbox Ingatkan Saya & Lupa Password (Node 735:4468) -->
+          <div class="auth-options-row">
+            <label class="auth-checkbox-label">
+              <input type="checkbox" id="remember-me" name="remember" class="auth-checkbox-input" checked>
+              <span>Ingatkan Saya</span>
+            </label>
+            <a href="javascript:void(0)" class="auth-forgot-link" id="btn-forgot-password">Lupa Password?</a>
+          </div>
+
+          <!-- Primary Submit Button: Masuk (Node 735:4471) -->
+          <button type="submit" class="auth-btn-primary" id="btn-submit-login">
+            <span>Masuk</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </button>
+
+          <!-- Divider: Atau login dengan (Node 1041:1876) -->
+          <div class="auth-divider-wrap">
+            <span class="auth-divider-line"></span>
+            <span class="auth-divider-text">Atau login dengan</span>
+            <span class="auth-divider-line"></span>
+          </div>
+
+          <!-- Google SSO Button (Node 1041:1868) -->
+          <button type="button" class="auth-btn-google" id="btn-google-auth">
+            <svg width="20" height="20" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.29 21.43 7.37 24 12 24z"/>
+              <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.99 0 12s.46 3.84 1.26 5.42l4.02-3.15z"/>
+              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.37 0 3.29 2.57 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+            </svg>
+            <span>Lanjutkan dengan Google</span>
+          </button>
+
+          <!-- Footer Switch Link to Signup (Node 735:6529) -->
+          <p class="auth-footer-switch">
+            Apakah kamu belum memiliki akun? Silahkan
+            <a href="signup.html" class="auth-footer-switch-link">Buat Akun</a>
+          </p>
+
+        </form>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-notification-container"></div>
+
+  <!-- Shared Scripts -->
+  <script src="scripts/main.js"></script>
+</body>
+</html>

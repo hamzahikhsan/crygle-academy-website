@@ -38,6 +38,22 @@
       "destination": "/Crygle%20Acadey%20Website/classroom.html"
     },
     {
+      "source": "/login",
+      "destination": "/Crygle%20Acadey%20Website/login.html"
+    },
+    {
+      "source": "/login.html",
+      "destination": "/Crygle%20Acadey%20Website/login.html"
+    },
+    {
+      "source": "/signup",
+      "destination": "/Crygle%20Acadey%20Website/signup.html"
+    },
+    {
+      "source": "/signup.html",
+      "destination": "/Crygle%20Acadey%20Website/signup.html"
+    },
+    {
       "source": "/styles/:path*",
       "destination": "/Crygle%20Acadey%20Website/styles/:path*"
     },
