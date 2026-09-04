@@ -21,6 +21,10 @@ export default function SignupPage() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (!terms) {
+      setError('Kamu harus menyetujui Syarat & Ketentuan.');
+      return;
+    }
     if (password !== confirmPassword) {
       setError('Password dan konfirmasi password tidak sama.');
       return;
@@ -179,7 +183,6 @@ export default function SignupPage() {
             id="terms-agree"
             checked={terms}
             onChange={(e) => setTerms(e.target.checked)}
-            required
           />
         </div>
 
