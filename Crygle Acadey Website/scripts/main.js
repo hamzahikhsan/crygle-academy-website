@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initTestimonialSlider();
   initSmoothScroll();
+  initDynamicCourseDetails();
   initCourseDetailTabs();
   initCurriculumAccordion();
   initShareButton();
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPaymentSimulation();
   initNavbarDropdowns();
   initHeroVideoModal();
+  initDynamicClassroom();
   initClassroomPlayer();
   initClassroomSyllabus();
   initClassroomTabs();
@@ -402,6 +404,105 @@ function initCourseDetailTabs() {
   });
 }
 
+/**
+ * Membuat course-details.html merespons `?slug=<id>` — dipakai supaya klik kelas
+ * manapun di Home/Katalog/Explore Kelas menampilkan header, harga, dan mentor yang
+ * BENAR sesuai kelas yang diklik (sebelumnya semua kelas menampilkan konten UI/UX
+ * yang sama). Data ada di scripts/course-catalog.js.
+ *
+ * Untuk kelas flagship (atau kalau tidak ada ?slug=), halaman dibiarkan seperti
+ * konten asli — tidak ada perubahan. Untuk kelas lain, tab Overview/Kurikulum/Reviews
+ * menampilkan status "segera hadir" yang jujur (bukan kurikulum karangan), sementara
+ * tab Tentang Mentor menampilkan mentor asli dari mentor.html yang relevan dengan
+ * kategori kelasnya.
+ */
+function initDynamicCourseDetails() {
+  const titleEl = document.getElementById('course-title-h1');
+  if (!titleEl || typeof CRYGLE_COURSES === 'undefined') return; // bukan course-details.html, atau data belum ke-load
+
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug');
+  if (!slug || !(slug in CRYGLE_COURSES) || CRYGLE_COURSES[slug] === null) return; // flagship atau slug tidak dikenal → biarkan konten asli
+
+  const course = CRYGLE_COURSES[slug];
+  const mentor = CRYGLE_MENTORS[course.mentor];
+
+  document.title = `${course.title} — Crygle Academy`;
+  document.getElementById('course-breadcrumb-current').textContent = `Course ${course.title}`;
+  document.getElementById('course-player-img').src = course.image;
+  document.getElementById('course-player-img').alt = course.title;
+  document.getElementById('course-trailer-badge').textContent = '📷 Preview Kelas';
+  document.getElementById('course-mentor-name-overlay').textContent = mentor.name;
+  document.getElementById('course-trailer-duration').style.display = 'none';
+  titleEl.textContent = course.title;
+  document.getElementById('course-header-desc-p').textContent =
+    `Kelas ${course.level} yang dipandu langsung oleh ${mentor.name} — belajar praktik nyata, bukan cuma teori, dengan pendekatan step-by-step khas Crygle Academy.`;
+  document.getElementById('course-rating-score-stat').textContent = course.rating;
+  document.getElementById('course-rating-count-stat').textContent = course.ratingCount;
+  document.getElementById('course-duration-label').textContent = 'Modul';
+  document.getElementById('course-duration-stat').textContent = `${course.moduleCount} Modul`;
+  document.getElementById('course-level-stat').textContent = course.level;
+
+  document.getElementById('sidebar-current-price').textContent = course.price;
+  document.getElementById('sidebar-original-price').textContent = course.originalPrice;
+  document.getElementById('sidebar-discount-badge').textContent = course.discount;
+  document.getElementById('sidebar-cta-btn').href = `checkout.html?slug=${encodeURIComponent(slug)}`;
+  document.getElementById('sidebar-duration-benefit').textContent = `${course.moduleCount} Modul Pembelajaran Terstruktur`;
+
+  document.getElementById('tab-overview').innerHTML = `
+    <h3 class="overview-heading">Course Overview</h3>
+    <p class="overview-paragraph">
+      Kelas <strong>${course.title}</strong> dirancang untuk santri dan siswa level ${course.level} yang ingin membangun kemampuan ${course.category} dari dasar hingga siap portofolio. Dipandu langsung oleh ${mentor.name}, kamu akan belajar dengan pendekatan praktik nyata — bukan cuma teori — sama seperti seluruh kelas Crygle Academy lainnya.
+    </p>
+    <p class="overview-paragraph" style="color: var(--color-text-muted); font-style: italic;">
+      Deskripsi modul per pertemuan untuk kelas ini sedang disiapkan tim kurikulum. Sementara itu, chat mentor untuk tanya detail materi sebelum mendaftar.
+    </p>`;
+
+  document.getElementById('tab-curriculum').innerHTML = `
+    <div style="text-align: center; padding: 48px 24px; background: var(--color-bg-subtle); border-radius: var(--radius-lg);">
+      <h3 class="overview-heading">Kurikulum Kelas — Segera Hadir</h3>
+      <p style="color: var(--color-text-muted); max-width: 480px; margin: 12px auto 20px;">
+        ${course.moduleCount} modul terstruktur untuk kelas ini sedang disiapkan oleh ${mentor.name}. Kamu akan mendapat notifikasi begitu modul pertama rilis.
+      </p>
+      <a href="dashboard.html#chat" class="btn btn-outline" style="padding: 12px 28px; border-radius: 50px; text-decoration: none; display: inline-block;">Chat Mentor untuk Info Kurikulum</a>
+    </div>`;
+
+  const skillsHtml = (mentor.skills || [])
+    .map((s) => `<span style="font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; background: var(--color-primary-50); color: var(--color-primary);">${s}</span>`)
+    .join('');
+  document.getElementById('tab-mentor').innerHTML = `
+    <div class="mentor-card-box">
+      <div class="mentor-header-flex">
+        <img src="${mentor.image}" alt="${mentor.name}" class="mentor-avatar-lg">
+        <div>
+          <h3 class="mentor-name-title">${mentor.name}</h3>
+          <p class="mentor-designation">${mentor.role}</p>
+        </div>
+      </div>
+      <p class="mentor-bio-text">${mentor.bio || ''}</p>
+      <div class="mentor-metrics-row">
+        <div>
+          <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--color-text-light);">Rating</span>
+          <div style="display: flex; align-items: center; gap: 6px; font-weight: 700; margin-top: 4px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--color-secondary)"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <span>${mentor.rating}</span>
+            <span style="color: var(--color-text-muted); font-weight: 500;">${mentor.reviews}</span>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px;">${skillsHtml}</div>
+    </div>`;
+
+  document.getElementById('tab-reviews').innerHTML = `
+    <h3 class="overview-heading">Ulasan Siswa ${course.ratingCount}</h3>
+    <div style="background: #fff; padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--color-border); margin-top: 20px; text-align: center;">
+      <div style="color: var(--color-secondary); font-size: 20px; margin-bottom: 8px;">★ ${course.rating}</div>
+      <p style="font-size: 14px; color: var(--color-text-muted); max-width: 440px; margin: 0 auto;">
+        Ulasan individual untuk kelas ini sedang dikumpulkan. Rating agregat di atas berdasarkan feedback santri di seluruh program Crygle Academy.
+      </p>
+    </div>`;
+}
+
 /* -------------------------------------------------------------------------- */
 /* 7. CURRICULUM ACCORDION (Interactive Chapters)                            */
 /* -------------------------------------------------------------------------- */
@@ -646,6 +747,114 @@ function initDashboardFilters() {
 
 /* -------------------------------------------------------------------------- */
 /* 10. CLASSROOM VIDEO PLAYER & TIMELINE (Node 855:684)                       */
+/**
+ * Membuat classroom.html merespons `?course=<slug>` — mengatasi keterbatasan yang sama
+ * seperti course-details.html (lihat initDynamicCourseDetails di atas): 2 dari 3 kelas
+ * di panel "Course Saya" dashboard (3D Blender Animation, 3D Bangunan Digital) tadinya
+ * selalu menampilkan konten Classroom milik kelas UI/UX. Progress (%, X/8 Modul) diambil
+ * dari data nyata yang sudah ditampilkan di kartu dashboard.html (CRYGLE_ENROLLED_PROGRESS
+ * di scripts/course-catalog.js), bukan angka karangan.
+ *
+ * Sama seperti course-details.html: modul per-lesson tidak dikarang — ditampilkan sebagai
+ * daftar modul bernomor generik ("Modul 1", "Modul 2", ...) tanpa judul lesson spesifik
+ * yang tidak ada sumbernya, dan video player menampilkan status jujur "segera hadir".
+ */
+function initDynamicClassroom() {
+  const titleEl = document.getElementById('classroom-course-title');
+  if (!titleEl || typeof CRYGLE_COURSES === 'undefined') return;
+
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('course');
+  if (!slug || !(slug in CRYGLE_COURSES) || CRYGLE_COURSES[slug] === null) return; // flagship atau slug tidak dikenal → biarkan konten asli
+
+  const course = CRYGLE_COURSES[slug];
+  const mentor = CRYGLE_MENTORS[course.mentor];
+  const progress = CRYGLE_ENROLLED_PROGRESS[slug] || { percent: 0, doneModules: 0, colorClass: 'progress-yellow' };
+
+  document.title = `Play Kelas: ${course.title} — Crygle Academy`;
+  titleEl.textContent = course.title;
+
+  const fillEl = document.getElementById('classroom-progress-fill');
+  fillEl.style.width = `${progress.percent}%`;
+  fillEl.classList.remove('progress-green', 'progress-yellow');
+  fillEl.classList.add(progress.colorClass);
+  document.getElementById('classroom-progress-modul').textContent = `${progress.doneModules}/${course.moduleCount} Modul`;
+  document.getElementById('classroom-progress-percent').textContent = `${progress.percent}%`;
+  document.getElementById('classroom-progress-percent').style.color = progress.percent >= 50 ? '#31BC53' : '#FCC112';
+
+  // Daftar modul generik bernomor — jumlah "selesai" mengikuti progress.doneModules asli
+  let modulesHtml = '';
+  for (let i = 1; i <= course.moduleCount; i += 1) {
+    const isDone = i <= progress.doneModules;
+    modulesHtml += `
+      <div class="classroom-modul-block">
+        <div class="classroom-modul-header" style="cursor: default;">
+          <span class="classroom-modul-name">MODUL ${i}${isDone ? ' — Selesai' : ''}</span>
+          <span class="classroom-modul-toggle-icon">${isDone ? '✅' : '🔒'}</span>
+        </div>
+      </div>`;
+  }
+  document.getElementById('classroom-modules-accordion').innerHTML = modulesHtml;
+
+  // Mentor card (sidebar)
+  document.getElementById('classroom-mentor-avatar').src = mentor.image;
+  document.getElementById('classroom-mentor-avatar').alt = mentor.name;
+  document.getElementById('classroom-mentor-name').textContent = mentor.name;
+  document.getElementById('classroom-mentor-role').textContent = mentor.role;
+
+  // Video area — jujur belum ada video nyata untuk kelas ini
+  const poster = document.getElementById('player-poster');
+  if (poster) poster.src = course.image;
+  const heading = document.getElementById('current-lesson-heading');
+  if (heading) heading.textContent = 'Video Modul Segera Hadir';
+  const timeDisplay = document.getElementById('player-time-display');
+  if (timeDisplay) timeDisplay.textContent = '--:-- / --:--';
+  const nextModulBtn = document.getElementById('btn-next-modul');
+  if (nextModulBtn) nextModulBtn.style.display = 'none';
+  // Lepas id tombol play supaya initClassroomPlayer() (jalan setelah fungsi ini) tidak
+  // menimpa balik tampilan waktu di atas dengan angka demo 04:20/20:05 milik flagship.
+  const bigPlayBtn = document.getElementById('btn-toggle-play');
+  if (bigPlayBtn) {
+    bigPlayBtn.removeAttribute('id');
+    bigPlayBtn.style.opacity = '0.4';
+    bigPlayBtn.style.cursor = 'not-allowed';
+    bigPlayBtn.setAttribute('aria-disabled', 'true');
+  }
+
+  // 3 tab (Resources/Ringkasan/Review) — status jujur, bukan konten UI/UX yang di-reuse
+  const resourcesPane = document.getElementById('pane-resources');
+  if (resourcesPane) {
+    resourcesPane.innerHTML = `
+      <h3 style="font-size: 18px; font-weight: 800; color: #202020; margin-bottom: 6px;">Aset & Materi Belum Tersedia</h3>
+      <p style="font-size: 14px; color: #797979;">Aset unduhan untuk kelas ${course.title} sedang disiapkan mentor. Chat mentor untuk update terbaru.</p>`;
+  }
+  const ringkasanPane = document.getElementById('pane-ringkasan');
+  if (ringkasanPane) {
+    ringkasanPane.innerHTML = `
+      <h3 style="font-size: 18px; font-weight: 800; color: #202020; margin-bottom: 6px;">Ringkasan Belum Tersedia</h3>
+      <p style="font-size: 14px; color: #797979;">Rangkuman modul akan muncul di sini setelah materi kelas ini rilis.</p>`;
+  }
+  const reviewPane = document.getElementById('pane-review');
+  if (reviewPane) {
+    reviewPane.innerHTML = `
+      <h3 style="font-size: 18px; font-weight: 800; color: #202020; margin-bottom: 6px;">Diskusi & Ulasan</h3>
+      <p style="font-size: 14px; color: #797979;">Belum ada diskusi untuk kelas ini. Jadilah santri pertama yang bertanya lewat Chat Mentor.</p>`;
+  }
+
+  // Modal Chat Mentor — sinkronkan ke mentor yang benar
+  const modalAvatar = document.getElementById('modal-mentor-avatar');
+  if (modalAvatar) modalAvatar.src = mentor.image;
+  const modalHeading = document.getElementById('modal-mentor-heading');
+  if (modalHeading) modalHeading.textContent = `Konsultasi Mentor: ${mentor.name.split(' ')[0]} ${mentor.name.split(' ')[1] || ''}`.trim();
+  const modalIntro = document.getElementById('modal-mentor-intro');
+  if (modalIntro) modalIntro.innerHTML = `Punya kendala saat mengikuti kelas <em>${course.title}</em>? Sampaikan langsung pada sesi konsultasi santri.`;
+  const modalWaLink = document.getElementById('modal-wa-link');
+  if (modalWaLink) {
+    const waText = encodeURIComponent(`Halo Kak ${mentor.name}, saya santri kelas ${course.title} Crygle Academy. Mau konsultasi.`);
+    modalWaLink.href = `https://wa.me/6282283901120?text=${waText}`;
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 let isVideoPlaying = false;
 let videoTimerInterval = null;

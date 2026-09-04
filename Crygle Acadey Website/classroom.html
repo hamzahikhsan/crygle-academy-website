@@ -52,18 +52,18 @@
     <!-- LEFT COLUMN: SYLLABUS & MODULES SIDEBAR (Node 855:693) -->
     <aside class="classroom-sidebar-card">
       <div class="classroom-course-summary">
-        <h2 class="classroom-course-title">UI/UX Design : Menghasilkan Dolar Hanya Dengan Menjual Produk UI Kit</h2>
+        <h2 class="classroom-course-title" id="classroom-course-title">UI/UX Design : Menghasilkan Dolar Hanya Dengan Menjual Produk UI Kit</h2>
         <div class="dashboard-progress-track">
-          <div class="dashboard-progress-fill progress-green" style="width: 60%;"></div>
+          <div class="dashboard-progress-fill progress-green" id="classroom-progress-fill" style="width: 60%;"></div>
         </div>
         <div class="dashboard-card-meta-row">
-          <span>5/8 Modul</span>
-          <span style="color: #31BC53;">60%</span>
+          <span id="classroom-progress-modul">5/8 Modul</span>
+          <span style="color: #31BC53;" id="classroom-progress-percent">60%</span>
         </div>
       </div>
 
       <!-- Modules Accordion (Node 855:701) -->
-      <div class="classroom-modules-accordion">
+      <div class="classroom-modules-accordion" id="classroom-modules-accordion">
         
         <!-- Module 1: Perkenalan -->
         <div class="classroom-modul-block" id="modul-1">
@@ -184,10 +184,10 @@
       <!-- Mentor Profile Card (Node 855:735) -->
       <div class="classroom-mentor-card">
         <div style="display: flex; align-items: center; gap: 16px; width: 100%;">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80" alt="Dimas Pradipa Abiyuda" class="mentor-avatar-medium">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80" alt="Dimas Pradipa Abiyuda" class="mentor-avatar-medium" id="classroom-mentor-avatar">
           <div style="text-align: left;">
-            <div class="classroom-mentor-name">Dimas Pradipa Abiyuda</div>
-            <div class="classroom-mentor-role">Founder &amp; CEO Crygle Academy</div>
+            <div class="classroom-mentor-name" id="classroom-mentor-name">Dimas Pradipa Abiyuda</div>
+            <div class="classroom-mentor-role" id="classroom-mentor-role">Founder &amp; CEO Crygle Academy</div>
           </div>
         </div>
 
@@ -410,14 +410,14 @@
       <button type="button" class="receipt-modal-close-btn" id="btn-close-mentor-chat" aria-label="Tutup">✕</button>
 
       <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80" alt="Dimas Pradipa Abiyuda" style="width: 54px; height: 54px; border-radius: 50%; object-fit: cover;">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80" alt="Dimas Pradipa Abiyuda" style="width: 54px; height: 54px; border-radius: 50%; object-fit: cover;" id="modal-mentor-avatar">
         <div>
-          <h3 style="font-size: 18px; font-weight: 800; color: #202020; margin-bottom: 2px;">Konsultasi Mentor: Dimas Pradipa</h3>
+          <h3 style="font-size: 18px; font-weight: 800; color: #202020; margin-bottom: 2px;" id="modal-mentor-heading">Konsultasi Mentor: Dimas Pradipa</h3>
           <span style="font-size: 12px; color: #188749; font-weight: 700; background: #DBFBD6; padding: 2px 10px; border-radius: 20px;">ONLINE · CEPAT MERESPONS</span>
         </div>
       </div>
 
-      <p style="font-size: 14px; color: #5A6062; line-height: 1.6; margin-bottom: 18px;">
+      <p style="font-size: 14px; color: #5A6062; line-height: 1.6; margin-bottom: 18px;" id="modal-mentor-intro">
         Punya kendala saat mengikuti modul <em>Brainstorming Fitur</em> atau ingin mereview file Figma hasil karyamu? Sampaikan langsung pada sesi konsultasi santri.
       </p>
 
@@ -432,7 +432,7 @@
       </div>
 
       <div style="display: flex; flex-direction: column; gap: 10px;">
-        <a href="https://wa.me/6282283901120?text=Halo%20Mas%20Dimas,%20saya%20Dion%20Ahza%20siswa%20kelas%20UI/UX%20Design%20Crygle%20Academy.%20Mau%20konsultasi%20modul%20Brainstorming%20Fitur." target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; border-radius: 50px; text-decoration: none; font-size: 14px; font-weight: 700;">
+        <a href="https://wa.me/6282283901120?text=Halo%20Mas%20Dimas,%20saya%20Dion%20Ahza%20siswa%20kelas%20UI/UX%20Design%20Crygle%20Academy.%20Mau%20konsultasi%20modul%20Brainstorming%20Fitur." target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="modal-wa-link" style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; border-radius: 50px; text-decoration: none; font-size: 14px; font-weight: 700;">
           <span>Buka Chat WhatsApp Mentor</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M5 12h14"></path>
@@ -451,6 +451,7 @@
   </div>
 
   <!-- Scripts -->
+  <script src="scripts/course-catalog.js"></script>
   <script src="scripts/main.js"></script>
 </body>
 </html>
