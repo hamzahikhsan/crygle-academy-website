@@ -26,4 +26,11 @@ describe('static assets', () => {
   it.each(logoFiles)('logo file %s exists in public/logo', (file) => {
     expect(existsSync(path.join(publicDir, 'logo', file))).toBe(true);
   });
+
+  it.each(['design-1-login-page.svg', 'design-bawah-login.svg'])(
+    'illustration file %s exists in public/illustrations',
+    (file) => {
+      expect(existsSync(path.join(publicDir, 'illustrations', file))).toBe(true);
+    }
+  );
 });
