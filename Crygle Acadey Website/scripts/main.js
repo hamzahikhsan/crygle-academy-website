@@ -538,6 +538,23 @@ function initCourseLearningHub() {
   fillEl.classList.add(progress.colorClass);
   document.getElementById('learning-progress-modul').textContent = `${progress.doneModules} dari ${course.moduleCount} Modul`;
   document.getElementById('learning-continue-btn').href = `classroom.html${slug === 'ui-ux-jual-produk' ? '' : `?course=${slug}`}`;
+
+  // Tab Kurikulum — lock/active/done state dari progress nyata (bukan konten modul
+  // karangan, cuma label "Modul N" generik + status berbasis doneModules).
+  const curriculumEl = document.getElementById('tab-curriculum');
+  if (curriculumEl) {
+    let rows = '';
+    for (let i = 1; i <= course.moduleCount; i += 1) {
+      const isDone = i <= progress.doneModules;
+      const isActive = i === progress.doneModules + 1;
+      const icon = isDone ? '✅' : isActive ? '▶' : '🔒';
+      const href = slug === 'ui-ux-jual-produk' ? 'classroom.html' : `classroom.html?course=${slug}`;
+      rows += `<a href="${href}" class="curriculum-lesson-item" style="text-decoration:none; color:inherit; display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px solid var(--color-border);">
+        <span>${icon} Modul ${i}${isDone ? ' — Selesai' : isActive ? ' — Sedang Berjalan' : ' — Terkunci'}</span>
+      </a>`;
+    }
+    curriculumEl.innerHTML = `<h3 class="overview-heading" style="margin-bottom:16px;">Kurikulum Kelas</h3>${rows}`;
+  }
 }
 
 /* -------------------------------------------------------------------------- */
