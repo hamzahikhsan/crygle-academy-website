@@ -227,7 +227,7 @@ Saat ini tidak ada satupun cara mengelola platform dari sisi bisnis — semua ko
 | # | Halaman | Isi & Fungsi |
 |---|---|---|
 | 9.1 | **Login Admin** | Terpisah dari login Santri/Mentor (level akses lebih sensitif) |
-| 9.2 | **Admin Dashboard — Overview** | KPI bisnis: Total Pendapatan (harian/bulanan), Santri Aktif, Tingkat Penyelesaian Kelas rata-rata, Santri Berisiko Drop-out (tidak aktif >14 hari — validasi riset §4), Kelas dengan Completion Rate Terendah, Tren Pendaftaran Baru (grafik) |
+| 9.2 | **Admin Dashboard — Overview** | KPI bisnis: Total Pendapatan (harian/bulanan), Santri Aktif, Tingkat Penyelesaian Kelas rata-rata, Santri Berisiko Drop-out (**konsep** deteksi-dini divalidasi riset §4 — tapi angka **">14 hari" adalah default usulan saya sendiri**, bukan angka dari sumber manapun; §4 cuma bilang "predictive analytics" secara umum tanpa angka), Kelas dengan Completion Rate Terendah, Tren Pendaftaran Baru (grafik) |
 | 9.3 | **Manajemen Pengguna** | Tabel semua Santri & Mentor — cari/filter, lihat detail 1 pengguna (kelas diambil, poin, badge, sertifikat, login terakhir — pola persis Credly/LMS umum §4), suspend/aktifkan akun, ubah role |
 | 9.4 | **Manajemen Kelas** | CRUD kelas video: judul, harga, kategori, mentor pengampu, publish/unpublish, urutan modul & attachment. **Ini yang menggantikan hardcode di `scripts/course-catalog.js`/HTML** menjadi benar-benar dikelola (koreksi: nama file sebelumnya salah kutip, sama seperti error yang sudah dibenahi di §6.1) |
 | 9.5 | **Manajemen Cohort Bootcamp** | Buat batch baru (nama, periode, kuota), assign mentor utama & fasilitator, atur jadwal sesi live, lihat roster & progress agregat per cohort |
