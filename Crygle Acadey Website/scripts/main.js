@@ -555,6 +555,33 @@ function initCourseLearningHub() {
     }
     curriculumEl.innerHTML = `<h3 class="overview-heading" style="margin-bottom:16px;">Kurikulum Kelas</h3>${rows}`;
   }
+
+  // Attachment & Materi — lock state sama seperti Kurikulum (i <= doneModules)
+  const attachmentEl = document.getElementById('tab-attachment');
+  if (attachmentEl) {
+    let rows = '';
+    for (let i = 1; i <= course.moduleCount; i += 1) {
+      const unlocked = i <= progress.doneModules;
+      rows += unlocked
+        ? `<div class="resource-download-pill"><span>📎 Materi Modul ${i}.fig</span></div>`
+        : `<div class="resource-download-pill" style="opacity:0.5;"><span>🔒 Materi Modul ${i} — selesaikan modul sebelumnya dulu</span></div>`;
+    }
+    attachmentEl.innerHTML = `<h3 class="overview-heading" style="margin-bottom:16px;">Attachment & Materi</h3>${rows}`;
+  }
+
+  // Asesmen & Quiz — status per modul (bukan quiz sungguhan, cuma status tracker)
+  const quizEl = document.getElementById('tab-quiz');
+  if (quizEl) {
+    let rows = '';
+    for (let i = 1; i <= course.moduleCount; i += 1) {
+      const done = i <= progress.doneModules;
+      const status = done ? 'Sudah Dikerjakan' : i === progress.doneModules + 1 ? 'Belum Dikerjakan' : 'Terkunci';
+      rows += `<div style="display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--color-border);">
+        <span>Quiz Modul ${i}</span><span style="color:${done ? '#269C45' : '#797979'}; font-weight:700;">${status}</span>
+      </div>`;
+    }
+    quizEl.innerHTML = `<h3 class="overview-heading" style="margin-bottom:16px;">Asesmen & Quiz</h3>${rows}`;
+  }
 }
 
 /* -------------------------------------------------------------------------- */
