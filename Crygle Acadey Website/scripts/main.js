@@ -1331,6 +1331,12 @@ function initBookingSlotPicker() {
     confirmBtn.addEventListener('click', () => {
       const mName = summaryMentor ? summaryMentor.textContent : 'Mentor';
       const mTime = summarySlot ? summarySlot.textContent : 'Waktu Terjadwal';
+      // Flow Expansion Fase 1, Task 1: persist booking (demo-level, sessionStorage — no real backend).
+      sessionStorage.setItem('crygle-bootcamp-booking', JSON.stringify({
+        mentorName: mName,
+        slotTime: mTime,
+        confirmedAt: new Date().toISOString(),
+      }));
       showToastNotification(`🎉 Sesi bimbingan bersama ${mName} (${mTime}) berhasil dipesan!`);
     });
   }
