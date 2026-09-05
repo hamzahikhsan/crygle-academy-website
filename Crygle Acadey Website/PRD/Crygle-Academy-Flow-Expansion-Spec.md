@@ -70,9 +70,20 @@ Dua screenshot catatan tim jadi rujukan (bukan interpretasi bebas):
 1. *"User Flow Learning Video materi"* + *"User Melihat Schedule Kelas yang sudah di daftar dan di ikuti (include ada jadwalnya atau ke arah spreadsheet)"* → menegaskan kebutuhan halaman jadwal/kalender personal santri, bukan cuma progress bar.
 2. *"Flow Bootcamp yang di free Video Learning dan konsultasi gratis (Sanbercode)"* — model bisnis: video gratis + konsultasi berbayar.
 3. *"Flow Video Learning yang dia itu beli video materi kaya BWA (BuildWithAngga). Lalu kita sediakan fitur secondary chat mentor terkait... Opsi ada 2: bayar per konsul Rp15.000 atau perbulan Rp150.000. Ada jam-jam tertentu yang sudah disediakan"* — ini **sudah dibangun** (Booking Konsultasi Mentor di dashboard, harga persis sama).
-4. **Daftar kebutuhan Bootcamp** (dikutip langsung): Video materi gratis ✅ · Grup chat WhatsApp ✅ · Spreadsheet jadwal+nama+absensi+tracker tugas ✅ (sebagai tabel HTML, bukan Google Sheet — keputusan desain yang valid) · Halaman pengumpulan tugas & quiz ✅ · Leaderboard ranking ✅ · **Sertifikat** 🔴.
+4. **Daftar kebutuhan Bootcamp** (dikutip langsung) — **dikoreksi setelah verifikasi grep langsung ke `dashboard.html`/`bootcamp.html`/`bootcamp-join.html`**, bukan asumsi dari draf sebelumnya:
 
-**Kesimpulan:** dari 6 item kebutuhan Bootcamp yang diminta klien sejak awal, **5 sudah dibangun** dan **Sertifikat adalah satu-satunya yang belum ada sama sekali** — ini bukan usulan baru saya, ini menyelesaikan permintaan klien yang sudah lama tertunda. Prioritaskan §7.
+| Item Diminta Klien | Status Sebenarnya | Bukti |
+|---|---|---|
+| Video materi gratis | 🔴 **Belum ada** | Tidak ditemukan satupun section "video gratis" di `bootcamp.html`/`bootcamp-join.html`/panel Bootcamp `dashboard.html`. Draf v1.0 dokumen ini salah menandainya ✅ — dikoreksi di sini. |
+| Grup chat WhatsApp | ✅ Terverifikasi | Link nyata `chat.whatsapp.com/demo-crygle-bootcamp-cohort` ada di `dashboard.html` & `bootcamp-join.html` |
+| Spreadsheet jadwal + nama siswa + absensi + tracker tugas | 🟡 **Sebagian**, bukan penuh | Yang ada: tabel jadwal **sisi santri sendiri** (1 baris = 1 sesi, status hadir milik santri yang login) di `dashboard.html`. Yang **belum ada**: roster satu-layar berisi *banyak* nama santri + absensi masing-masing untuk dilihat mentor/admin — ini baru rencana di §8.4 (Cohort Bootcamp Saya, sisi Mentor) & §9.5 (Admin), bukan sudah jadi |
+| Halaman pengumpulan tugas & quiz | ✅ Terverifikasi | `subtab-tugas` dengan form unggah link tugas, ada di `dashboard.html` |
+| Leaderboard ranking | ✅ Terverifikasi | `subtab-leaderboard` dengan 4 baris ranking bermedali, ada di `dashboard.html` |
+| Sertifikat | 🔴 Belum ada | Sama seperti draf sebelumnya |
+
+**Kesimpulan (dikoreksi dari draf v1.0):** dari 6 item, **3 benar-benar tuntas** (Grup WA, Tugas & Quiz, Leaderboard), **1 sebagian** (Spreadsheet — baru sisi santri), **2 sama sekali belum ada** (Video Gratis, Sertifikat). Klaim "5 dari 6 sudah dibangun" di draf v1.0 **tidak akurat** — Video Materi Gratis salah dihitung selesai padahal tidak pernah ditemukan di kode. Prioritas jadi bertambah satu: **Video Materi Gratis untuk Bootcamp** perlu masuk roadmap (lihat catatan di §11), sejajar dengan Sertifikat di §7.
+
+> ⚠️ **Dampak ke §2 (diagram FigJam v2):** diagram yang baru saya buat kemarin **juga ikut salah** — node "Video Gratis" yang ada di diagram lama malah saya hilangkan sama sekali di v2, bukan diberi status 🔴. Perlu ditambal saat diagram direvisi lagi (belum saya lakukan sekarang, supaya tidak boros pemanggilan tool — tunggu instruksi lanjut).
 
 ---
 
@@ -250,7 +261,7 @@ Urutan disusun berdasar dependensi teknis & dampak bisnis — bukan asal bagi ra
 |---|---|---|
 | **Fase 0** | Gambar ulang diagram FigJam dengan struktur baru (§10) + finalisasi dokumen ini jadi disetujui | Alat komunikasi sebelum eksekusi — murah, cepat, mencegah salah paham |
 | **Fase 1** | Dashboard Peserta diperdalam: Overview kompleks (§6.1), Course Learning Hub (§6.2), Bootcamp Overview (§6.3) | Semua datanya SUDAH ADA — cuma penataan ulang & UI baru, bukan sistem baru. ROI tercepat, langsung dirasakan pengguna existing |
-| **Fase 2** | Sistem Sertifikat (§7) | Permintaan klien yang sudah lama tertunda (§3) — dan jadi PRASYARAT alami untuk Fase 1 selesai terasa lengkap (Course Learning Hub butuh "apa yang didapat setelah selesai") |
+| **Fase 2** | Sistem Sertifikat (§7) **+ Video Materi Gratis Bootcamp** (§3 — ralat: ternyata belum ada sama sekali, bukan cuma sub-fitur kecil) | Permintaan klien yang sudah lama tertunda (§3) — dan jadi PRASYARAT alami untuk Fase 1 selesai terasa lengkap (Course Learning Hub butuh "apa yang didapat setelah selesai"). Video Gratis digabung di sini karena effort-nya kecil (reuse pola kartu kelas yang sudah ada) — tidak perlu fase sendiri |
 | **Fase 3** | Mentor Portal (§8) | 80% reuse data yang sudah ada (chat/booking/tugas) — begitu Sertifikat ada, mentor perlu bisa lihat siapa yang sudah lulus dari sisi mereka |
 | **Fase 4** | Admin Console inti (§9.2–9.7: Overview, User, Kelas, Cohort, Transaksi, Sertifikat) | Butuh Mentor Portal lebih dulu ada supaya Admin py sesuatu untuk "mengelola" (assign mentor ke kelas/cohort) |
 | **Fase 5** | Admin Console lanjutan (§9.8–9.11: Moderasi, B2B, Laporan, Setting) | Paling kompleks & paling bergantung pada validasi bisnis (§12) — wajar di akhir |
