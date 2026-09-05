@@ -1362,6 +1362,21 @@ function initBootcampSubTabs() {
 
   if (!tabBtns.length || !panes.length) return;
 
+  // Sub-Tab Overview (Flow Expansion §6.3) — 3 kartu KPI diisi dari data nyata,
+  // kartu ke-4 (Materi & Attachment) sengaja tetap empty-state di HTML (Global Constraints).
+  const nextSessionEl = document.getElementById('bootcamp-next-session');
+  if (nextSessionEl) nextSessionEl.textContent = '17 Sep 2026 · Design Tokens, Auto Layout & Atomic System'; // port dari tabel Jadwal & Absensi Pekan 3 yang sudah ada
+
+  const tugasProgressEl = document.getElementById('bootcamp-tugas-progress');
+  if (tugasProgressEl && typeof CRYGLE_BOOTCAMP_TUGAS !== 'undefined') {
+    const done = CRYGLE_BOOTCAMP_TUGAS.filter((t) => t.status === 'selesai');
+    const avgScore = done.length ? Math.round(done.reduce((sum, t) => sum + t.score, 0) / done.length) : 0;
+    tugasProgressEl.textContent = `${done.length} dari ${CRYGLE_BOOTCAMP_TUGAS.length} Tugas · Rata-rata ${avgScore}`;
+  }
+
+  const rankEl = document.getElementById('bootcamp-rank');
+  if (rankEl) rankEl.textContent = 'Peringkat #2'; // port manual dari tabel Leaderboard yang sudah ada (4 baris statis)
+
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const subtabId = btn.dataset.subtab;

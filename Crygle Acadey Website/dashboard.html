@@ -524,14 +524,25 @@
 
         <!-- Bootcamp Sub-Tabs Nav -->
         <div class="bootcamp-subtabs-bar">
-          <button type="button" class="bootcamp-tab-btn active" data-subtab="subtab-jadwal">📅 Jadwal &amp; Absensi (§10.4)</button>
+          <button type="button" class="bootcamp-tab-btn active" data-subtab="subtab-overview">📊 Overview</button>
+          <button type="button" class="bootcamp-tab-btn" data-subtab="subtab-jadwal">📅 Jadwal &amp; Absensi (§10.4)</button>
           <button type="button" class="bootcamp-tab-btn" data-subtab="subtab-booking">🤝 Booking Konsultasi Mentor (§10.2)</button>
           <button type="button" class="bootcamp-tab-btn" data-subtab="subtab-tugas">📝 Pengumpulan Tugas &amp; Quiz (§10.5)</button>
           <button type="button" class="bootcamp-tab-btn" data-subtab="subtab-leaderboard">🏆 Leaderboard Ranking (§10.6)</button>
         </div>
 
+        <!-- Sub-Tab 0: Overview (Flow Expansion Spec §6.3) — tampil pertama secara default -->
+        <div class="bootcamp-subtab-pane" id="subtab-overview">
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+            <div class="kpi-metric-card"><span class="kpi-label-text">Sesi Live Berikutnya</span><div id="bootcamp-next-session" style="font-size: 14px; font-weight: 700; margin-top: 8px;"></div></div>
+            <div class="kpi-metric-card"><span class="kpi-label-text">Progress Tugas</span><div id="bootcamp-tugas-progress" style="font-size: 14px; font-weight: 700; margin-top: 8px;"></div></div>
+            <div class="kpi-metric-card"><span class="kpi-label-text">Peringkat Kamu</span><div id="bootcamp-rank" style="font-size: 14px; font-weight: 700; margin-top: 8px;"></div></div>
+            <div class="kpi-metric-card"><span class="kpi-label-text">Materi &amp; Attachment</span><div style="font-size: 13px; color: #797979; margin-top: 8px;">Belum ada materi diupload mentor untuk cohort ini.</div></div>
+          </div>
+        </div>
+
         <!-- Sub-Tab 1: Jadwal & Absensi (Spreadsheet Style) -->
-        <div class="bootcamp-subtab-pane" id="subtab-jadwal">
+        <div class="bootcamp-subtab-pane" id="subtab-jadwal" style="display: none;">
           <div class="data-table-container">
             <table class="crygle-data-table">
               <thead>
