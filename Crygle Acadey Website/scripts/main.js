@@ -516,10 +516,14 @@ function initCourseLearningHub() {
   const slug = params.get('slug') || 'ui-ux-jual-produk';
   // Flagship sengaja tidak ada di CRYGLE_COURSES (entrinya null) — sama seperti pola
   // yang sudah dipakai course-details.html/classroom.html, judul & modul di-hardcode di sini.
+  // level/category/mentor ditambah saat Task 10 (verifikasi) — dibutuhkan tab-overview
+  // & tab-mentor di bawah, nilainya sama persis dengan yang sudah dipakai di
+  // course-details.html (stat bar "Advanced Level") & dashboard.html (data-category="design").
   const course = slug === 'ui-ux-jual-produk'
-    ? { title: 'UI/UX Design : Menghasilkan Dolar Hanya Dengan Menjual Produk UI Kit', moduleCount: 8 }
+    ? { title: 'UI/UX Design : Menghasilkan Dolar Hanya Dengan Menjual Produk UI Kit', moduleCount: 8, level: 'Advanced Level', category: 'UI/UX Design', mentor: 'dimas' }
     : CRYGLE_COURSES[slug];
   if (!course) return;
+  const mentor = CRYGLE_MENTORS[course.mentor];
 
   const progress = slug === 'ui-ux-jual-produk'
     ? { percent: 60, doneModules: 5, colorClass: 'progress-green' }
@@ -581,6 +585,59 @@ function initCourseLearningHub() {
       </div>`;
     }
     quizEl.innerHTML = `<h3 class="overview-heading" style="margin-bottom:16px;">Asesmen & Quiz</h3>${rows}`;
+  }
+
+  // Gap ditemukan saat Task 10 (verifikasi penuh): plan Task 5-7 tidak pernah mengisi
+  // tab-overview & tab-mentor, padahal checklist Task 10 sendiri mengharuskan keduanya
+  // "terisi". Pola di bawah adalah copy dari template initDynamicCourseDetails() yang
+  // sudah teruji di course-details.html — bukan konten baru, cuma dipakai ulang di
+  // konteks "sedang belajar" alih-alih "sebelum beli".
+  const overviewEl = document.getElementById('tab-overview');
+  if (overviewEl && mentor) {
+    overviewEl.innerHTML = `
+      <h3 class="overview-heading">Course Overview</h3>
+      <p class="overview-paragraph">
+        Kelas <strong>${course.title}</strong> dirancang untuk santri dan siswa level ${course.level} yang ingin membangun kemampuan ${course.category} dari dasar hingga siap portofolio. Dipandu langsung oleh ${mentor.name}, kamu belajar dengan pendekatan praktik nyata — bukan cuma teori — sama seperti seluruh kelas Crygle Academy lainnya.
+      </p>
+      <p class="overview-paragraph" style="color: var(--color-text-muted); font-style: italic;">
+        Progress belajarmu ada di sidebar kanan. Lanjutkan dari modul terakhir lewat tab Kurikulum Kelas, atau chat mentor kalau ada yang belum jelas.
+      </p>`;
+  }
+
+  const mentorEl = document.getElementById('tab-mentor');
+  if (mentorEl && mentor) {
+    const skillsHtml = (mentor.skills || [])
+      .map((s) => `<span style="font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; background: var(--color-primary-50); color: var(--color-primary);">${s}</span>`)
+      .join('');
+    mentorEl.innerHTML = `
+      <div class="mentor-card-box">
+        <div class="mentor-header-flex">
+          <img src="${mentor.image}" alt="${mentor.name}" class="mentor-avatar-lg">
+          <div>
+            <h3 class="mentor-name-title">${mentor.name}</h3>
+            <p class="mentor-designation">${mentor.role}</p>
+          </div>
+        </div>
+        <p class="mentor-bio-text">${mentor.bio || ''}</p>
+        <div class="mentor-metrics-row">
+          <div>
+            <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--color-text-light);">Rating</span>
+            <div style="display: flex; align-items: center; gap: 6px; font-weight: 700; margin-top: 4px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--color-secondary)"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <span>${mentor.rating}</span>
+              <span style="color: var(--color-text-muted); font-weight: 500;">${mentor.reviews}</span>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px;">${skillsHtml}</div>
+      </div>`;
+  }
+
+  // Reviews sengaja bukan bagian dari checklist verifikasi Task 10 — cuma diisi state
+  // jujur minimal (bukan ulasan karangan) supaya tab-nya tidak benar-benar kosong.
+  const reviewsEl = document.getElementById('tab-reviews');
+  if (reviewsEl) {
+    reviewsEl.innerHTML = `<h3 class="overview-heading">Reviews</h3><p style="color: var(--color-text-muted); margin-top: 12px;">Ulasan individual untuk kelas ini sedang dikumpulkan.</p>`;
   }
 }
 
