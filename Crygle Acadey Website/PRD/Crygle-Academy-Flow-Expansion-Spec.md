@@ -229,11 +229,11 @@ Saat ini tidak ada satupun cara mengelola platform dari sisi bisnis — semua ko
 | 9.1 | **Login Admin** | Terpisah dari login Santri/Mentor (level akses lebih sensitif) |
 | 9.2 | **Admin Dashboard — Overview** | KPI bisnis: Total Pendapatan (harian/bulanan), Santri Aktif, Tingkat Penyelesaian Kelas rata-rata, Santri Berisiko Drop-out (tidak aktif >14 hari — validasi riset §4), Kelas dengan Completion Rate Terendah, Tren Pendaftaran Baru (grafik) |
 | 9.3 | **Manajemen Pengguna** | Tabel semua Santri & Mentor — cari/filter, lihat detail 1 pengguna (kelas diambil, poin, badge, sertifikat, login terakhir — pola persis Credly/LMS umum §4), suspend/aktifkan akun, ubah role |
-| 9.4 | **Manajemen Kelas** | CRUD kelas video: judul, harga, kategori, mentor pengampu, publish/unpublish, urutan modul & attachment. **Ini yang menggantikan hardcode di `courses.ts`/HTML** menjadi benar-benar dikelola |
+| 9.4 | **Manajemen Kelas** | CRUD kelas video: judul, harga, kategori, mentor pengampu, publish/unpublish, urutan modul & attachment. **Ini yang menggantikan hardcode di `scripts/course-catalog.js`/HTML** menjadi benar-benar dikelola (koreksi: nama file sebelumnya salah kutip, sama seperti error yang sudah dibenahi di §6.1) |
 | 9.5 | **Manajemen Cohort Bootcamp** | Buat batch baru (nama, periode, kuota), assign mentor utama & fasilitator, atur jadwal sesi live, lihat roster & progress agregat per cohort |
 | 9.6 | **Transaksi & Pembayaran** | Log semua transaksi checkout (§9.5 PRD), status (berhasil/gagal/pending), proses refund manual jika perlu, rekonsiliasi dengan payment gateway |
 | 9.7 | **Manajemen Sertifikat** | Daftar semua sertifikat terbit, cari by nama/ID, **cabut sertifikat** kalau ada kasus kecurangan (fitur wajib untuk kredibilitas jangka panjang) |
-| 9.8 | **Moderasi Konten** | Review kelas yang di-flag tidak pantas, kelola FAQ Home, kelola isi halaman Legal (Privasi/S&K — supaya tidak perlu edit HTML manual lagi setelah draf awal §7.2/§7.3 PRD direview legal) |
+| 9.8 | **Moderasi Konten** | Review kelas yang di-flag tidak pantas, kelola FAQ Home, kelola isi halaman Legal (`privasi.html`/`syarat-ketentuan.html` — supaya tidak perlu edit HTML manual lagi setelah draf yang ada direview legal — **koreksi:** draf v1.0 salah kutip "§7.2/§7.3 PRD", dicek ulang PRD §7 ternyata isinya Sitemap, bukan halaman legal) |
 | 9.9 | **Konsol Kemitraan Sekolah (B2B)** | **Ini yang mengonkretkan ideation PRD §15** — import massal santri per sekolah, lihat laporan agregat progress per sekolah/kelas asrama, invoice institusi terpisah dari checkout individual |
 | 9.10 | **Laporan & Ekspor** | Unduh laporan (CSV/PDF): pendapatan per kelas, performa mentor, tingkat kelulusan per cohort |
 | 9.11 | **Pengaturan Platform** | Konfigurasi metode pembayaran aktif, template notifikasi (email/WA), pengaturan umum situs |
@@ -242,11 +242,11 @@ Saat ini tidak ada satupun cara mengelola platform dari sisi bisnis — semua ko
 
 ## 10. Peta Alur Master — Revisi Lengkap (menggantikan §16.4 PRD versi lama)
 
-Menambah 3 kelompok alur baru ke 7 kelompok yang sudah ada di PRD:
+Menambah 3 kelompok alur baru ke 7 kelompok yang sudah ada di PRD. **Catatan penomoran (supaya tidak rancu):** angka di bawah ini melanjutkan penomoran **kelompok flow di diagram FigJam** (yang lama cuma sampai kelompok 7), BUKAN nomor bagian (§) dokumen ini — kelompok 8 di sini ≠ §8 dokumen ini (yang isinya Mentor Portal, bukan Sertifikat). Dua sistem penomoran yang beda, sengaja dipisah:
 
-8. **Sistem Sertifikat** — Penyelesaian Kelas/Bootcamp 🔴 → Halaman Sertifikat Individual 🔴 → (opsional) Download/Share 🔴 → Halaman Verifikasi Publik 🔴
-9. **Mentor Portal** — Login Mentor 🔴 → Dashboard Overview 🔴 → {Kelas Saya 🔴 · Cohort Saya 🔴 · Booking 🔴 · Grading Center 🔴 · Chat 🔴 · Pendapatan 🔴}
-10. **Admin Console** — Login Admin 🔴 → Dashboard Overview 🔴 → {User 🔴 · Kelas 🔴 · Cohort 🔴 · Transaksi 🔴 · Sertifikat 🔴 · Moderasi 🔴 · B2B 🔴 · Laporan 🔴 · Setting 🔴}
+- **Kelompok 8: Sistem Sertifikat** (dibahas di §7 dokumen ini) — Penyelesaian Kelas/Bootcamp 🔴 → Halaman Sertifikat Individual 🔴 → (opsional) Download/Share 🔴 → Halaman Verifikasi Publik 🔴
+- **Kelompok 9: Mentor Portal** (dibahas di §8 dokumen ini) — Login Mentor 🔴 → Dashboard Overview 🔴 → {Kelas Saya 🔴 · Cohort Saya 🔴 · Booking 🔴 · Grading Center 🔴 · Chat 🔴 · Pendapatan 🔴}
+- **Kelompok 10: Admin Console** (dibahas di §9 dokumen ini) — Login Admin 🔴 → Dashboard Overview 🔴 → {User 🔴 · Kelas 🔴 · Cohort 🔴 · Transaksi 🔴 · Sertifikat 🔴 · Moderasi 🔴 · B2B 🔴 · Laporan 🔴 · Setting 🔴}
 
 Plus revisi kelompok yang sudah ada:
 - **Kelompok 4 (Dashboard & Learning)** pecah jadi sub-alur baru: Dashboard → Course Saya → **Course Learning Hub 🔴 (baru)** → Classroom (player, tetap ✅)
