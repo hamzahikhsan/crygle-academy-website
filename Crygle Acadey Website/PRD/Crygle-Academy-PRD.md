@@ -372,27 +372,31 @@ Dashboard "Kelas Saya" punya sidebar 7 menu, hanya "Course Saya" yang punya laya
 
 ```mermaid
 flowchart TD
-    A["Bootcamp Intensif — Landing<br/>(dari navbar / sidebar 'Bootcamp Saya')"] --> B["Video Materi Gratis<br/>(reuse Play Kelas)"]
-    A --> C{"Mau konsultasi mentor?"}
-    C -->|"Rp15.000 / sesi"| D["Booking Slot Konsultasi"]
-    C -->|"Rp150.000 / bulan"| D
-    D --> E["Join Grup WhatsApp<br/>(reuse pola Resources 9.12)"]
-    E --> F["Tracker Jadwal & Absensi<br/>(spreadsheet-style)"]
-    F --> G["Pengumpulan Tugas & Quiz"]
-    G --> H["Leaderboard Ranking Siswa"]
+    A["Bootcamp Intensif — Landing (publik)<br/>dari navbar / sidebar 'Bootcamp Saya'"] --> B["Join / Checkout<br/>bayar untuk masuk cohort"]
+    B --> C["Bootcamp Saya<br/>dashboard peserta, sudah bayar"]
+    C --> D["Video Materi Gratis<br/>kelas video ter-bundle, TIDAK checkout terpisah"]
+    C --> E{"Mau konsultasi mentor tambahan?"}
+    E -->|"Rp15.000 / sesi"| F["Booking Slot Konsultasi"]
+    E -->|"Rp150.000 / bulan"| F
+    C --> G["Join Grup WhatsApp<br/>reuse pola Resources 9.12"]
+    C --> H["Tracker Jadwal & Absensi<br/>spreadsheet-style"]
+    C --> I["Pengumpulan Tugas & Quiz"]
+    C --> J["Leaderboard Ranking Siswa"]
 ```
-*Diagram 4 — Alur Bootcamp Intensif, dari catatan tim ke 6 layar konkret.*
+*Diagram 4 — Alur Bootcamp Intensif, direvisi 6 Sep 2026: "Video Materi Gratis" dipindah dari sebelum-bayar (funnel) jadi benefit di dalam area sudah-bayar — lihat catatan revisi di bawah tabel.*
 
 | # | Layar (route final) | Status | Konsep | Pattern yang dipakai ulang |
 |---|---|---|---|---|
-| 10.1 | **Bootcamp Intensif — Landing** (publik, `/bootcamp.html`) | ⚠️ Belum dibangun | Halaman jual: deskripsi program, video materi gratis, 2 kartu harga berdampingan (per-sesi vs. bulanan) — mirror layout sidebar harga Course Details | Sidebar harga §9.2–4 |
+| 10.1 | **Bootcamp Intensif — Landing** (publik, `/bootcamp.html`) | 🟡 Halaman sudah dibangun (5 Sep 2026), **copy soal video bundling belum ditambahkan** | Halaman jual: deskripsi program sudah ada. **Belum ada** (perlu ditambahkan): klaim "termasuk akses penuh ke video kelas terkait" sebagai selling point (bukan video yang bisa ditonton pra-bayar — dikoreksi 6 Sep, lihat catatan di bawah) | Sidebar harga §9.2–4 |
 | 10.2 | **Booking Slot Konsultasi** (`/bootcamp/booking.html`) | 🟡 Ada sebagai sub-tab | Kalender/slot picker jam tersedia mentor ("jam jam tertentu yang sudah disediakan" — catatan tim), konfirmasi sebelum lanjut Checkout | Stepper Checkout §9.5 |
 | 10.3 | **Join Grup WhatsApp** (step, bukan halaman) | ⚠️ Belum dibangun terpisah | CTA sekali-klik pasca-booking, identik dengan link komunitas yang sudah ada di Play Kelas | Resources §9.12 |
 | 10.4 | **Tracker Jadwal &amp; Absensi** (`/bootcamp/jadwal.html`) | 🟡 Ada sebagai sub-tab | Tabel mirip spreadsheet: tanggal sesi, status hadir, catatan mentor — menjawab wishlist "spreadsheet isinya jadwal, nama siswa, absensi" | Progress bar Dashboard §9.11 |
 | 10.5 | **Pengumpulan Tugas &amp; Quiz** (`/bootcamp/tugas.html`) | 🟡 Ada sebagai sub-tab | Upload file/link per minggu + quiz pilihan ganda inline, deadline countdown | Accordion modul Play Kelas §9.12 |
 | 10.6 | **Leaderboard Ranking Santri** (`/bootcamp/leaderboard.html`) | 🟡 Ada sebagai sub-tab | Papan peringkat berbasis akumulasi nilai tugas+quiz — insentif gamifikasi eksplisit diminta di catatan tim | Kartu rating §9.2 (pola angka+badge) |
 
-> ⚠️ **Perlu diputuskan tim bisnis:** apakah Bootcamp Intensif dijual terpisah dari kelas berbayar reguler, atau sebagai add-on. Catatan tim menyebut "video materi gratis" tapi konsultasi berbayar — model freemium ini perlu disepakati sebelum §10.1 didesain penuh.
+> ✅ **Diklarifikasi 6 September 2026 (sebelumnya ⚠️ terbuka sejak draf awal):** "video materi gratis" **bukan** funnel gratis sebelum bayar — itu **benefit bundling**: begitu santri bayar untuk masuk cohort Bootcamp, akses ke video-video kelas terkait sudah termasuk, tidak checkout terpisah per video. Konsultasi mentor (Rp15.000/sesi atau Rp150.000/bulan) tetap **add-on berbayar tambahan** di dalam Bootcamp, bukan bagian dari harga masuk cohort. Ini konsisten dengan model **Sanbercode** yang dikutip eksplisit di §369 (materi gratis untuk peserta yang sudah masuk program, konsultasi/sertifikasi yang dijual). Diagram 4 &amp; tabel §10.1 di atas sudah direvisi mengikuti ini — dampak ke Fase 2 roadmap dicatat di `Crygle-Academy-Flow-Expansion-Spec.md` §3/§11.
+>
+> ⚠️ **Masih perlu dikonfirmasi ulang ke pemilik bisnis produk** (bukan cuma sesi brainstorming ini) sebelum dianggap final — terutama soal apakah harga cohort Bootcamp sendiri sudah menghitung "biaya video bundling" itu ke dalam harga jual, atau video-nya benar-benar tanpa biaya tambahan sama sekali bagi Crygle Academy secara margin.
 >
 > **Rencana migrasi (v3.0):** §10.2/10.4/10.5/10.6 sudah punya markup &amp; logika JS yang benar (di dalam `dashboard.html` + `scripts/main.js`) — migrasi ke halaman terpisah berarti **mengekstrak markup existing** ke route baru + menambah `assetBase`/link navigasi, bukan membangun dari nol. §10.1 dan §10.3 baru perlu dibangun murni baru.
 
