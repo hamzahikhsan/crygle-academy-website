@@ -32,7 +32,7 @@
 **Interfaces:**
 - Produces: `sessionStorage` key `crygle-bootcamp-booking` berisi `{ mentorName, slotTime, confirmedAt }` (JSON). Dipakai oleh Task 4 (Jadwal Personal Minggu Ini widget) dan bisa dipakai ulang nanti oleh Mentor Portal (Fase 3, di luar cakupan plan ini).
 
-- [ ] **Step 1: Definisikan kriteria sukses (pengganti "failing test")**
+- [x] **Step 1: Definisikan kriteria sukses (pengganti "failing test")**
 
 Buka `dashboard.html` di browser lokal, ke panel Bootcamp Saya → sub-tab Booking Konsultasi, klik mentor + slot + "Konfirmasi Booking Sesi", lalu jalankan di console:
 ```js
@@ -40,7 +40,7 @@ JSON.parse(sessionStorage.getItem('crygle-bootcamp-booking'))
 ```
 **Ekspektasi saat ini (sebelum implementasi): `null`** — konfirmasi bug ini nyata sebelum memperbaikinya.
 
-- [ ] **Step 2: Implementasi — tambah penyimpanan di `initBookingSlotPicker()`**
+- [x] **Step 2: Implementasi — tambah penyimpanan di `initBookingSlotPicker()`**
 
 Cari fungsi `initBookingSlotPicker()` di `scripts/main.js` (dekat baris 1306), cari event listener tombol `#btn-confirm-booking`, tambahkan sebelum/sesudah `showToastNotification(...)`:
 
@@ -59,11 +59,11 @@ confirmBtn.addEventListener('click', () => {
 
 *(Cari listener `#btn-confirm-booking` yang sudah ada — kemungkinan besar cuma berisi `showToastNotification(...)`. Tambahkan baris `sessionStorage.setItem` sebelum toast, jangan buat listener baru/duplikat.)*
 
-- [ ] **Step 3: Verifikasi ulang kriteria sukses**
+- [x] **Step 3: Verifikasi ulang kriteria sukses**
 
 Ulangi Step 1. **Ekspektasi sekarang:** `{mentorName: "Dimas Pradipa", slotTime: "10:00 – 10:45 WIB", confirmedAt: "..."}`.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add scripts/main.js
@@ -80,11 +80,11 @@ git commit -m "feat: persist bootcamp consultation booking to sessionStorage"
 **Interfaces:**
 - Produces: `CRYGLE_BOOTCAMP_TUGAS` array baru `{ title, status: 'selesai'|'aktif', score, deadlineISO }`. Dipakai Task 5 (Tenggat Terdekat).
 
-- [ ] **Step 1: Kriteria sukses**
+- [x] **Step 1: Kriteria sukses**
 
 `typeof CRYGLE_BOOTCAMP_TUGAS !== 'undefined' && CRYGLE_BOOTCAMP_TUGAS.length === 3` harus `true` di console setelah Step 2 — sebelum implementasi, ini `false` (variabel belum ada).
 
-- [ ] **Step 2: Implementasi — tambahkan ke `scripts/course-catalog.js`**
+- [x] **Step 2: Implementasi — tambahkan ke `scripts/course-catalog.js`**
 
 Data ini port dari 3 kartu tugas yang sudah nyata di `dashboard.html` (§10.5 Bootcamp) — cuma menambahkan field tanggal ISO yang tidak ada sebelumnya (sebelumnya cuma teks "2 HARI LAGI"). Tanggal dihitung mundur dari **6 September 2026** (hari ini) supaya "2 hari lagi" tetap konsisten dengan teks yang sudah ada:
 
@@ -98,9 +98,9 @@ const CRYGLE_BOOTCAMP_TUGAS = [
 ];
 ```
 
-- [ ] **Step 3: Verifikasi ulang** — muat `course-catalog.js` di halaman manapun, cek `CRYGLE_BOOTCAMP_TUGAS[2].deadlineISO === '2026-09-08'`.
+- [x] **Step 3: Verifikasi ulang** — muat `course-catalog.js` di halaman manapun, cek `CRYGLE_BOOTCAMP_TUGAS[2].deadlineISO === '2026-09-08'`.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add scripts/course-catalog.js
@@ -119,11 +119,11 @@ git commit -m "feat: add real deadline dates to bootcamp tugas data"
 - Consumes: `data-category` pada `.dashboard-course-card` (sudah ada), `CRYGLE_COURSES` dari `course-catalog.js` (sudah ada)
 - Produces: 3 blok HTML baru dengan id `#widget-peta-kompetensi`, `#widget-rekomendasi-kelas`, `#widget-linimasa`
 
-- [ ] **Step 1: Kriteria sukses**
+- [x] **Step 1: Kriteria sukses**
 
 Buka `dashboard.html`, panel Overview. **Sebelum implementasi:** ketiga id di atas tidak ditemukan (`document.getElementById(...)` semua `null`).
 
-- [ ] **Step 2: Tambah markup di `dashboard.html`**, setelah blok `.overview-activity-card` yang sudah ada (akhir dari `#panel-overview`):
+- [x] **Step 2: Tambah markup di `dashboard.html`**, setelah blok `.overview-activity-card` yang sudah ada (akhir dari `#panel-overview`):
 
 ```html
 <!-- Peta Kompetensi (Flow Expansion Spec §6.1) -->
@@ -149,7 +149,7 @@ Buka `dashboard.html`, panel Overview. **Sebelum implementasi:** ketiga id di at
 </div>
 ```
 
-- [ ] **Step 3: Tambah `initOverviewWidgets()` di `scripts/main.js`**, panggil di `DOMContentLoaded` (tambahkan setelah `initDashboardHashRouter();`):
+- [x] **Step 3: Tambah `initOverviewWidgets()` di `scripts/main.js`**, panggil di `DOMContentLoaded` (tambahkan setelah `initDashboardHashRouter();`):
 
 ```javascript
 function initOverviewWidgets() {
@@ -199,9 +199,9 @@ function initOverviewWidgets() {
 }
 ```
 
-- [ ] **Step 4: Verifikasi ulang** — reload `dashboard.html`, panel Overview. Peta Kompetensi harus tampil bar "UI/UX Design" & "3D & Animation" (2 kategori nyata dari 3 kartu Course Saya). Rekomendasi Kelas harus tampil 2 kartu dari kategori Front-End/AI/Vector yang belum diambil.
+- [x] **Step 4: Verifikasi ulang** — reload `dashboard.html`, panel Overview. Peta Kompetensi harus tampil bar "UI/UX Design" & "3D & Animation" (2 kategori nyata dari 3 kartu Course Saya). Rekomendasi Kelas harus tampil 2 kartu dari kategori Front-End/AI/Vector yang belum diambil.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add dashboard.html scripts/main.js
@@ -219,13 +219,13 @@ git commit -m "feat: add Peta Kompetensi, Rekomendasi Kelas, and Linimasa Aktivi
 **Interfaces:**
 - Consumes: `CRYGLE_BOOTCAMP_TUGAS` (Task 2), `sessionStorage['crygle-bootcamp-booking']` (Task 1)
 
-- [ ] **Step 1: Kriteria sukses**
+- [x] **Step 1: Kriteria sukses**
 
 Sebelum implementasi: widget ini tidak ada di DOM. **Kasus uji 2 kondisi:**
 - (a) Belum booking apapun → widget Jadwal Personal harus tampil state kosong "Belum ada jadwal personal minggu ini."
 - (b) Sudah booking (dari Task 1) → widget harus menampilkan slot yang dibooking.
 
-- [ ] **Step 2: Tambah markup** (setelah widget Batch A di `dashboard.html`):
+- [x] **Step 2: Tambah markup** (setelah widget Batch A di `dashboard.html`):
 
 ```html
 <div class="overview-activity-card" id="widget-tenggat-terdekat">
@@ -239,7 +239,7 @@ Sebelum implementasi: widget ini tidak ada di DOM. **Kasus uji 2 kondisi:**
 </div>
 ```
 
-- [ ] **Step 3: Tambah logika di `initOverviewWidgets()`** (di dalam fungsi yang sama dari Task 3):
+- [x] **Step 3: Tambah logika di `initOverviewWidgets()`** (di dalam fungsi yang sama dari Task 3):
 
 ```javascript
   // Tenggat Terdekat — dari CRYGLE_BOOTCAMP_TUGAS yang punya deadlineISO
@@ -269,9 +269,9 @@ Sebelum implementasi: widget ini tidak ada di DOM. **Kasus uji 2 kondisi:**
   }
 ```
 
-- [ ] **Step 4: Verifikasi ulang kedua kasus uji Step 1** — kosongkan `sessionStorage` dulu (`sessionStorage.clear()`), reload, cek state kosong. Lakukan booking via panel Bootcamp (Task 1), kembali ke Overview, cek widget terisi.
+- [x] **Step 4: Verifikasi ulang kedua kasus uji Step 1** — kosongkan `sessionStorage` dulu (`sessionStorage.clear()`), reload, cek state kosong. Lakukan booking via panel Bootcamp (Task 1), kembali ke Overview, cek widget terisi.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add dashboard.html scripts/main.js
@@ -290,11 +290,11 @@ git commit -m "feat: add Tenggat Terdekat and Jadwal Personal widgets to Overvie
 - Consumes: `CRYGLE_COURSES`, `CRYGLE_ENROLLED_PROGRESS` (sudah ada)
 - Produces: `initCourseLearningHub()` di `main.js`, dipakai Task 6-7
 
-- [ ] **Step 1: Kriteria sukses**
+- [x] **Step 1: Kriteria sukses**
 
 Buka `course-learning.html?slug=animasi-3d-blender` (belum ada filenya — 404). Setelah implementasi: halaman termuat, judul "3D Design : Membuat Animation 3D Produk di Blender", sidebar menampilkan "30%" dan "3 dari 8 Modul" (bukan harga).
 
-- [ ] **Step 2: Buat `course-learning.html`** — struktur mengikuti `course-details.html` (navbar, breadcrumb, `course-detail-grid`, 5 tab) tapi sidebar diganti total:
+- [x] **Step 2: Buat `course-learning.html`** — struktur mengikuti `course-details.html` (navbar, breadcrumb, `course-detail-grid`, 5 tab) tapi sidebar diganti total:
 
 ```html
 <!-- Sidebar kanan: GANTI dari harga jadi progress (§6.2 spec) -->
@@ -313,7 +313,7 @@ Buka `course-learning.html?slug=animasi-3d-blender` (belum ada filenya — 404).
 
 Tab nav pakai 5 label: `Overview`, `Kurikulum Kelas`, `Attachment & Materi`, `Asesmen & Quiz`, `Tentang Mentor`, `Reviews` (6 total — tambahan dari `course-details.html` yang cuma 4). Body tab kosongkan dulu (`<div class="course-tab-pane" id="tab-overview"></div>` dst.) — diisi Task 6-7. Sertakan `<script src="scripts/course-catalog.js"></script>` sebelum `main.js`.
 
-- [ ] **Step 3: Tambah `initCourseLearningHub()` di `main.js`**, panggil di `DOMContentLoaded`:
+- [x] **Step 3: Tambah `initCourseLearningHub()` di `main.js`**, panggil di `DOMContentLoaded`:
 
 ```javascript
 function initCourseLearningHub() {
@@ -344,9 +344,9 @@ function initCourseLearningHub() {
 
 *(Catatan: flagship `ui-ux-jual-produk` sengaja tidak ada di `CRYGLE_COURSES` karena entrinya `null` — data title/progress-nya di-hardcode di atas mengikuti pola yang sama dengan `course-details.html`/`classroom.html` untuk flagship.)*
 
-- [ ] **Step 4: Verifikasi ulang Step 1**, plus cek `course-learning.html` (tanpa param, default flagship) menampilkan "60%" dan "5 dari 8 Modul".
+- [x] **Step 4: Verifikasi ulang Step 1**, plus cek `course-learning.html` (tanpa param, default flagship) menampilkan "60%" dan "5 dari 8 Modul".
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add course-learning.html scripts/main.js
@@ -363,9 +363,9 @@ git commit -m "feat: scaffold Course Learning Hub page with dynamic progress sid
 **Interfaces:**
 - Consumes: struktur modul yang sudah ada di `classroom.html` (referensi konten, bukan diklaim ulang sebagai data terpisah)
 
-- [ ] **Step 1: Kriteria sukses** — tab Kurikulum kosong sebelum implementasi. Setelah implementasi, untuk `?slug=animasi-3d-blender`: 8 baris modul, 3 pertama beri ikon ✅, sisanya 🔒, semua diklik mengarah ke `classroom.html?course=animasi-3d-blender`.
+- [x] **Step 1: Kriteria sukses** — tab Kurikulum kosong sebelum implementasi. Setelah implementasi, untuk `?slug=animasi-3d-blender`: 8 baris modul, 3 pertama beri ikon ✅, sisanya 🔒, semua diklik mengarah ke `classroom.html?course=animasi-3d-blender`.
 
-- [ ] **Step 2: Tambah rendering kurikulum** di `initCourseLearningHub()`:
+- [x] **Step 2: Tambah rendering kurikulum** di `initCourseLearningHub()`:
 
 ```javascript
   const curriculumEl = document.getElementById('tab-curriculum');
@@ -384,9 +384,9 @@ git commit -m "feat: scaffold Course Learning Hub page with dynamic progress sid
   }
 ```
 
-- [ ] **Step 3: Verifikasi ulang** Step 1 di browser.
+- [x] **Step 3: Verifikasi ulang** Step 1 di browser.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add scripts/main.js
@@ -403,9 +403,9 @@ git commit -m "feat: build Course Learning Hub curriculum tab with real progress
 **Interfaces:**
 - Consumes: `progress.doneModules` (Task 5) untuk logika lock/unlock
 
-- [ ] **Step 1: Kriteria sukses** — kedua tab kosong sebelum implementasi. Setelah implementasi: attachment untuk modul > `doneModules` tampil dengan ikon 🔒 dan tidak bisa diklik (tanpa `href`); attachment untuk modul ≤ `doneModules` bisa diklik.
+- [x] **Step 1: Kriteria sukses** — kedua tab kosong sebelum implementasi. Setelah implementasi: attachment untuk modul > `doneModules` tampil dengan ikon 🔒 dan tidak bisa diklik (tanpa `href`); attachment untuk modul ≤ `doneModules` bisa diklik.
 
-- [ ] **Step 2: Tambah rendering** di `initCourseLearningHub()`:
+- [x] **Step 2: Tambah rendering** di `initCourseLearningHub()`:
 
 ```javascript
   const attachmentEl = document.getElementById('tab-attachment');
@@ -433,9 +433,9 @@ git commit -m "feat: build Course Learning Hub curriculum tab with real progress
   }
 ```
 
-- [ ] **Step 3: Verifikasi ulang** Step 1.
+- [x] **Step 3: Verifikasi ulang** Step 1.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add scripts/main.js
@@ -451,16 +451,16 @@ git commit -m "feat: build Course Learning Hub attachment and quiz tabs with loc
 
 **Interfaces:** tidak ada (murni ubah `href`)
 
-- [ ] **Step 1: Kriteria sukses** — 3 kartu Course Saya saat ini mengarah langsung ke `classroom.html`(`?course=`). Setelah Task 8: mengarah ke `course-learning.html`(`?slug=`).
+- [x] **Step 1: Kriteria sukses** — 3 kartu Course Saya saat ini mengarah langsung ke `classroom.html`(`?course=`). Setelah Task 8: mengarah ke `course-learning.html`(`?slug=`).
 
-- [ ] **Step 2: Ubah href 3 kartu** di `dashboard.html`:
+- [x] **Step 2: Ubah href 3 kartu** di `dashboard.html`:
   - Card 1 (flagship): `href="classroom.html"` → `href="course-learning.html"`
   - Card 2 (3D Blender): `href="classroom.html?course=animasi-3d-blender"` → `href="course-learning.html?slug=animasi-3d-blender"`
   - Card 3 (3D Bangunan): `href="classroom.html?course=bangunan-digital-3d"` → `href="course-learning.html?slug=bangunan-digital-3d"`
 
-- [ ] **Step 3: Verifikasi ulang** — klik tiap kartu di panel Course Saya, pastikan mendarat di Course Learning Hub yang benar (bukan langsung ke Classroom lagi).
+- [x] **Step 3: Verifikasi ulang** — klik tiap kartu di panel Course Saya, pastikan mendarat di Course Learning Hub yang benar (bukan langsung ke Classroom lagi).
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add dashboard.html
@@ -478,9 +478,9 @@ git commit -m "feat: route Course Saya cards through Course Learning Hub instead
 **Interfaces:**
 - Consumes: `CRYGLE_BOOTCAMP_TUGAS` (Task 2), tabel Leaderboard & Jadwal yang sudah ada di DOM
 
-- [ ] **Step 1: Kriteria sukses** — saat ini buka panel Bootcamp Saya langsung menampilkan sub-tab "Jadwal & Absensi" aktif. Setelah implementasi: sub-tab default adalah "Overview" (baru), dengan 4 kartu ringkasan.
+- [x] **Step 1: Kriteria sukses** — saat ini buka panel Bootcamp Saya langsung menampilkan sub-tab "Jadwal & Absensi" aktif. Setelah implementasi: sub-tab default adalah "Overview" (baru), dengan 4 kartu ringkasan.
 
-- [ ] **Step 2: Tambah sub-tab Overview** di `dashboard.html`, sebagai pane pertama sebelum `#subtab-jadwal`, dan ubah tombol nav `bootcamp-tab-btn` pertama jadi "📊 Overview" dengan `active` dipindah ke situ (dari sebelumnya di tombol Jadwal):
+- [x] **Step 2: Tambah sub-tab Overview** di `dashboard.html`, sebagai pane pertama sebelum `#subtab-jadwal`, dan ubah tombol nav `bootcamp-tab-btn` pertama jadi "📊 Overview" dengan `active` dipindah ke situ (dari sebelumnya di tombol Jadwal):
 
 ```html
 <div class="bootcamp-subtabs-bar">
@@ -500,7 +500,7 @@ git commit -m "feat: route Course Saya cards through Course Learning Hub instead
 <!-- #subtab-jadwal dan sisanya: tambahkan style="display:none;" (dipindah dari default-tampil ke default-sembunyi) -->
 ```
 
-- [ ] **Step 3: Isi data dinamis** — tambah di `initBootcampSubTabs()` (`scripts/main.js`, dipanggil sudah ada di `DOMContentLoaded`):
+- [x] **Step 3: Isi data dinamis** — tambah di `initBootcampSubTabs()` (`scripts/main.js`, dipanggil sudah ada di `DOMContentLoaded`):
 
 ```javascript
   const nextSessionEl = document.getElementById('bootcamp-next-session');
@@ -519,9 +519,9 @@ git commit -m "feat: route Course Saya cards through Course Learning Hub instead
 
 *("17 Sep 2026..." dan "Peringkat #2" adalah port langsung dari baris tabel Jadwal & Leaderboard yang sudah ada di `dashboard.html` — bukan data baru.)*
 
-- [ ] **Step 4: Verifikasi ulang** Step 1 — buka panel Bootcamp Saya, pastikan Overview tampil duluan dengan 4 kartu terisi benar, klik tombol Jadwal/Booking/Tugas/Leaderboard tetap berfungsi seperti sebelumnya.
+- [x] **Step 4: Verifikasi ulang** Step 1 — buka panel Bootcamp Saya, pastikan Overview tampil duluan dengan 4 kartu terisi benar, klik tombol Jadwal/Booking/Tugas/Leaderboard tetap berfungsi seperti sebelumnya.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add dashboard.html scripts/main.js
@@ -532,14 +532,14 @@ git commit -m "feat: add Bootcamp Overview as default sub-tab summarizing cohort
 
 ### Task 10: Verifikasi Penuh Fase 1
 
-- [ ] **Step 1:** `node --check scripts/main.js` dan `node --check scripts/course-catalog.js` — pastikan tidak ada syntax error.
-- [ ] **Step 2:** Buka `dashboard.html` lokal — cek 5 widget Overview baru semua terisi data yang benar (bukan kosong/error).
-- [ ] **Step 3:** Klik tiap 3 kartu Course Saya → mendarat di Course Learning Hub yang benar, cek sidebar progress + 5 tab semua terisi (Overview, Kurikulum dengan lock-state, Attachment, Quiz, Tentang Mentor).
-- [ ] **Step 4:** Klik "Lanjutkan Belajar" → mendarat di `classroom.html` yang benar.
-- [ ] **Step 5:** Panel Bootcamp Saya → Overview jadi default, 4 kartu terisi, 4 tombol sub-area masih berfungsi.
-- [ ] **Step 6:** Lakukan booking konsultasi → kembali ke Overview dashboard → widget Jadwal Personal terisi.
-- [ ] **Step 7:** Commit checkpoint: `git commit -m "chore: Fase 1 Dashboard Peserta diperdalam — selesai"` (kalau ada perubahan tersisa).
-- [ ] **Step 8:** Jalankan `superpowers:finishing-a-development-branch` untuk merge/PR sesuai preferensi pengguna saat itu.
+- [x] **Step 1:** `node --check scripts/main.js` dan `node --check scripts/course-catalog.js` — pastikan tidak ada syntax error.
+- [x] **Step 2:** Buka `dashboard.html` lokal — cek 5 widget Overview baru semua terisi data yang benar (bukan kosong/error).
+- [x] **Step 3:** Klik tiap 3 kartu Course Saya → mendarat di Course Learning Hub yang benar, cek sidebar progress + 5 tab semua terisi (Overview, Kurikulum dengan lock-state, Attachment, Quiz, Tentang Mentor).
+- [x] **Step 4:** Klik "Lanjutkan Belajar" → mendarat di `classroom.html` yang benar.
+- [x] **Step 5:** Panel Bootcamp Saya → Overview jadi default, 4 kartu terisi, 4 tombol sub-area masih berfungsi.
+- [x] **Step 6:** Lakukan booking konsultasi → kembali ke Overview dashboard → widget Jadwal Personal terisi.
+- [x] **Step 7:** Commit checkpoint: `git commit -m "chore: Fase 1 Dashboard Peserta diperdalam — selesai"` (kalau ada perubahan tersisa).
+- [x] **Step 8:** Jalankan `superpowers:finishing-a-development-branch` untuk merge/PR sesuai preferensi pengguna saat itu.
 
 ## Self-Review Notes
 
@@ -557,4 +557,6 @@ Plan ini ditulis sebelum eksekusi, jadi ada beberapa gap nyata yang baru ketahua
 
 4. **Task 7 — bukan bug fungsional, tapi dicatat untuk transparansi.** Step 1 plan bilang attachment yang unlocked "bisa diklik", tapi kode Step 2-nya sendiri render semua baris sebagai `<div>` biasa (tanpa `<a>`/`href`) baik locked maupun unlocked — tidak ada satupun yang benar-benar bisa diklik. Ini inkonsistensi teks vs kode di plan, BUKAN diperbaiki, karena tidak ada file download sungguhan untuk di-link (Global Constraints eksplisit melarang mengarang nama file attachment) — jadi div non-klik yang jujur ini justru perilaku yang benar. Tidak ada commit fix karena tidak ada yang perlu diubah.
 
-Task 8 dan seterusnya: pola yang sama akan diteruskan — kalau ketemu gap baru, diperbaiki di tempat (atau dicatat kalau memang tidak seharusnya "diperbaiki"), dicatat di sini, baru lanjut.
+5. **Task 10 — `tab-overview` & `tab-mentor` tidak pernah diisi Task 5-7.** Task 10 Step 3 sendiri mensyaratkan kedua tab itu "terisi", tapi tidak ada task manapun (5, 6, atau 7) yang menulis kontennya — hanya Kurikulum/Attachment/Quiz yang diisi. Ketahuan pas verifikasi penuh, persis fungsi Task 10. Fix: pakai ulang template `initDynamicCourseDetails()` yang sudah teruji (bukan konten baru), plus tambah field `level`/`category`/`mentor` ke object flagship supaya lookup mentor bisa seragam. `tab-reviews` (tidak masuk checklist Task 10) juga diisi state jujur minimal supaya tidak benar-benar kosong. Commit: `78d9b11`.
+
+Ringkasan: 4 bug fungsional ditemukan & diperbaiki selama eksekusi Fase 1 (poin 1-3 dan 5 di atas — asal Task 3, 4, 5, dan 10), semua sudah di-commit. Ditambah 1 catatan non-bug (poin 4, asal Task 7). Task 8 dan 9 tidak menghasilkan temuan baru.
