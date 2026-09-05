@@ -316,6 +316,141 @@ export function DashboardHeader({ activeTab = 'courses' }) {
           </div>
         </div>
       </div>
+
+      {/* Search & Filters Bar (Node 814:5939 / dashboard.html lines 185-230) */}
+      {(activeTab === 'courses' || activeTab === 'explore') && (
+        <div
+          className="dashboard-filter-bar"
+          id="dashboard-search-bar-wrap"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 20,
+            flexWrap: 'wrap',
+          }}
+        >
+          <div
+            className="dashboard-search-wrap"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              width: 460,
+              maxWidth: '100%',
+              height: 48,
+              border: '1px solid var(--grey-100, #E9E9E9)',
+              borderRadius: 12,
+              padding: '0 18px',
+              background: '#ffffff',
+            }}
+          >
+            <input
+              type="text"
+              id="dashboard-search-input"
+              className="dashboard-search-input"
+              placeholder="Search Course Name/Mentor"
+              style={{
+                flex: 1,
+                border: 'none',
+                outline: 'none',
+                fontSize: 14,
+                fontFamily: 'var(--font-family-base, inherit)',
+                color: '#202020',
+              }}
+            />
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A6A6A6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+
+          <div className="dashboard-filter-group" style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
+            <div
+              className="filter-select-pill"
+              id="filter-level"
+              style={{
+                height: 48,
+                padding: '0 18px',
+                border: '1px solid var(--grey-100, #E9E9E9)',
+                borderRadius: 12,
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+                fontSize: 13,
+                fontWeight: 600,
+                color: 'var(--grey-600, #5A6062)',
+                cursor: 'pointer',
+                background: '#ffffff',
+              }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="2" y="14" width="4" height="8" rx="1"></rect>
+                <rect x="10" y="8" width="4" height="14" rx="1"></rect>
+                <rect x="18" y="2" width="4" height="20" rx="1"></rect>
+              </svg>
+              <span>Level</span>
+              <span style={{ fontSize: 10, color: '#A6A6A6' }}>▾</span>
+            </div>
+
+            <div
+              className="filter-select-pill"
+              id="filter-category"
+              style={{
+                height: 48,
+                padding: '0 18px',
+                border: '1px solid var(--grey-100, #E9E9E9)',
+                borderRadius: 12,
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+                fontSize: 13,
+                fontWeight: 600,
+                color: 'var(--grey-600, #5A6062)',
+                cursor: 'pointer',
+                background: '#ffffff',
+              }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              <span>Category</span>
+              <span style={{ fontSize: 10, color: '#A6A6A6' }}>▾</span>
+            </div>
+
+            <div
+              className="filter-select-pill"
+              id="filter-sort"
+              style={{
+                height: 48,
+                padding: '0 18px',
+                border: '1px solid var(--grey-100, #E9E9E9)',
+                borderRadius: 12,
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+                fontSize: 13,
+                fontWeight: 600,
+                color: 'var(--grey-600, #5A6062)',
+                cursor: 'pointer',
+                background: '#ffffff',
+              }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="4" y1="6" x2="20" y2="6"></line>
+                <line x1="4" y1="12" x2="14" y2="12"></line>
+                <line x1="4" y1="18" x2="8" y2="18"></line>
+              </svg>
+              <span>Sort By : Popular</span>
+              <span style={{ fontSize: 10, color: '#A6A6A6' }}>▾</span>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
+
   );
 }
