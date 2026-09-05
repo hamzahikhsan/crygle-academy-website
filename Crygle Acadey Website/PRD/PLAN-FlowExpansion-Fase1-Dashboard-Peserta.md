@@ -546,3 +546,13 @@ git commit -m "feat: add Bootcamp Overview as default sub-tab summarizing cohort
 - **Cakupan spec:** §6.1 (5 dari 6 widget — Sertifikat sengaja ditunda ke Fase 2 sesuai Global Constraints), §6.2 (halaman baru penuh, 5 tab), §6.3 (Overview sub-view baru) — semua tercakup.
 - **Konsisten dengan audit anti-halu:** Task 1 & 2 sengaja jadi task tersendiri di awal karena §6 spec sudah membuktikan booking TIDAK persisten dan tugas TIDAK punya tanggal asli — dua prasyarat ini harus ada dulu sebelum widget yang bergantung padanya (Task 4) bisa jujur menampilkan data nyata, bukan data kosong yang terlihat rusak.
 - **Tidak mengarang konten:** kartu "Materi & Attachment" Bootcamp Overview sengaja pakai empty-state, bukan nama file karangan (Global Constraints).
+
+## Bug Log — Ditemukan Selama Eksekusi (bukan diprediksi plan)
+
+Plan ini ditulis sebelum eksekusi, jadi ada beberapa gap nyata yang baru ketahuan saat coding & verifikasi browser. Dicatat di sini (bukan cuma disebut di chat) supaya tidak hilang kalau sesi terputus. Semua di bawah **sudah diperbaiki & di-commit** pada saat ditemukan — bukan utang.
+
+1. **Task 3 — `dashboard.html` tidak memuat `scripts/course-catalog.js`.** Plan mengasumsikan `CRYGLE_COURSES` sudah tersedia di halaman itu (padahal cuma `classroom.html`/`course-details.html` yang memuatnya). Widget Rekomendasi Kelas render kosong sampai `<script src="scripts/course-catalog.js">` ditambahkan sebelum `main.js`. Fix + commit: `bebd354`.
+2. **Task 4 — widget Jadwal Personal tidak update live.** `dashboard.html` adalah SPA hash-router (panel di-toggle `display`, bukan reload), tapi `initOverviewWidgets()` cuma jalan sekali saat `DOMContentLoaded`. Booking baru dari panel Bootcamp tidak pernah muncul di Overview tanpa reload penuh. Fix: pisah jadi `renderJadwalPersonalWidget()`, dipanggil ulang dari handler konfirmasi booking (Task 1). Commit: `aa4a6de`.
+3. **Task 5 — potensi crash id collision.** Plan minta reuse id `course-title-h1` di `course-learning.html`, tapi id itu jadi guard `initDynamicCourseDetails()` (fungsi punya `course-details.html`) — begitu guard lolos untuk slug valid non-flagship, fungsi itu langsung nulis ke `#sidebar-current-price` dkk. yang sudah tidak ada di halaman baru (diganti progress bar) → `TypeError`, dan semua `init*()` setelahnya di `DOMContentLoaded` batal jalan untuk 2 dari 3 kelas terdaftar. Fix: id di-rename jadi `learning-course-title-h1` supaya guard lama berhenti duluan, tanpa ubah kode existing. Commit: `0af73a1`.
+
+Task 6 dan seterusnya: pola yang sama akan diteruskan — kalau ketemu gap baru, diperbaiki di tempat, dicatat di sini, baru lanjut.
