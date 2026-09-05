@@ -132,10 +132,10 @@ Dua screenshot catatan tim jadi rujukan (bukan interpretasi bebas):
 | Widget | Isi | Sumber Data |
 |---|---|---|
 | **Sertifikat Saya (preview)** | 2-3 badge sertifikat terbaru + tombol "Lihat Semua" | Sistem Sertifikat §7 |
-| **Tenggat Terdekat** | List gabungan deadline tugas/quiz dari semua kelas + bootcamp, diurutkan tanggal, dengan badge "H-2", "H-1", "Hari ini" | Data tugas yang sudah ada di panel Bootcamp Tugas + (baru) tugas per-kelas §6.2 |
+| **Tenggat Terdekat** | List gabungan deadline tugas/quiz dari semua kelas + bootcamp, diurutkan tanggal, dengan badge "H-2", "H-1", "Hari ini" | 🟡 **Dikoreksi:** data tugas Bootcamp memang ada, tapi formatnya cuma teks relatif ("⏳ DEADLINE: 2 HARI LAGI" — dicek langsung di `dashboard.html`), **bukan tanggal absolut**. Supaya bisa digabung & diurutkan lintas kelas+bootcamp di satu widget, tiap tugas perlu diberi field tanggal asli dulu — ini kerja tambahan kecil, bukan sekadar "tinggal ambil data" |
 | **Peta Kompetensi** | Bar chart horizontal 4 kategori (UI/UX Design, 3D & Animation, Front-End Coding, AI) — persentase berdasar jumlah modul selesai per kategori dari kelas yang diambil | Progress kelas yang sudah terdaftar |
-| **Jadwal Personal Minggu Ini** | Kalender mini 7 hari — gabungan sesi live bootcamp + slot konsultasi mentor yang sudah dibooking. Ini **langsung menjawab** permintaan klien §3.1 ("User Melihat Schedule Kelas... include jadwal") | Data booking konsultasi + jadwal bootcamp yang sudah ada |
-| **Rekomendasi Kelas Berikutnya** | 2 kartu kelas dari kategori yang belum diambil (cross-sell natural, bukan iklan acak) | `courses.ts`/`exploreCourses.ts`-equivalent (§14 PRD sudah ada datanya) |
+| **Jadwal Personal Minggu Ini** | Kalender mini 7 hari — gabungan sesi live bootcamp + slot konsultasi mentor yang sudah dibooking. Ini **langsung menjawab** permintaan klien §3 ("User Melihat Schedule Kelas... include jadwal") | 🔴 **Dikoreksi, klaim awal salah:** dicek langsung ke `initBookingSlotPicker()` di `main.js` — klik "Konfirmasi Booking Sesi" **tidak menyimpan apapun**, cuma update teks ringkasan di halaman yang sama (wajar, situs statis belum punya database). Jadi widget ini **bukan "tinggal tarik data yang ada"** seperti klaim draf v1.0 — perlu mekanisme penyimpanan booking dulu (minimal `sessionStorage` untuk versi demo, idealnya backend asli) sebelum widget ini bisa nyata |
+| **Rekomendasi Kelas Berikutnya** | 2 kartu kelas dari kategori yang belum diambil (cross-sell natural, bukan iklan acak) | **Dikoreksi:** draf v1.0 salah menyebut `courses.ts`/`exploreCourses.ts` — itu nama file dari rencana migrasi Next.js yang **tidak pernah dipakai di situs statis live ini**. Sumber data asli yang benar-benar ada: `scripts/course-catalog.js` (`CRYGLE_COURSES`), dibangun sesi sebelumnya untuk Course Details/Classroom dinamis |
 | **Linimasa Aktivitas** | Feed kronologis: "Menyelesaikan Modul 3 — 3D Blender · 2 jam lalu", "Mendapat Sertifikat UI/UX · Kemarin" | Turunan dari event penyelesaian modul/sertifikat |
 
 ### 6.2 Kelas — Course Learning Hub (Halaman Baru, Dual-State)
@@ -168,8 +168,8 @@ Permintaan: *"jangan langsung masuk ke program bootcamp, coba diperdalam, mungki
 - Cohort banner (sudah ada, tetap)
 - **Kartu "Sesi Live Berikutnya"** — tanggal, topik, mentor fasilitator, tombol Join (data sudah ada di tabel Jadwal, ditarik baris paling dekat)
 - **Kartu "Progress Tugas"** — "2 dari 3 Tugas Selesai · Rata-rata Skor 89" (data sudah ada di sub-tab Tugas)
-- **Kartu "Peringkat Kamu"** — "#2 dari 24 Santri" (data sudah ada di sub-tab Leaderboard)
-- **Kartu "Materi & Attachment Terbaru"** — 2-3 file terbaru yang di-upload mentor untuk cohort ini
+- **Kartu "Peringkat Kamu"** — "Peringkat #2" (data rank sudah ada di sub-tab Leaderboard — **koreksi:** draf v1.0 menulis "dari 24 Santri", angka itu **karangan saya**, tidak ada di manapun; tabel Leaderboard yang nyata cuma menampilkan 4 baris tanpa total cohort disebutkan. Jangan tampilkan "dari X" kecuali ada data total peserta yang sungguhan)
+- **Kartu "Materi & Attachment Terbaru"** — 🔴 **koreksi: ini fitur baru sepenuhnya**, bukan data yang sudah ada. Dicek ke `dashboard.html` baris 470-712 (seluruh isi panel Bootcamp) — kolom "Materi/Topik" di tabel Jadwal cuma teks judul sesi, **bukan file yang bisa diunduh**. Tidak ada satupun mekanisme upload/attachment mentor untuk Bootcamp saat ini — sejalan dengan tab "Attachment & Materi" di §6.2 yang juga saya tandai baru
 - 4 tombol besar ke sub-area (Jadwal & Absensi / Booking Konsultasi / Tugas & Quiz / Leaderboard) — tetap ada, tapi sekarang jadi navigasi LANJUTAN dari overview, bukan tampilan pertama
 - **Jika santri belum ikut cohort manapun:** tampilkan state kosong dengan CTA besar "Lihat Program Bootcamp" → `bootcamp.html` (landing publik yang sudah dibangun)
 
