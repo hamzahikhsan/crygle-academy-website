@@ -188,7 +188,7 @@ Ditambahkan sebagai menu ke-8 di sidebar dashboard (setelah Setting): grid kartu
 | Jenis | Syarat Lulus |
 |---|---|
 | **Kelas Video** | 100% modul ditandai selesai + seluruh quiz per modul (kalau ada) sudah dikerjakan minimal sekali |
-| **Bootcamp** | Rata-rata skor tugas ≥80/100 (aturan ini **sudah ada** di PRD §10.5) + kehadiran sesi live ≥75% (aturan baru, wajar untuk model live-cohort) |
+| **Bootcamp** | Rata-rata skor tugas ≥80/100 — **koreksi sitasi:** draf v1.0 menulis "sudah ada di PRD §10.5", tapi §10 PRD tidak punya sub-nomor 10.5 literal. Aturan ini tetap **terverifikasi nyata**, buktinya lebih kuat: badge asli `⭐ Lolos Syarat Sertifikat (≥80)` di KPI "Rata-rata Skor Tugas" (`dashboard.html` baris 279) + kehadiran sesi live ≥75% (aturan baru, wajar untuk model live-cohort, belum ada di kode manapun) |
 
 ### 7.2 Halaman Sertifikat Individual — `sertifikat.html?id={certId}`
 
@@ -196,7 +196,7 @@ Konten: logo Crygle Academy, nama penerima, judul kelas/bootcamp, tanggal selesa
 
 ### 7.3 Halaman Verifikasi Publik — `verifikasi-sertifikat.html?id={certId}`
 
-**Bisa diakses siapa saja tanpa login** (sekolah mitra, wali santri, calon employer). Form input ID sertifikat atau scan QR. Hasil: "✅ Sertifikat Valid" / "❌ Tidak Ditemukan", lalu nama pemilik (**dengan masking sebagian untuk privasi anak di bawah umur**, mis. "D**n A**a" — lihat §4 PRD soal perlindungan data anak), judul kelas/bootcamp, tanggal terbit. Pola ini meniru langsung Credly/IBM SkillsBuild (§4).
+**Bisa diakses siapa saja tanpa login** (sekolah mitra, wali santri, calon employer). Form input ID sertifikat atau scan QR. Hasil: "✅ Sertifikat Valid" / "❌ Tidak Ditemukan", lalu nama pemilik (**dengan masking sebagian untuk privasi anak di bawah umur**, mis. "D**n A**a" — **koreksi sitasi:** bukan §4 PRD (itu section Persona, bukan kebijakan privasi), rujukan yang benar adalah `privasi.html` §3 "Perlindungan Data Anak & Remaja" yang sudah dibangun sesi sebelumnya), judul kelas/bootcamp, tanggal terbit. Pola ini meniru langsung Credly/IBM SkillsBuild (§4).
 
 ---
 
