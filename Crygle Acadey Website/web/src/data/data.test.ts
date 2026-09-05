@@ -5,6 +5,7 @@ import { testimonials } from './testimonials';
 import { faqItems } from './faq';
 import { alumniWork } from './alumniWork';
 import { programs } from './programs';
+import { exploreCourses } from './exploreCourses';
 
 describe('shared data layer', () => {
   it('has 6 popular courses with the flagship UI/UX course priced correctly', () => {
@@ -39,4 +40,14 @@ describe('shared data layer', () => {
     expect(programs).toHaveLength(4);
     expect(programs.find((p) => p.id === 'design')?.active).toBe(true);
   });
+
+  it('has 6 explore-catalog courses across 4 categories including the AI category absent from courses.ts', () => {
+    expect(exploreCourses).toHaveLength(6);
+    const categories = new Set(exploreCourses.map((c) => c.category));
+    expect(categories).toEqual(new Set(['design', '3d', 'code', 'ai']));
+    const aiCourse = exploreCourses.find((c) => c.category === 'ai');
+    expect(aiCourse?.title).toBe('AI-Assisted UI/UX Design: Akselerasi Wireframing & Riset Bersama AI');
+    expect(aiCourse?.price).toBe('Rp 280.000');
+  });
 });
+

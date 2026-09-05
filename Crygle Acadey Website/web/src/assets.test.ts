@@ -33,4 +33,12 @@ describe('static assets', () => {
       expect(existsSync(path.join(publicDir, 'illustrations', file))).toBe(true);
     }
   );
+
+  it.each(['lesson-video-poster.jpg', 'blender-course-thumb.jpg', 'ui_kit_cover_asset.jpg'])(
+    'dashboard asset %s exists in public/dashboard-assets',
+    (file) => {
+      expect(existsSync(path.join(publicDir, 'dashboard-assets', file))).toBe(true);
+    }
+  );
 });
+
