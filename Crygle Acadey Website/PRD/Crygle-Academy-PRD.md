@@ -654,4 +654,21 @@ Diagram flowchart 7 kelompok di atas sudah digambar langsung di board FigJam yan
 
 ---
 
+## 18. Perluasan Multi-Role & Sistem Sertifikat 🆕 DIUSULKAN — belum diimplementasikan
+
+> **Dokumen lengkap:** [`Crygle-Academy-Flow-Expansion-Spec.md`](./Crygle-Academy-Flow-Expansion-Spec.md) (v1.0, 5-6 September 2026). Section ini cuma ringkasan + indeks — jangan duplikasi detail di sini, PRD ini tetap jadi satu-satunya indeks utama proyek.
+
+Hasil brainstorming arsitektural (skill `superpowers:brainstorming` + `ui-ux-pro-max` + riset kompetitor Coursera/IBM SkillsBuild), dipicu permintaan pengguna untuk memperdalam flow existing dan memetakan role yang belum pernah ada. **Sudah melalui audit anti-halu penuh** — setiap klaim "data sudah ada" dicek langsung ke kode, ~15 kesalahan sitasi/asumsi ditemukan &amp; diperbaiki selama proses (lihat riwayat commit `Crygle-Academy-Flow-Expansion-Spec.md`).
+
+Ringkasan isi:
+- **Audit ulang diagram FigJam** — 20 dari 21 gap lama sudah tertutup oleh kerja sesi-sesi sebelumnya (§14 di atas); update terbaru digambar di board FigJam yang sama.
+- **Sistem Sertifikat** (kelas &amp; bootcamp) — kredensial digital + halaman verifikasi publik tanpa login. **Ini permintaan klien asli yang tertunda**, bukan usulan baru (lihat catatan tim 5 Sep 2026).
+- **Dashboard Peserta diperdalam** — Course Learning Hub (sidebar progress menggantikan harga untuk kelas yang sudah dibeli), Bootcamp Overview (lapisan ringkasan sebelum masuk sub-tab), Overview dengan 6 widget baru.
+- **Role baru: Mentor Portal** (9 layar) &amp; **Admin Console** (11 layar) — saat ini kedua role ini sama sekali tidak punya representasi kerja apapun di platform, cuma data statis.
+- **Roadmap 6 fase** (Fase 0 diagram → Fase 5 Admin lanjutan) &amp; **5 keputusan bisnis** yang perlu divalidasi sebelum build (skema payout mentor, consent orang tua untuk sertifikat publik, dll.) — levelnya sama seperti disiplin ⚠️ di §14.
+
+**Status:** draf disetujui untuk lanjut ke `writing-plans` (rencana implementasi TDD per fase), belum ada satupun baris kode yang diubah untuk ini.
+
+---
+
 *Dokumen ini disusun dari reverse-engineering desain Figma + dokumen kerja internal tim + audit langsung terhadap frontend yang sudah dibangun, bukan spesifikasi resmi dari product owner. Semua item berlabel 🆕, 🔴, dan 💭 wajib direview manusia sebelum dieksekusi.*
