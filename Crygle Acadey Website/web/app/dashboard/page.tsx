@@ -1,5 +1,7 @@
-import { SectionHeading } from '@/components/core/SectionHeading.jsx';
+'use client';
+
+import { DashboardShell } from '@/components/dashboard/DashboardShell.jsx';
 
 export default function DashboardPage() {
-  return <SectionHeading title="Kelas Saya" supporting="Fase 3 mengisi konten halaman ini." />;
+  return <DashboardShell />;
 }

@@ -4,21 +4,29 @@ import React from 'react';
 import { useSearchParams } from 'next/navigation';
 import { DashboardSidebar } from './DashboardSidebar.jsx';
 import { DashboardHeader } from './DashboardHeader.jsx';
-
-// Placeholder panels (will be replaced in Tasks 3-9)
-// TODO Task 3: OverviewPanel
-// TODO Task 4: CourseSayaPanel
-// TODO Task 5: BootcampSayaPanel
-// TODO Task 6: ExploreKelasPanel
-// TODO Task 7: ChatMentorPanel
-// TODO Task 8: AffiliatePanel
-// TODO Task 9: SettingPanel
+import { OverviewPanel } from './panels/OverviewPanel.jsx';
+import { CourseSayaPanel } from './panels/CourseSayaPanel.jsx';
+import { BootcampSayaPanel } from './panels/BootcampSayaPanel.jsx';
+import { ExploreKelasPanel } from './panels/ExploreKelasPanel.jsx';
+import { ChatMentorPanel } from './panels/ChatMentorPanel.jsx';
+import { AffiliatePanel } from './panels/AffiliatePanel.jsx';
+import { SettingPanel } from './panels/SettingPanel.jsx';
 
 export function DashboardShell({ children = null }) {
   const searchParams = useSearchParams();
   const rawTab = searchParams ? searchParams.get('tab') : null;
   const validTabs = ['overview', 'courses', 'bootcamp', 'explore', 'chat', 'affiliate', 'setting'];
   const activeTab = rawTab && validTabs.includes(rawTab) ? rawTab : 'courses';
+
+  const panelMap = {
+    overview: <OverviewPanel />,
+    courses: <CourseSayaPanel />,
+    bootcamp: <BootcampSayaPanel />,
+    explore: <ExploreKelasPanel />,
+    chat: <ChatMentorPanel />,
+    affiliate: <AffiliatePanel />,
+    setting: <SettingPanel />,
+  };
 
   return (
     <div
@@ -49,7 +57,7 @@ export function DashboardShell({ children = null }) {
             overflowY: 'auto',
           }}
         >
-          {children}
+          {children || panelMap[activeTab] || panelMap.courses}
         </main>
       </div>
     </div>
