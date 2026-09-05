@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Logo } from '../core/Logo.jsx';
 
 const COLS = [
@@ -6,6 +7,23 @@ const COLS = [
   { title: 'PROGRAM', links: ['Creative Design', 'Creative Coding', 'Creative Robotics', 'Consulting'] },
   { title: 'DUKUNGAN', links: ['Bantuan', 'Kontak Kami', 'Kebijakan Privasi', 'Syarat & Ketentuan', 'FAQ'] },
 ];
+
+const LINK_MAP = {
+  'Beranda': '/',
+  'E-Learning': '/kelas',
+  'Courses & Classes': '/kelas',
+  'Mentor': '/mentor',
+  'Testimoni': '/#testimoni',
+  'Creative Design': '/kelas',
+  'Creative Coding': '/kelas',
+  'Creative Robotics': '/kelas',
+  'Consulting': '/bootcamp/booking',
+  'Bantuan': '/#faq',
+  'Kontak Kami': 'mailto:tanya@crygleacademy.com',
+  'Kebijakan Privasi': '/privasi',
+  'Syarat & Ketentuan': '/syarat-ketentuan',
+  'FAQ': '/#faq',
+};
 
 function Pin({ d }) {
   return (
@@ -22,7 +40,7 @@ export function Footer({
   address = 'Jl. Cipta Karya, Sidomulyo Bar., Kec. Tampan, Kota Pekanbaru, Riau 28293',
   columns = COLS,
   copyright = '© 2026 CRYGLE Academy. All rights reserved.',
-  assetBase = '',
+  assetBase = '/',
   style,
   ...rest
 }) {
@@ -30,7 +48,9 @@ export function Footer({
     <footer style={{ width: '100%', background: 'var(--blue-500)', display: 'flex', flexDirection: 'column', gap: 30, padding: '72px var(--gutter) 30px', alignItems: 'flex-start', boxSizing: 'border-box', ...style }} {...rest}>
       <div style={{ display: 'flex', flexDirection: 'row', gap: 161, alignItems: 'flex-start', alignSelf: 'stretch' }}>
         <div style={{ width: 358, display: 'flex', flexDirection: 'column', gap: 32, alignItems: 'flex-start', flexShrink: 0 }}>
-          <Logo tone="white" size={48.046} assetBase={assetBase} />
+          <Link href="/" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'flex-end' }} aria-label="Beranda Crygle Academy">
+            <Logo tone="white" size={48.046} assetBase={assetBase} />
+          </Link>
           <span style={{ width: 353, fontFamily: 'var(--font-core)', fontWeight: 400, fontSize: 18, lineHeight: 1.4, color: 'var(--blue-100)' }}>{tagline}</span>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 18, alignItems: 'flex-start' }}>
             <div style={{ display: 'flex', flexDirection: 'row', gap: 12, alignItems: 'center' }}>
@@ -48,9 +68,15 @@ export function Footer({
             <div key={c.title} style={{ display: 'flex', flexDirection: 'column', gap: 16, alignItems: 'flex-start' }}>
               <span style={{ fontFamily: 'var(--font-core)', fontWeight: 600, fontSize: 20, lineHeight: 1.4, color: 'var(--background-1)', whiteSpace: 'nowrap' }}>{c.title}</span>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-start' }}>
-                {c.links.map((l) => (
-                  <a key={l} href="#" style={{ fontFamily: 'var(--font-core)', fontWeight: 400, fontSize: 16, lineHeight: '26px', color: 'var(--blue-100)', textDecoration: 'none', whiteSpace: 'nowrap' }}>{l}</a>
-                ))}
+                {c.links.map((l) => {
+                  const href = LINK_MAP[l] || '#';
+                  const isExternal = href.startsWith('mailto:') || href.startsWith('http');
+                  return isExternal ? (
+                    <a key={l} href={href} style={{ fontFamily: 'var(--font-core)', fontWeight: 400, fontSize: 16, lineHeight: '26px', color: 'var(--blue-100)', textDecoration: 'none', whiteSpace: 'nowrap' }}>{l}</a>
+                  ) : (
+                    <Link key={l} href={href} style={{ fontFamily: 'var(--font-core)', fontWeight: 400, fontSize: 16, lineHeight: '26px', color: 'var(--blue-100)', textDecoration: 'none', whiteSpace: 'nowrap' }}>{l}</Link>
+                  );
+                })}
               </div>
             </div>
           ))}
