@@ -18,6 +18,7 @@ const routes = [
   { heading: 'Kelas Saya', importPage: () => import('./dashboard/page') },
   { heading: 'Play Kelas', importPage: () => import('./classroom/[courseId]/page'), params: { courseId: 'ui-ux-design' } },
   { heading: 'Bootcamp Intensif', importPage: () => import('./bootcamp/page') },
+  { heading: 'Langkah Bergabung Bootcamp Intensif', importPage: () => import('./bootcamp/join/page') },
   { heading: 'Booking Konsultasi', importPage: () => import('./bootcamp/booking/page') },
   { heading: 'Jadwal dan Absensi', importPage: () => import('./bootcamp/jadwal/page') },
   { heading: 'Pengumpulan Tugas dan Quiz', importPage: () => import('./bootcamp/tugas/page') },

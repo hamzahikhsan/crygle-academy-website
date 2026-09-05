@@ -62,7 +62,7 @@ export default function BootcampLandingPage() {
             textTransform: 'uppercase',
           }}
         >
-          Program Unggulan Santri &amp; Siswa SMK
+          Bootcamp Intensif
         </span>
 
         <h1
