@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTestimonialSlider();
   initSmoothScroll();
   initDynamicCourseDetails();
+  initCourseLearningHub();
   initCourseDetailTabs();
   initCurriculumAccordion();
   initShareButton();
@@ -502,6 +503,41 @@ function initDynamicCourseDetails() {
         Ulasan individual untuk kelas ini sedang dikumpulkan. Rating agregat di atas berdasarkan feedback santri di seluruh program Crygle Academy.
       </p>
     </div>`;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 6b. COURSE LEARNING HUB — HEADER & PROGRESS SIDEBAR (Flow Expansion §6.2)  */
+/* -------------------------------------------------------------------------- */
+function initCourseLearningHub() {
+  const progressEl = document.getElementById('learning-progress-percent');
+  if (!progressEl || typeof CRYGLE_COURSES === 'undefined') return; // bukan course-learning.html
+
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug') || 'ui-ux-jual-produk';
+  // Flagship sengaja tidak ada di CRYGLE_COURSES (entrinya null) — sama seperti pola
+  // yang sudah dipakai course-details.html/classroom.html, judul & modul di-hardcode di sini.
+  const course = slug === 'ui-ux-jual-produk'
+    ? { title: 'UI/UX Design : Menghasilkan Dolar Hanya Dengan Menjual Produk UI Kit', moduleCount: 8 }
+    : CRYGLE_COURSES[slug];
+  if (!course) return;
+
+  const progress = slug === 'ui-ux-jual-produk'
+    ? { percent: 60, doneModules: 5, colorClass: 'progress-green' }
+    : (CRYGLE_ENROLLED_PROGRESS[slug] || { percent: 0, doneModules: 0, colorClass: 'progress-yellow' });
+
+  document.title = `${course.title} — Sedang Dipelajari — Crygle Academy`;
+  // Catatan: pakai id "learning-course-title-h1" (BUKAN "course-title-h1" seperti
+  // course-details.html) dengan sengaja. Kalau id-nya sama, initDynamicCourseDetails()
+  // (fungsi di atas) akan ikut terpicu untuk slug non-flagship yang valid dan langsung
+  // crash saat mencoba menulis ke #sidebar-current-price dkk. — elemen itu sudah tidak
+  // ada di halaman ini karena sidebar harga sudah diganti jadi progress bar.
+  document.getElementById('learning-course-title-h1').textContent = course.title;
+  progressEl.textContent = `${progress.percent}%`;
+  const fillEl = document.getElementById('learning-progress-fill');
+  fillEl.style.width = `${progress.percent}%`;
+  fillEl.classList.add(progress.colorClass);
+  document.getElementById('learning-progress-modul').textContent = `${progress.doneModules} dari ${course.moduleCount} Modul`;
+  document.getElementById('learning-continue-btn').href = `classroom.html${slug === 'ui-ux-jual-produk' ? '' : `?course=${slug}`}`;
 }
 
 /* -------------------------------------------------------------------------- */

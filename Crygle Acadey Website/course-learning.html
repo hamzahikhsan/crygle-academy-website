@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sedang Dipelajari — Crygle Academy</title>
+  <meta name="description" content="Lanjutkan kelas yang sudah kamu beli — cek progress, kurikulum, materi, dan quiz di satu tempat.">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. NAVBAR (port dari course-details.html)
+       ======================================================================== -->
+  <header class="navbar-wrapper">
+    <div class="navbar-container">
+      <a href="index.html" class="brand-logo" aria-label="Crygle Academy">
+        <img src="icon/logo.png" alt="Crygle Academy" class="navbar-logo-img">
+      </a>
+
+      <nav class="nav-menu-pill" aria-label="Main Navigation">
+        <a href="index.html" class="nav-item">Beranda</a>
+        <a href="index.html#popular-courses" class="nav-item">Video Kelas</a>
+        <a href="bootcamp.html" class="nav-item">Bootcamp Intensif</a>
+        <a href="#mentor" class="nav-item">Mentor</a>
+        <a href="index.html#faq-section" class="nav-item">Tentang</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="dashboard.html" class="btn btn-outline btn-pill-auth">Dashboard Saya</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. BREADCRUMBS BAR
+       ======================================================================== -->
+  <div class="breadcrumbs-wrapper">
+    <div class="container">
+      <nav class="breadcrumbs-list" aria-label="Breadcrumbs">
+        <a href="dashboard.html#courses" class="breadcrumbs-link">Course Saya</a>
+        <span class="breadcrumbs-sep">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </span>
+        <span class="breadcrumbs-current">Sedang Dipelajari</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       3. COURSE MAIN CONTENT & PROGRESS SIDEBAR (Flow Expansion Spec §6.2)
+       ======================================================================== -->
+  <main class="course-detail-container">
+    <div class="container">
+      <div class="course-detail-grid">
+
+        <!-- LEFT COLUMN: VIDEO + DETAILS + TABS (port dari course-details.html, statis — bukan per-slug dinamis di Fase 1) -->
+        <div class="course-main-content">
+          <div class="course-player-frame">
+            <img id="course-player-img" src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=1200&auto=format&fit=crop&q=80" alt="Preview Kelas">
+
+            <div class="course-player-overlay">
+              <span class="badge" id="course-trailer-badge" style="background: rgba(255,255,255,0.25); color: #fff; backdrop-filter: blur(8px); align-self: flex-start;">
+                ▶ Lanjutkan Video Terakhir
+              </span>
+
+              <div class="course-play-center-btn" title="Lanjutkan Belajar">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: flex-end; color: #ffffff;">
+                <div>
+                  <p style="font-size: 13px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8;">Mentor Kelas</p>
+                  <p style="font-size: 16px; font-weight: 700;" id="course-mentor-name-overlay">Dimas Pradipa Abiyuda, S.Tr.Kom.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h1 class="course-header-title" id="learning-course-title-h1">UI/UX Design : Menghasilkan Dolar Hanya Dengan Menjual Produk UI Kit</h1>
+          <p class="course-header-desc">Lanjutkan pembelajaranmu dari modul terakhir yang kamu tinggalkan.</p>
+
+          <!-- Tabs Navigation Bar — 6 tab (tambahan Attachment & Materi, Asesmen & Quiz dari course-details.html yang cuma 4) -->
+          <div class="course-tabs-nav">
+            <button class="course-tab-btn active" data-tab="overview">Overview</button>
+            <button class="course-tab-btn" data-tab="curriculum">Kurikulum Kelas</button>
+            <button class="course-tab-btn" data-tab="attachment">Attachment & Materi</button>
+            <button class="course-tab-btn" data-tab="quiz">Asesmen & Quiz</button>
+            <button class="course-tab-btn" data-tab="mentor">Tentang Mentor</button>
+            <button class="course-tab-btn" data-tab="reviews">Reviews</button>
+          </div>
+
+          <!-- Tab bodies dikosongkan dulu (Task 5) — diisi Task 6 (Kurikulum) & Task 7 (Attachment, Quiz) -->
+          <div class="course-tab-pane active" id="tab-overview"></div>
+          <div class="course-tab-pane" id="tab-curriculum"></div>
+          <div class="course-tab-pane" id="tab-attachment"></div>
+          <div class="course-tab-pane" id="tab-quiz"></div>
+          <div class="course-tab-pane" id="tab-mentor"></div>
+          <div class="course-tab-pane" id="tab-reviews"></div>
+        </div>
+
+        <!-- ================================================================
+             RIGHT COLUMN: PROGRESS SIDEBAR (ganti dari harga — §6.2 spec)
+             ================================================================ -->
+        <aside class="course-sticky-sidebar">
+          <div class="sidebar-price-block" style="text-align: center;">
+            <span class="sidebar-price-label">Progress Belajar</span>
+            <div class="sidebar-current-price" id="learning-progress-percent" style="font-size: 36px;">0%</div>
+            <div class="dashboard-progress-track" style="margin: 12px 0;">
+              <div class="dashboard-progress-fill" id="learning-progress-fill" style="width: 0%;"></div>
+            </div>
+            <span id="learning-progress-modul" style="font-size: 13px; color: var(--color-text-muted);">0 dari 0 Modul</span>
+          </div>
+          <a href="#" class="btn btn-primary sidebar-btn-cta" id="learning-continue-btn">Lanjutkan Belajar</a>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       4. FOOTER (port dari course-details.html)
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand-logo" aria-label="Crygle Academy Footer">
+            <img src="icon/Frame 36933.png" alt="Crygle Academy" class="footer-logo-img">
+          </a>
+
+          <p class="footer-brand-desc">
+            Belajar kreatif digital dari nol untuk masa depan yang lebih siap. Wadah eksplorasi desain, coding, dan robotika pemula.
+          </p>
+
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>tanya@crygleacademy.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Jl. Cipta Karya, Sidomulyo Bar., Kec. Tampan, Kota Pekanbaru, Riau 28293</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigasi</h4>
+          <ul class="footer-nav-list">
+            <li><a href="index.html" class="footer-nav-link">Beranda</a></li>
+            <li><a href="index.html#popular-courses" class="footer-nav-link">Video Kelas Populer</a></li>
+            <li><a href="bootcamp.html" class="footer-nav-link">Bootcamp Intensif</a></li>
+            <li><a href="#mentor" class="footer-nav-link">Profil Mentor</a></li>
+            <li><a href="index.html#faq-section" class="footer-nav-link">Tentang Crygle</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Program</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">UI/UX Design Flagship</a></li>
+            <li><a href="#" class="footer-nav-link">3D Blender &amp; Freepik</a></li>
+            <li><a href="#" class="footer-nav-link">Front-End Web Development</a></li>
+            <li><a href="#" class="footer-nav-link">Robotika &amp; IoT Pemula</a></li>
+            <li><a href="#" class="footer-nav-link">Boarding School Track</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Dukungan</h4>
+          <ul class="footer-nav-list">
+            <li><a href="index.html#faq-section" class="footer-nav-link">Pusat Bantuan (FAQ)</a></li>
+            <li><a href="#" class="footer-nav-link">Bantuan Pembayaran</a></li>
+            <li><a href="syarat-ketentuan.html" class="footer-nav-link">Syarat &amp; Ketentuan</a></li>
+            <li><a href="privasi.html" class="footer-nav-link">Kebijakan Privasi</a></li>
+            <li><a href="#" class="footer-nav-link">Kemitraan Sekolah Mitra</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 CRYGLE Academy. All rights reserved.</span>
+        <span>Crygle Academy x Boarding School Partnership</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/course-catalog.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
