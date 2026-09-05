@@ -145,3 +145,12 @@ const CRYGLE_ENROLLED_PROGRESS = {
   'animasi-3d-blender': { percent: 30, doneModules: 3, colorClass: 'progress-yellow' },
   'bangunan-digital-3d': { percent: 25, doneModules: 2, colorClass: 'progress-yellow' },
 };
+
+// Port dari dashboard.html baris 615-660 (Sub-Tab 3: Pengumpulan Tugas Mingguan, PRD §10.5).
+// deadlineISO ditambahkan baru (Flow Expansion Fase 1, Task 2) — sumber teks aslinya cuma
+// "⏳ DEADLINE: 2 HARI LAGI" tanpa tanggal absolut, dihitung mundur dari 6 September 2026 (hari ini).
+const CRYGLE_BOOTCAMP_TUGAS = [
+  { title: 'Tugas 1: Riset Tren Desain di UI8 & Freepik', status: 'selesai', score: 90, deadlineISO: null },
+  { title: 'Tugas 2: Design Tokens, Varian & Typography', status: 'selesai', score: 88, deadlineISO: null },
+  { title: 'Tugas 3: Desain 10 Screen Inti Dashboard UI Kit', status: 'aktif', score: null, deadlineISO: '2026-09-08' },
+];
