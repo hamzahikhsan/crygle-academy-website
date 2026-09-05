@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initReceiptModal();
   initDashboardFilters();
   initDashboardHashRouter();
+  initOverviewWidgets();
   initHeaderDropdowns();
   initBootcampSubTabs();
   initBookingSlotPicker();
@@ -1339,6 +1340,56 @@ function initBookingSlotPicker() {
       }));
       showToastNotification(`🎉 Sesi bimbingan bersama ${mName} (${mTime}) berhasil dipesan!`);
     });
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* 18b. OVERVIEW WIDGETS — PETA KOMPETENSI, REKOMENDASI, LINIMASA (Flow Expansion §6.1) */
+/* -------------------------------------------------------------------------- */
+function initOverviewWidgets() {
+  const kompetensiEl = document.getElementById('peta-kompetensi-bars');
+  const rekomendasiEl = document.getElementById('rekomendasi-kelas-list');
+  if (!kompetensiEl && !rekomendasiEl) return; // bukan dashboard.html
+
+  // Peta Kompetensi — dihitung dari data-category kartu Course Saya yang sudah ada
+  if (kompetensiEl) {
+    const cards = document.querySelectorAll('.dashboard-course-card');
+    const categoryLabels = { design: 'UI/UX Design', '3d': '3D & Animation', code: 'Front-End Coding', ai: 'AI for Designers' };
+    const counts = {};
+    cards.forEach((card) => {
+      const cat = card.dataset.category;
+      counts[cat] = (counts[cat] || 0) + 1;
+    });
+    const total = cards.length;
+    kompetensiEl.innerHTML = Object.keys(categoryLabels).map((cat) => {
+      const pct = total ? Math.round(((counts[cat] || 0) / total) * 100) : 0;
+      return `
+        <div style="margin-bottom: 12px;">
+          <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px;">
+            <span>${categoryLabels[cat]}</span><span style="font-weight: 700;">${pct}%</span>
+          </div>
+          <div style="width: 100%; height: 8px; background: #E9E9E9; border-radius: 20px; overflow: hidden;">
+            <div style="width: ${pct}%; height: 100%; background: var(--color-primary); border-radius: 20px;"></div>
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  // Rekomendasi Kelas Berikutnya — 2 kelas dari kategori yang BELUM ada di Course Saya
+  if (rekomendasiEl && typeof CRYGLE_COURSES !== 'undefined') {
+    const takenCategories = new Set(Array.from(document.querySelectorAll('.dashboard-course-card')).map((c) => c.dataset.category));
+    const toShortCat = (cat) => (cat === 'Front-End Coding' ? 'code' : cat === '3D & Animation' ? '3d' : cat === 'AI for Designers' ? 'ai' : 'design');
+    const recommended = Object.entries(CRYGLE_COURSES)
+      .filter(([, course]) => course && !takenCategories.has(toShortCat(course.category)))
+      .slice(0, 2);
+    rekomendasiEl.innerHTML = recommended.map(([slug, course]) => `
+      <a href="course-details.html?slug=${slug}" style="text-decoration: none; color: inherit; border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; display: block;">
+        <img src="${course.image}" alt="${course.title}" style="width: 100%; height: 100px; object-fit: cover;">
+        <div style="padding: 10px;">
+          <div style="font-size: 13px; font-weight: 700; color: #202020; line-height: 1.3; margin-bottom: 4px;">${course.title}</div>
+          <div style="font-size: 12px; color: var(--color-primary); font-weight: 700;">${course.price}</div>
+        </div>
+      </a>`).join('');
   }
 }
 

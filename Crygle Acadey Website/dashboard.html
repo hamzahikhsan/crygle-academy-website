@@ -398,6 +398,28 @@
           </div>
         </div>
 
+        <!-- Peta Kompetensi (Flow Expansion Spec §6.1) -->
+        <div class="overview-activity-card" id="widget-peta-kompetensi">
+          <h3 style="font-size: 16px; font-weight: 800; color: #202020; margin-bottom: 16px;">Peta Kompetensi</h3>
+          <div id="peta-kompetensi-bars"></div>
+        </div>
+
+        <!-- Rekomendasi Kelas Berikutnya -->
+        <div class="overview-activity-card" id="widget-rekomendasi-kelas">
+          <h3 style="font-size: 16px; font-weight: 800; color: #202020; margin-bottom: 16px;">Rekomendasi Kelas Berikutnya</h3>
+          <div id="rekomendasi-kelas-list" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;"></div>
+        </div>
+
+        <!-- Linimasa Aktivitas (data demo statis, konsisten dgn progres 60%/30%/25% yang sudah ada di Course Saya) -->
+        <div class="overview-activity-card" id="widget-linimasa">
+          <h3 style="font-size: 16px; font-weight: 800; color: #202020; margin-bottom: 16px;">Linimasa Aktivitas</h3>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: #5A6062;">
+            <li>✅ Menyelesaikan Modul 3 — 3D Design Animation Blender · 2 jam lalu</li>
+            <li>📝 Mengumpulkan Tugas 2: Design Tokens & Varian · Kemarin</li>
+            <li>▶ Memulai Modul 2 — Research Pasar (UI/UX Design) · 3 hari lalu</li>
+          </ul>
+        </div>
+
       </div>
     </section>
 
@@ -1206,6 +1228,7 @@
   <div id="toast-container" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 8px;"></div>
 
   <!-- Scripts -->
+  <script src="scripts/course-catalog.js"></script>
   <script src="scripts/main.js"></script>
 </body>
 </html>
