@@ -1338,6 +1338,9 @@ function initBookingSlotPicker() {
         slotTime: mTime,
         confirmedAt: new Date().toISOString(),
       }));
+      // Flow Expansion Fase 1, Task 4: Overview panel tetap ada di DOM (SPA hash
+      // router, bukan reload) jadi widget Jadwal Personal-nya harus di-refresh manual di sini.
+      if (typeof renderJadwalPersonalWidget === 'function') renderJadwalPersonalWidget();
       showToastNotification(`🎉 Sesi bimbingan bersama ${mName} (${mTime}) berhasil dipesan!`);
     });
   }
@@ -1391,6 +1394,40 @@ function initOverviewWidgets() {
         </div>
       </a>`).join('');
   }
+
+  // Tenggat Terdekat — dari CRYGLE_BOOTCAMP_TUGAS yang punya deadlineISO
+  const tenggatEl = document.getElementById('tenggat-terdekat-list');
+  if (tenggatEl && typeof CRYGLE_BOOTCAMP_TUGAS !== 'undefined') {
+    const upcoming = CRYGLE_BOOTCAMP_TUGAS.filter((t) => t.deadlineISO);
+    tenggatEl.innerHTML = upcoming.length
+      ? upcoming.map((t) => {
+          const daysLeft = Math.ceil((new Date(t.deadlineISO) - new Date('2026-09-06')) / 86400000);
+          const badge = daysLeft <= 0 ? 'Hari ini' : `H-${daysLeft}`;
+          return `<div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
+            <span>${t.title}</span>
+            <span style="background: #FFF1F0; color: #E02B20; font-weight: 700; padding: 3px 10px; border-radius: 20px; font-size: 11px;">${badge}</span>
+          </div>`;
+        }).join('')
+      : '<p style="font-size: 13px; color: #797979;">Tidak ada tenggat mendatang.</p>';
+  }
+
+  renderJadwalPersonalWidget();
+}
+
+// Jadwal Personal Minggu Ini — dari sessionStorage booking (Task 1). Fungsi terpisah
+// (bukan inline di initOverviewWidgets) karena harus dipanggil ulang setiap booking
+// dikonfirmasi juga (lihat initBookingSlotPicker) — dashboard.html adalah SPA hash
+// router (panel tidak reload, cuma toggle display), jadi initOverviewWidgets() yang
+// hanya jalan sekali saat DOMContentLoaded tidak akan pernah lihat booking baru
+// tanpa panggilan ulang eksplisit ini.
+function renderJadwalPersonalWidget() {
+  const jadwalEl = document.getElementById('jadwal-personal-content');
+  if (!jadwalEl) return;
+  let booking = null;
+  try { booking = JSON.parse(sessionStorage.getItem('crygle-bootcamp-booking')); } catch (e) { /* ignore corrupt data */ }
+  jadwalEl.innerHTML = booking
+    ? `<div style="font-size: 13px;"><strong>Konsultasi Mentor:</strong> ${booking.mentorName}<br><span style="color: #797979;">${booking.slotTime}</span></div>`
+    : '<p style="font-size: 13px; color: #797979;">Belum ada jadwal personal minggu ini. <a href="#bootcamp" style="color: var(--color-primary); font-weight: 600;">Booking konsultasi mentor</a> untuk mengisi slot.</p>';
 }
 
 /* -------------------------------------------------------------------------- */
